@@ -10,24 +10,24 @@ body {
 
 .search {
   border: 1px solid #16213B;
-box-sizing: border-box;
-border-radius: 2px;
+  box-sizing: border-box;
+  border-radius: 2px;
 }
+
 .footerstr {
   color: orange;
   font-size: 14px;
 }
+
 .footerli {
   font-size: 12px;
 }
 
 .garis {
-  border: solid black;
-  border-width: thin;
-    height: 39px;
-    width: 1px;
-    margin-left: 10px;
-    margin-right: 10px;
+  border-left: 1px solid black;
+  height: 36px;
+  margin-left: 10px;
+  margin-right: 10px ;
 }
 
 .jumbotron {
@@ -38,6 +38,75 @@ border-radius: 2px;
   /* background: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(.jpg); */
 }
 
-.desc-detail {
-  background-color: lightblue;
+.container-signUp{
+  width: 531px;
+  height: 559px;
+  margin: auto;
+  background-color: white;
+  border-radius: 3px;
+  padding-top: 39px;
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-bottom: 49px;
+}
+
+.signUp-background{
+  background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/jumbotron.webp);
+  background-size: cover;
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.logIn-background{
+  background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/jumbotron.webp);
+  background-size: cover;
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.containerForm{
+  width: 447px;
+  height: 42px;
+  background-color: #FCFCFC;
+  padding-left: 7px;
+  padding-top: 7px;
+  border-bottom: 1px solid #9F9F9F;
+}
+
+.formInput{
+  width: 433px;
+  border-style: none;
+  background-color: #fcfcfc;
+}
+
+.formInput:focus{
+  outline: none !important;
+}
+
+.SignUp-button{
+  text-align: right;
+}
+
+.forgotPass{
+  text-align: right;
+}
+
+.loginButton{
+  text-align: right;
+}
+
+.navbar{
+  background-color: white;
+}
+
+.container-logIn{
+  width: 531px;
+  height: 500px;
+  margin: auto;
+  background-color: white;
+  border-radius: 3px;
+  padding-top: 39px;
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-bottom: 49px;
 }
