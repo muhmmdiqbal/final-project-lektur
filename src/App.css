@@ -22,12 +22,10 @@ border-radius: 2px;
 }
 
 .garis {
-  border: solid black;
-  border-width: thin;
-    height: 39px;
-    width: 1px;
-    margin-left: 10px;
-    margin-right: 10px;
+  border-left: 1px solid black;
+  height: 36px;
+  margin-left: 10px;
+  margin-right: 10px ;
 }
 
 .jumbotron {

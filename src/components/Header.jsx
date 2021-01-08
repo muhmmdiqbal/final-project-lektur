@@ -24,14 +24,17 @@ import {
 
 const Header = () => {
     return (
-        <div>
-          <Navbar expand='lg'>
-            <Navbar.Brand as={Link} to="/"><Image className='logo' src={logo} alt='logo app' /></Navbar.Brand>
-            <Col>
+      <div>
+        {/* <Nav className="mr-auto">
+        </Nav> */}
+        <Navbar sticky='top' expand='lg'>
+          <Navbar.Brand href="/"><Image className='logo' src={logo} alt='logo app' /></Navbar.Brand>
+            {/* <Container> */}
+          <Col>
             <Form className="search">
               <FormControl type="text" placeholder="Search course or lecturer" />
             </Form> 
-            </Col>
+          </Col>
           <Nav className="justify-content-end">
             <NavDropdown title="Category" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Business</NavDropdown.Item>
