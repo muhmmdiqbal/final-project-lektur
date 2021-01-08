@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+  font-family: 'Montserrat', sans-serif;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  height: 4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search {
+  border: 1px solid #16213B;
+box-sizing: border-box;
+border-radius: 2px;
+}
+.footerstr {
+  color: orange;
+  font-size: 14px;
+}
+.footerli {
+  font-size: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.garis {
+  border-left: 1px solid black;
+  height: 36px;
+  margin-left: 10px;
+  margin-right: 10px ;
 }
 
-.App-link {
-  color: #61dafb;
+.formInput {
+  background-color:#FCFCFC;
+  border-style: none;
+  width: 433px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.formInput:focus{
+  border: none !important;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.containerForm{
+  width: 447px;
+  height: 42px;
+  background-color: #FCFCFC;
+  border-bottom: 1px solid #9F9F9F;
+  padding-left: 7px;
+  padding-top: 8px;
+}
+
+.container-signUp{
+  background-color: #ffff;
+  margin: auto;
+  width: 531px;
+  height: 559px;
+  border-radius: 3px;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-top: 39px;
+}
+
+.App{
+  background-color: #929292;
+}
+
+.navbar{
+  background-color: #ffff;
+}
+
+.footer-main{
+  background-color: #ffff;
+}
+
+.forgotPass{
+  text-align: right;
+}
+
+.loginButton{
+  margin-top: 70px;
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.SignUp-button{
+  margin-top: 20px;
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.accButton{
+  background-color: #16213B !important;
 }
