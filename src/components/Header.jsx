@@ -25,7 +25,7 @@ import {
 
 const Header = () => {
     return (
-      <div>
+      <div className="borderNav">
         {/* <Nav className="mr-auto">
         </Nav> */}
         <Navbar sticky='top' expand='lg'>
