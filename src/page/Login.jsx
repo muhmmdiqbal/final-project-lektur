@@ -3,8 +3,8 @@ import { Button} from 'react-bootstrap'
 
 function Login() {
     return(
-        <div>
-            <div className="container-signUp">
+        <div className="logIn-background">
+            <div className="container-logIn">
                 <h4>Welcome Back!</h4>
                 <p>Login to your account</p>
                 <div>
@@ -16,13 +16,13 @@ function Login() {
                         <p>Password*</p>
                         <div className="containerForm">
                             <input className="formInput" type="text" id="fname" name="fname" placeholder="********"></input>
-                        </div><br/>
+                        </div>
                         <div className="forgotPass">
                             <a href="#">Forgot Password</a>
-                        </div>
+                        </div><br/><br/>
                         <div className="loginButton">
                             <Button className="accButton" type="button" class="btn btn-link">Login</Button>
-                        </div>
+                        </div><br/>
                         <div>New user? <a href="#SignUp">Create an account</a></div>
                     </form>
                 </div>
