@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap'
-import Jumbotron from './jumbotron'
-import LearnCard from './card'
+import Jumbotron from '../components/jumbotron'
+import JumbotronBot from '../components/jumbotronbot'
+import LearnCard from '../components/card'
 
 
 function Home() {
@@ -13,7 +14,7 @@ function Home() {
             <LearnCard />
             </Container>
             
-            <Jumbotron />
+            <JumbotronBot />
 
         </div>
     )
