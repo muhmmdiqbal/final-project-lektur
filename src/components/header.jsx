@@ -24,7 +24,6 @@ import {
 
 const Header = () => {
     return (
-<<<<<<< HEAD
       <div>
         {/* <Nav className="mr-auto">
         </Nav> */}
@@ -36,30 +35,11 @@ const Header = () => {
               <FormControl type="text" placeholder="Search course or lecturer" />
             </Form> 
           </Col>
-=======
-        <div>
-          <Navbar expand='lg'>
-            <Navbar.Brand as={Link} to="/"><Image className='logo' src={logo} alt='logo app' /></Navbar.Brand>
-            <Col>
-            <Form className="search">
-              <FormControl type="text" placeholder="Search course or lecturer" />
-            </Form> 
-            </Col>
->>>>>>> e3dddef4a2c8ab1db0e975a713e8dfed9a04673d
           <Nav className="justify-content-end">
             <NavDropdown title="Category" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Business</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Art & Humanity</NavDropdown.Item>
             </NavDropdown>
-<<<<<<< HEAD
-          <Nav.Link href="#Teacher">For Teacher </Nav.Link>
-            <div className="garis"/>
-            <Nav.Link href="#Login">login </Nav.Link>
-          </Nav>
-          <Button variant="dark" href="#SignUp">Sign Up</Button>
-          {/* </Container> */}
-        </Navbar>
-=======
           <Nav.Link as={Link} to="/Teacher">For Teacher </Nav.Link>
           <div className="garis"></div>
           <Nav.Link as={Link} to="/Login">Login </Nav.Link>
@@ -77,7 +57,6 @@ const Header = () => {
             )
           }} />
         </Switch>
->>>>>>> e3dddef4a2c8ab1db0e975a713e8dfed9a04673d
       </div>
     )
 }

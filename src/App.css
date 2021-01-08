@@ -28,77 +28,10 @@ border-radius: 2px;
   margin-right: 10px ;
 }
 
-<<<<<<< HEAD
-.formInput {
-  background-color:#FCFCFC;
-  border-style: none;
-  width: 433px;
-}
-
-.formInput:focus{
-  border: none !important;
-  outline: none !important;
-  box-shadow: none;
-}
-
-.containerForm{
-  width: 447px;
-  height: 42px;
-  background-color: #FCFCFC;
-  border-bottom: 1px solid #9F9F9F;
-  padding-left: 7px;
-  padding-top: 8px;
-}
-
-.container-signUp{
-  background-color: #ffff;
-  margin: auto;
-  width: 531px;
-  height: 559px;
-  border-radius: 3px;
-  margin-top: 50px;
-  margin-bottom: 70px;
-  padding-left: 42px;
-  padding-right: 42px;
-  padding-top: 39px;
-}
-
-.App{
-  background-color: #929292;
-}
-
-.navbar{
-  background-color: #ffff;
-}
-
-.footer-main{
-  background-color: #ffff;
-}
-
-.forgotPass{
-  text-align: right;
-}
-
-.loginButton{
-  margin-top: 70px;
-  text-align: right;
-  margin-bottom: 30px;
-}
-
-.SignUp-button{
-  margin-top: 20px;
-  text-align: right;
-  margin-bottom: 30px;
-}
-
-.accButton{
-  background-color: #16213B !important;
-=======
 .jumbotron {
   background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/jumbotron.webp);
   background-size: cover;
   height: 200%;
   width: 100%;
   /* background: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(.jpg); */
->>>>>>> e3dddef4a2c8ab1db0e975a713e8dfed9a04673d
 }
