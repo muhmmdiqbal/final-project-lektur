@@ -3,7 +3,7 @@ import { Button} from 'react-bootstrap'
 
 function SignUp() {
     return(
-        <div>
+        <div className="signUp-background">
             <div className="container-signUp">
                 <h4>Start Learning!</h4>
                 <p>Create your account</p>
@@ -20,11 +20,11 @@ function SignUp() {
                         <p>Password*</p>
                         <div className="containerForm">
                             <input className="formInput" type="text" id="fname" name="fname" placeholder="********"></input>
-                        </div>
+                        </div><br/>
                         <div className="SignUp-button">
                             <Button className="accButton" type="button" class="btn btn-link">Sign Up</Button>
-                        </div>
-                        <div>already have an account? <a href="#Login">Login</a></div>
+                        </div><br/>
+                        <div classNmae="loginQuestion">Already have an account? <a href="#Login">Login</a></div>
                     </form>
                 </div>
             </div>

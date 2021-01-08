@@ -10,13 +10,15 @@ body {
 
 .search {
   border: 1px solid #16213B;
-box-sizing: border-box;
-border-radius: 2px;
+  box-sizing: border-box;
+  border-radius: 2px;
 }
+
 .footerstr {
   color: orange;
   font-size: 14px;
 }
+
 .footerli {
   font-size: 12px;
 }
@@ -33,5 +35,139 @@ border-radius: 2px;
   background-size: cover;
   height: 200%;
   width: 100%;
-  /* background: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(.jpg); */
+  margin-bottom: 0 !important;
+}
+
+.container-signUp{
+  width: 531px;
+  height: 559px;
+  margin: auto;
+  background-color: white;
+  border-radius: 3px;
+  padding-top: 39px;
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-bottom: 49px;
+}
+
+.signUp-background{
+  background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/jumbotron.webp);
+  background-size: cover;
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.logIn-background{
+  background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/jumbotron.webp);
+  background-size: cover;
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.containerForm{
+  width: 447px;
+  height: 42px;
+  background-color: #FCFCFC;
+  padding-left: 7px;
+  padding-top: 7px;
+  border-bottom: 1px solid #9F9F9F;
+}
+
+.formInput{
+  width: 433px;
+  border-style: none;
+  background-color: #fcfcfc;
+}
+
+.formInput:focus{
+  outline: none !important;
+}
+
+.SignUp-button{
+  text-align: right;
+}
+
+.forgotPass{
+  text-align: right;
+}
+
+.loginButton{
+  text-align: right;
+}
+
+.navbar{
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.034);
+}
+
+.container-logIn{
+  width: 531px;
+  height: 500px;
+  margin: auto;
+  background-color: white;
+  border-radius: 3px;
+  padding-top: 39px;
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-bottom: 49px;
+}
+
+.accButton{
+  background-color: #16213B !important;
+}
+
+.Judul:hover{
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+}
+
+.Judul{
+  color: black;
+}
+
+.desc-detail{
+  background-color: #E5E5E5;
+  padding-bottom: 64px;
+  padding-left: 0px;
+}
+
+.containerSuggestion{
+  background-color: white;
+  width: 100%;
+  height: 587px;
+  padding-top: 56px;
+}
+
+.containerDescription{
+  padding-top: 60px;
+  margin-bottom: 72px;
+}
+
+.containerText{
+  width: 644px;
+  text-align: justify;
+}
+
+.containerSuggestion h5{
+  margin-left: 236px;
+}
+
+.footerSmall{
+  padding-right: 410px;
+}
+
+.footerContainer{
+  padding-top: 18px;
+}
+
+.jumbotronVid{
+  width: 100%;
+}
+
+.cardList{
+  padding-top: 62px;
+}
+
+.suggestionCard{
+  margin-top: -62px;
 }

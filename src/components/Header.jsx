@@ -3,6 +3,7 @@ import logo from './assets/logo.png';
 import '../App.css';
 import Home from '../page/Home';
 import Teacher from '../page/Teacher';
+import Detail from '../page/Detail';
 import SignUp from '../page/SignUp';
 import Login from '../page/Login'
 
@@ -24,7 +25,7 @@ import {
 
 const Header = () => {
     return (
-      <div>
+      <div className="borderNav">
         {/* <Nav className="mr-auto">
         </Nav> */}
         <Navbar sticky='top' expand='lg'>
@@ -51,6 +52,8 @@ const Header = () => {
           <Route exact path='/Teacher' component={Teacher} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/SignUp' component={SignUp} />
+          <Route exact path='/Detail' component={Detail} />
+
           <Route render={function() {
             return (
               <p>Not Found!</p>

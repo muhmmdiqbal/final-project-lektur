@@ -9,7 +9,7 @@ const enroll = () => {
             <Container>
                 <h1>Create your own class</h1>
                 <p>
-                    <Button variant="dark">Register now</Button>
+                    <Button variant="dark" href="#Teacher">Register now</Button>
                 </p>
             </Container>
         </Jumbotron>
