@@ -1,18 +1,16 @@
 import React from 'react';
-import Home from './Home';
-import Login from './Login';
-import SignUp from './SignUp';
-import Teacher from './Teacher';
+
+import Header from './Header';
+import Footer from './Footer'
 
 import {
-    Route,
-    NavLink,
     HashRouter
 } from 'react-router-dom';
 function Main() {
     return(
         <HashRouter>
             <div>
+<<<<<<< HEAD
                 {/* <ul>
                     <li><NavLink exact to='/'>Home</NavLink></li>
                     <li><NavLink to='/Login'>Login</NavLink></li>
@@ -25,6 +23,10 @@ function Main() {
                 <Route exact path='/Login' component={Login} />
                 <Route exact path='/SignUp' component={SignUp} />
                 <Route exact path='/Teacher' component={Teacher} />
+=======
+                <Header />
+                <Footer />
+>>>>>>> e3dddef4a2c8ab1db0e975a713e8dfed9a04673d
             </div>
         </HashRouter>
     )

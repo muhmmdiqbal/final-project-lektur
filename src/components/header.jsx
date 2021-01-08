@@ -1,10 +1,30 @@
-import React from 'react'
-import { Navbar, Image, Col, Form, FormControl, Nav, NavDropdown, Button, Container } from 'react-bootstrap'
-import logo from './assets/logo.png'
-import '../App.css'
+import React from 'react';
+import logo from './assets/logo.png';
+import '../App.css';
+import Home from '../page/Home';
+import Teacher from '../page/Teacher';
+import SignUp from '../page/SignUp';
+import Login from '../page/Login'
+
+import { 
+  Navbar, 
+  Image, 
+  Col, 
+  Form, 
+  FormControl, 
+  Nav, 
+  NavDropdown, 
+  Button } from 'react-bootstrap';
+
+import { 
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 
 const Header = () => {
     return (
+<<<<<<< HEAD
       <div>
         {/* <Nav className="mr-auto">
         </Nav> */}
@@ -16,11 +36,22 @@ const Header = () => {
               <FormControl type="text" placeholder="Search course or lecturer" />
             </Form> 
           </Col>
+=======
+        <div>
+          <Navbar expand='lg'>
+            <Navbar.Brand as={Link} to="/"><Image className='logo' src={logo} alt='logo app' /></Navbar.Brand>
+            <Col>
+            <Form className="search">
+              <FormControl type="text" placeholder="Search course or lecturer" />
+            </Form> 
+            </Col>
+>>>>>>> e3dddef4a2c8ab1db0e975a713e8dfed9a04673d
           <Nav className="justify-content-end">
             <NavDropdown title="Category" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Business</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Art & Humanity</NavDropdown.Item>
             </NavDropdown>
+<<<<<<< HEAD
           <Nav.Link href="#Teacher">For Teacher </Nav.Link>
             <div className="garis"/>
             <Nav.Link href="#Login">login </Nav.Link>
@@ -28,6 +59,25 @@ const Header = () => {
           <Button variant="dark" href="#SignUp">Sign Up</Button>
           {/* </Container> */}
         </Navbar>
+=======
+          <Nav.Link as={Link} to="/Teacher">For Teacher </Nav.Link>
+          <div className="garis"></div>
+          <Nav.Link as={Link} to="/Login">Login </Nav.Link>
+          </Nav>
+          <Button variant="dark" href="#SignUp">Sign Up</Button>
+        </Navbar>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/Teacher' component={Teacher} />
+          <Route exact path='/Login' component={Login} />
+          <Route exact path='/SignUp' component={SignUp} />
+          <Route render={function() {
+            return (
+              <p>Not Found!</p>
+            )
+          }} />
+        </Switch>
+>>>>>>> e3dddef4a2c8ab1db0e975a713e8dfed9a04673d
       </div>
     )
 }
