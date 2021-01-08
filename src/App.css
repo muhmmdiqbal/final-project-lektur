@@ -35,7 +35,7 @@ body {
   background-size: cover;
   height: 200%;
   width: 100%;
-  /* background: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(.jpg); */
+  margin-bottom: 0 !important;
 }
 
 .container-signUp{
@@ -97,6 +97,7 @@ body {
 
 .navbar{
   background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.034);
 }
 
 .container-logIn{
@@ -109,4 +110,64 @@ body {
   padding-left: 42px;
   padding-right: 42px;
   padding-bottom: 49px;
+}
+
+.accButton{
+  background-color: #16213B !important;
+}
+
+.Judul:hover{
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+}
+
+.Judul{
+  color: black;
+}
+
+.desc-detail{
+  background-color: #E5E5E5;
+  padding-bottom: 64px;
+  padding-left: 0px;
+}
+
+.containerSuggestion{
+  background-color: white;
+  width: 100%;
+  height: 587px;
+  padding-top: 56px;
+}
+
+.containerDescription{
+  padding-top: 60px;
+  margin-bottom: 72px;
+}
+
+.containerText{
+  width: 644px;
+  text-align: justify;
+}
+
+.containerSuggestion h5{
+  margin-left: 236px;
+}
+
+.footerSmall{
+  padding-right: 410px;
+}
+
+.footerContainer{
+  padding-top: 18px;
+}
+
+.jumbotronVid{
+  width: 100%;
+}
+
+.cardList{
+  padding-top: 62px;
+}
+
+.suggestionCard{
+  margin-top: -62px;
 }
