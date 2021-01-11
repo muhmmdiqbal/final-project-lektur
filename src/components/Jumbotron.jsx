@@ -21,7 +21,7 @@ const enroll = () => {
                     </Col>
                     <Col>
                     <Card>
-                        <Card.Img variant="small" src={logo} />
+                        <Card.Img className="jumbotronVid" variant="small" src={logo} />
                         <Card.Body>
                             <Row>
                                 <Col>

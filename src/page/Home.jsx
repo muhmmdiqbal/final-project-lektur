@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap'
 import Jumbotron from '../components/Jumbotron'
-import JumbotronBot from '../components/Jumbotronbot'
+import JumbotronBot from '../components/JumbotronBot'
 import LearnCard from '../components/Card'
 
 

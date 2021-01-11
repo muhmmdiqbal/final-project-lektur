@@ -6,6 +6,7 @@ import Teacher from '../page/Teacher';
 import Detail from '../page/Detail';
 import SignUp from '../page/SignUp';
 import Login from '../page/Login'
+import TeacherDashboard from '../page/TeacherDashboard'
 
 import { 
   Navbar, 
@@ -25,7 +26,7 @@ import {
 
 const Header = () => {
     return (
-      <div>
+      <div className="borderNav">
         {/* <Nav className="mr-auto">
         </Nav> */}
         <Navbar sticky='top' expand='lg'>
@@ -53,7 +54,7 @@ const Header = () => {
           <Route exact path='/Login' component={Login} />
           <Route exact path='/SignUp' component={SignUp} />
           <Route exact path='/Detail' component={Detail} />
-
+          <Route exact path='/TeacherDashboard' component={TeacherDashboard} />
           <Route render={function() {
             return (
               <p>Not Found!</p>
