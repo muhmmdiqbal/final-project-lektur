@@ -23,16 +23,23 @@ const enroll = () => {
                     <Card>
                         <Card.Img className="jumbotronVid" variant="small" src={logo} />
                         <Card.Body>
-                            <Card.Title>Public Speaking Like a Pro
-                            <small className="text-muted"> By John Doe</small>
+                            <Row>
+                                <Col>
+                                
+                            <Card.Title>Sales and marketing master class<br/>
+                            <small className="text-muted">Susan sarah</small>
+
                             </Card.Title>
-                            <Card.Text>
-                                Vestibulum fusce parturient urna a molestie orci. Lectus id quisque amet et vel elementum morbi cursus. Amet sagittis semper mauris diam orci facilisis...
+                            </Col>
+                            <Col>
+                                
+                            <Card.Text>4 Study material
                             </Card.Text>
+                            <Card.Text>14 Learning studios
+                            </Card.Text>
+                            </Col>
+                            </Row>
                         </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">Business</small>
-                        </Card.Footer>
                     </Card>
                     </Col>
                 </Row>
