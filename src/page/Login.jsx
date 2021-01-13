@@ -18,7 +18,7 @@ function Login() {
                             <input className="formInput" type="text" id="fname" name="fname" placeholder="********"></input>
                         </div>
                         <div className="forgotPass">
-                            <a href="#">Forgot Password</a>
+                            <a href="/">Forgot Password</a>
                         </div><br/><br/>
                         <div className="loginButton">
                             <Button className="accButton" type="button" class="btn btn-link" href="#TeacherDashboard">Login</Button>
