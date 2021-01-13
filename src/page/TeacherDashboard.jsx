@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Row, Col, Image} from 'react-bootstrap'
+import {Row, Col, Image, Button, Container} from 'react-bootstrap'
 import '../App.css'
 import logo from '../components/assets/logo.png'
 import axios from 'axios'
@@ -52,7 +52,17 @@ class TeacherDashboard extends Component {
             </Col>
             <Col>
             <div className='TeacherRight'>
-                
+                <Container>
+                <Row>
+                    <Col>
+                <h2>Course</h2>
+                    </Col>
+                    <Col>
+                <Button className="accButton" type="button" class="btn btn-link" href="#Course">New Course</Button>
+
+                    </Col>
+                </Row>
+                </Container>
             </div>
         </Col>
 
