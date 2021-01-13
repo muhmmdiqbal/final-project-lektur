@@ -33,8 +33,12 @@ const Footer = () => {
                     <NavLink className='text-dark'><li className="footerli">Careers</li></NavLink>
                 </ul>
                 </Col>
-                <Col lg={3} className="footerli"><Image src={logo} className='logo' /><br/>
-                Lektur © 2020. All rights reserved
+                <Col className="footerli float-right">
+                    <div className='footerLogo'>
+                        <Image src={logo} className='logo' />
+                        <br/>
+                            Lektur © 2020. All rights reserved
+                    </div>
                 </Col>
             </Row>
         </Container>

@@ -21,7 +21,7 @@ function Login() {
                             <a href="/">Forgot Password</a>
                         </div><br/><br/>
                         <div className="loginButton">
-                            <Button className="accButton" type="button" class="btn btn-link">Login</Button>
+                            <Button className="accButton" type="button" class="btn btn-link" href="#TeacherDashboard">Login</Button>
                         </div><br/>
                         <div>New user? <a href="#SignUp">Create an account</a></div>
                     </form>
