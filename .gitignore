@@ -9,3 +9,4 @@ node_modules/
 # Local History for Visual Studio Code
 .history/
 node_modules
+.eslintcache

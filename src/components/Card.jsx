@@ -1,11 +1,11 @@
 import React from 'react'
-import Detail from '../page/Detail'
+// import Detail from '../page/Detail'
 import { Card, Container, CardDeck } from 'react-bootstrap'
-import { 
-    Switch,
-    Route,
-    Link
-  } from 'react-router-dom';
+// import { 
+//     Switch,
+//     Route,
+//     Link
+//   } from 'react-router-dom';
 
 const learnCard = () => {
     return (
