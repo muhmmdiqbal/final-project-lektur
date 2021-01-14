@@ -65,7 +65,7 @@ body {
 }
 
 .containerForm{
-  width: 447px;
+  width: auto;
   height: 42px;
   background-color: #FCFCFC;
   padding-left: 7px;
@@ -74,7 +74,7 @@ body {
 }
 
 .formInput{
-  width: 433px;
+  width: auto;
   border-style: none;
   background-color: #fcfcfc;
 }
@@ -255,4 +255,46 @@ body {
 
 .contentInsight{
   padding-left: 22px;
+}
+
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  border: #F0A63E;
+  
+}
+
+ul.header {
+  background-color: rgba(240, 166, 62, 0.2);
+  padding: 0;
+  border: #F0A63E;
+  text-align: center;
+
+}
+ul.header li a {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 15px;
+  display: inline-block;
+}
+
+.formCourse {
+  border: 0;
+    box-shadow: none;
+}
+
+.containerLesson {
+  /* position: absolute; */
+  width: auto;
+  height: auto;
+  /* White */
+  background: #FFFFFF;
+  /* Soft Grey */
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  /* Default */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
 }
