@@ -5,6 +5,7 @@ import Footer from './Footer';
 import {
     HashRouter
 } from 'react-router-dom';
+
 function Main() {
     return(
         <HashRouter>
