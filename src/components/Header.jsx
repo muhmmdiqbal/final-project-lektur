@@ -69,9 +69,6 @@ const Header = () => {
           <Route exact path='/Students' component={Students} />
           <Route exact path='/NewLesson' component={NewLesson} />
           <Route exact path='/Filled' component={Filled} />
-
-
-
           <Route render={function() {
             return (
               <p>Not Found!</p>
