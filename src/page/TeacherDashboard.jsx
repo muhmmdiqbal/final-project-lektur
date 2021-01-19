@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Row, Col, Image, Button, Container} from 'react-bootstrap'
+import {Row, Col, Image, Button } from 'react-bootstrap'
 import '../App.css'
 import logo from '../components/assets/logo.png'
 import axios from 'axios'
@@ -35,41 +35,33 @@ class TeacherDashboard extends Component {
               items.length > 0 ? items.map(item => {
               const {thumbnail} = item;
                return (
-        <div className='backgroundTeacher'>
-        {/* <h1>ini dashboard teacher</h1> */}
-        <Row> 
-            <Col>
-            <div className='TeacherLeft'>
-                <div className='avatar'>
-            <Image src={thumbnail} roundedCircle className='avatar'/>
-
-                </div>
-            <h4 className='teacher'>John Doe</h4>
-            <p className='teacher'>john.doe@gmail.com</p>
-            <p className='teacher'><a href="#">Edit Profile</a></p>
-
-            </div>
-            </Col>
-            <Col>
-            <div className='TeacherRight'>
-                <Container>
-                <Row>
-                    <Col>
-                <h2>Course</h2>
-                    </Col>
-                    <Col>
-                <Button className="accButton" type="button" class="btn btn-link" href="#Course">New Course</Button>
-
-                    </Col>
+            <div className='TeacherDashboard'>  
+                <Row className='dashboardTeacherRow'>
+                    <div className='profileCardTeacher'>
+                        <div className='avatar'>
+                            <Image src={thumbnail} roundedCircle className='avatar'/>
+                        </div>
+                        <div>
+                            <h4>Name</h4>
+                            <p>email</p>
+                        </div>
+                        <br/>
+                        <a>Edit Profile</a>
+                    </div>
+                    <div className='coursesBox'>
+                        <Row className='coursesBoxRow'>
+                            <h3>Courses</h3>
+                            <Button>New Course</Button>
+                        </Row>
+                        <Col className='coursesBoxCol'>
+                            <div>
+                                Course 1
+                            </div>
+                        </Col>
+                    </div>
                 </Row>
-                </Container>
+                ini Teacher
             </div>
-        </Col>
-
-        </Row>
-        <div>
-        </div>
-        </div>
         );
     }) : null
   }
