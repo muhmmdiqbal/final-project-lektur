@@ -4,12 +4,12 @@ import { createUserFailure } from '../actions/auth/users';
 import api from '../api';
 import history from '../history';
 
-export function* createUserSaga(action) {
+export function* createUserSignUp({payload}) {
     try {
-        const user = yield call(api.user.signup, action.user);
-        localStorage.bookwormJWT = user.token;
+        const user = yield call(api.user.signup, payload);
+        // localStorage.bookwormJWT = user.token;
         yield put(userLoggedIn(user));
-        history.push('/');
+        // history.push('/');
     } catch (err) {
         yield put(createUserFailure(err.response.data.errors));
     }

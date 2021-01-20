@@ -19,6 +19,8 @@ class TeacherDashboard extends Component {
         .then(parsedJSON => parsedJSON.results.map(data => (
           {
             thumbnail: `${data.picture.large}`,
+            name: `${data.name.first}`,
+            email : `${data.email}`
           }
         )))
         .then(items => this.setState({
@@ -33,34 +35,61 @@ class TeacherDashboard extends Component {
         <div> 
              {
               items.length > 0 ? items.map(item => {
-              const {thumbnail} = item;
+              const {thumbnail, name, email} = item;
                return (
             <div className='TeacherDashboard'>  
                 <Row className='dashboardTeacherRow'>
-                    <div className='profileCardTeacher'>
-                        <div className='avatar'>
-                            <Image src={thumbnail} roundedCircle className='avatar'/>
-                        </div>
-                        <div>
-                            <h4>Name</h4>
-                            <p>email</p>
-                        </div>
-                        <br/>
-                        <a>Edit Profile</a>
-                    </div>
-                    <div className='coursesBox'>
-                        <Row className='coursesBoxRow'>
-                            <h3>Courses</h3>
-                            <Button>New Course</Button>
-                        </Row>
-                        <Col className='coursesBoxCol'>
-                            <div>
-                                Course 1
+                    <Col className='profileCardTeacherCol'>
+                        <div className='profileCardTeacher'>
+                                <Image src={thumbnail} roundedCircle className='avatar'/>
+                            <br/>
+                            <br/>
+                            <div className='aboutDashboard'>
+                                <h3>{name}</h3>
+                                <p>{email}</p>
+                                <br/>
+                                <a>Edit Profile</a>
                             </div>
-                        </Col>
-                    </div>
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className='coursesBox'>
+                                <div className='coursesBoxUnderline'>
+                                    <Row className='coursesBoxRow'>
+                                        <h3>Courses</h3>
+                                        <div className='tombolCourse'>
+                                            <Button>New Course</Button>
+                                        </div>
+                                    </Row>
+                                </div>
+                                <Col className='coursesBoxCol mt-5'>
+                                    <Row className='allCourses sm-2'>
+                                        <Col className='m-3'>
+                                            <div>
+                                                <img />
+                                            </div>
+                                        </Col>
+                                        <Col className='coursesLists m-3'> 
+                                            <div>
+                                                <h5>Judul</h5>
+                                                <br/>
+                                                <p className='keterangan'>Keterangan</p>
+                                                <p className='enrolledStatus'>Enrolled status</p>
+                                            </div>
+                                        </Col>
+                                        <Col className='mt-3'>
+                                            <div className='teacherButtons'>
+                                                    <Button className='inviteButton' >Invite</Button>
+                                                    <Button className='editButton'>Edit</Button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </div>
+                    </Col>
+                    
+                    
                 </Row>
-                ini Teacher
             </div>
         );
     }) : null

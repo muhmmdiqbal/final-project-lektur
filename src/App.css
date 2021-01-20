@@ -149,6 +149,39 @@ body {
   }
 }
 
+@media only screen and (min-width: 1360px){
+
+  .profileCardTeacher {
+    border: 2px solid #e5e5e54b;
+    text-align: center;
+    width: 279px;
+    height: 322px;
+    margin-left: 122px;
+    margin-bottom: 45px;
+    padding-top: 21px;
+  }
+
+}
+
+@media only screen and (max-width: 1360px){
+  .profileCardTeacher{
+    width: 893px;
+    height: 200px;
+    border: 2px solid #e5e5e54b;
+    padding-top: 28px;
+    padding-left: 41px;
+    margin-right: 45px;
+    margin-left: 122px;
+    margin-bottom: 45px;
+  }
+
+  .aboutDashboard{
+    margin-top: -140px;
+    margin-left: 250px;
+  }
+
+}
+
 .footerSmall{
   padding-right: 410px;
 }
@@ -258,9 +291,69 @@ ul.header li a {
   border-radius: 2px;
 }
 
+.coursesBox{
+  width: 893px;
+  height: 629px;
+  border: 2px solid #e5e5e53a;
+  padding-top: 45px;
+  margin-right: 107px;
+  margin-left: 122px;
+  background-color: white;
+}
+
 .profileCardTeacher{
-  width: 279px;
-  height: 322px;
-  border-style: 1px solid ;
-  box-shadow: #e5e5e5;
+  background-color: white;
+}
+
+.tombolCourse{
+  margin-left: auto;
+  margin-right: 34px;
+}
+
+.dashboardTeacherRow{
+  padding-top: 72px;
+  padding-bottom: 174px;
+  display:flex;
+}
+
+
+.coursesBoxUnderline{
+  border-bottom: 1px solid #9999994b;
+}
+
+.coursesBoxRow h3{
+  margin-left: 32px;
+}
+
+.coursesBoxRow{
+  margin-bottom: 30px;
+}
+
+.teacherButtons{
+  text-align: right;
+}
+
+.inviteButton{
+  margin-right: 30px;
+}
+
+.allCourses{
+  border-bottom: 1px solid #e5e5e54b;
+}
+
+.keterangan{
+  margin-bottom: 5px;
+}
+
+.enrolledStatus{
+  font-size: 14px ;
+}
+
+.row{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.TeacherDashboard{
+  background-color: #e5e5e5;
 }

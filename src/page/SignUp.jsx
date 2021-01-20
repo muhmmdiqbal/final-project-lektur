@@ -1,25 +1,54 @@
-import React from 'react';
-import { Button} from 'react-bootstrap'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUpRequest, createUserFailure } from '../store/actions/users';
+import { Button} from 'react-bootstrap';
 
-function SignUp() {
-    return(
+
+const SignUp = () => {
+    const [userData, setUserData] = useState ({
+        name: "",
+        email: "",
+        password: "",
+    //     confirmPassword: "",
+    });
+
+    const { name, email, password, confirmPassword } = userData;
+    // const createUserFailure = useSelector((state)) => state.user.createUserFailure);
+    const dispatch = useDispatch();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    dispatch(signUpRequest({name, email, password}));
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData((prevUserData) => {
+          return {
+            ...prevUserData,
+            [name]: value,
+          };
+        });
+      };
+
+    return (
         <div className="signUp-background">
             <div className="container-signUp">
                 <h4>Start Learning!</h4>
                 <p>Create your account</p>
                 <div>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <p>Name*</p>
                         <div className="containerForm">
-                            <input className="formInput" type="text" id="fname" name="fname" placeholder="John Doe"></input>
+                            <input className="formInput" value={name} onChange={handleChange} type="text" name="name" placeholder="John Doe" required></input>
                         </div><br/>
                         <p>Email*</p>
                         <div className="containerForm">
-                            <input className="formInput" type="text" id="fname" name="fname" placeholder="john@doe.com"></input>
+                            <input className="formInput" value={email} onChange={handleChange} type="email" name="email" placeholder="john@doe.com" required></input>
                         </div><br/>
                         <p>Password*</p>
                         <div className="containerForm">
-                            <input className="formInput" type="text" id="fname" name="fname" placeholder="********"></input>
+                            <input className="formInput" value={password} onChange={handleChange} type="password" id="password" name="fname" placeholder="********" required></input>
                         </div><br/>
                         <div className="SignUp-button">
                             <Button className="accButton" type="button" class="btn btn-link">Sign Up</Button>
@@ -29,7 +58,7 @@ function SignUp() {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default SignUp;

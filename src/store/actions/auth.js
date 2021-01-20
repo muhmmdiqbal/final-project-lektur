@@ -1,15 +1,15 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from "../types";
+import ACTION from "../types";
 import api from "../api";
 import setAuthorizationHeader from "../utils/setAuthorizationHeader";
 
 export const userLoggedIn = user => ({
-  type: USER_LOGGED_IN,
+  type: ACTION.SIGN_UP_SUCCESS,
   user
 });
 
-export const userLoggedOut = () => ({
-  type: USER_LOGGED_OUT
-});
+// export const userLoggedOut = () => ({
+//   type: USER_LOGGED_OUT
+// });
 
 export const login = credentials => dispatch =>
   api.user.login(credentials).then(user => {
