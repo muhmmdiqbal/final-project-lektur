@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron, Card, Button, Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
+import logo from '../components/assets/logo.png'
 import CardPage from '../components/Card'
 
 
@@ -8,7 +9,7 @@ function Detail() {
     return(
         <div>
             {/* <h1>Ini DetailPage</h1> */}
-            <Jumbotron >
+            <Jumbotron className="jumbotronTop">
                 <Container>
                     <Row>
                         <Col>

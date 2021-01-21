@@ -30,10 +30,17 @@ body {
   margin-right: 10px ;
 }
 
-.jumbotron {
+.jumbotronTop {
   background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/jumbotron.webp);
   background-size: cover;
   height: 200%;
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+.jumbotronBot {
+  background-image: url(/src/components/assets/jumbotronBot.jpg);
+  background-size: cover;
+  height: 60vh;
   width: 100%;
   margin-bottom: 0 !important;
 }

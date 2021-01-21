@@ -5,7 +5,7 @@ import '../App.css'
 const enroll = () => {
     return (
     <div>
-        <Jumbotron fluid>
+        <Jumbotron fluid className="jumbotronBot">
             <Container>
                 <h1>Create your own class</h1>
                 <p>

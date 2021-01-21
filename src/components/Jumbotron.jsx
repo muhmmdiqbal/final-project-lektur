@@ -6,22 +6,22 @@ import logo from './assets/logo.png'
 const enroll = () => {
     return (
     <div>
-        <Jumbotron fluid>
+        <Jumbotron fluid className="jumbotronTop">
             <Container>
                 <Row>
                     <Col>
                     <h1>Bring your class at home</h1>
-                    <p>
+                    {/* <p>
                         This is a simple hero unit, a simple jumbotron-style component for calling
                         extra attention to featured content or information.
-                    </p>
+                    </p> */}
                     <p>
                     <Button variant="dark">Enroll now</Button>
                     </p>
                     </Col>
                     <Col>
                     <Card>
-                        <Card.Img className="jumbotronVid" variant="small" src={logo} />
+                        <Card.Img className="jumbotronVid" variant="large" src={logo} />
                         <Card.Body>
                             <Row>
                                 <Col>

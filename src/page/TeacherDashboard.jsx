@@ -31,14 +31,16 @@ class TeacherDashboard extends Component {
         const {items } = this.state;
     return (
         <div> 
-             {
-              items.length > 0 ? items.map(item => {
-              const {thumbnail} = item;
-               return (
+             
         <div className='backgroundTeacher'>
         {/* <h1>ini dashboard teacher</h1> */}
         <Row> 
+        
             <Col>
+            {
+              items.length > 0 ? items.map(item => {
+              const {thumbnail} = item;
+               return (
             <div className='TeacherLeft'>
                 <div className='avatar'>
             <Image src={thumbnail} roundedCircle className='avatar'/>
@@ -49,7 +51,10 @@ class TeacherDashboard extends Component {
             <p className='teacher'><a href="#">Edit Profile</a></p>
 
             </div>
+            );
+        }) : null}
             </Col>
+            
             <Col>
             <div className='TeacherRight'>
                 <Container>
@@ -70,9 +75,7 @@ class TeacherDashboard extends Component {
         <div>
         </div>
         </div>
-        );
-    }) : null
-  }
+        
         </div>
     )
 }}

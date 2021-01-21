@@ -1,21 +1,43 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react';
 // import Detail from '../page/Detail'
 import { Card, Container, CardDeck } from 'react-bootstrap'
+import axios from 'axios'
 // import { 
 //     Switch,
 //     Route,
 //     Link
 //   } from 'react-router-dom';
 
-const learnCard = () => {
+class learnCard extends Component {
+    constructor(){
+        super()
+        this.state = {
+          data: []
+        }
+    }
+
+    componentDidMount(){
+        axios.get("https://lektur.kuyrek.com/courses/all")
+    .then(res => { console.log(res, 'TS2')
+        const data = res.data.data
+        this.setState({data});
+    })
+    .catch(err => console.log('parsing data is failed, err'))
+
+    }
+
+render() {
+    const{data} = this.state
+    console.log(data, 'CH')
     return (
     <div>
         <Container className="cardList">
             <CardDeck>
                 <Card>
+                    
                     <Card.Img variant="top" src="holder.js/100px160" />
                     <Card.Body>
-                        <Card.Title>Create Cinematic Music Video
+                        <Card.Title>apa aja
                         <small className="text-muted"> By John Doe</small>
                     </Card.Title>
                     <Card.Text>
@@ -74,5 +96,5 @@ const learnCard = () => {
     </div>
     )
 }
-
+}
 export default learnCard
