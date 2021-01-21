@@ -21,6 +21,10 @@ function Teacher() {
                         <div className="containerForm">
                             <input className="formInput" type="text" id="fname" name="fname" placeholder="********"></input>
                         </div><br/>
+                        <p>Confirm Password*</p>
+                        <div className="containerForm">
+                            <input className="formInput" type="text" id="fname" name="fname" placeholder="********"></input>
+                        </div><br/><br/><br/>
                         <div className="SignUp-button">
                             <Button className="accButton" type="button" class="btn btn-link">Sign Up</Button>
                         </div><br/>

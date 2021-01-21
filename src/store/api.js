@@ -1,12 +1,16 @@
 import axios from 'axios';
+import user from './reducers/user';
 
 export default {
     user: {
-        login: credentials =>
-        axios.post('https://lektur.kuyrek.com/login', { credentials }).then(res => res.data.user),
-        signup: user =>
-        axios.post('https://lektur.kuyrek.com/signup', { user }).then(res => res.data.user),
-        confirm: token =>
-        axios.post('https://lektur.kuyrek.com/login', { token }).then(res => res.data.user)
+        // login: credentials =>
+        // axios.post('https://lektur.kuyrek.com/login', { credentials }).then(res => res.data.token),
+        signUp: user =>
+            axios.post('https://lektur.kuyrek.com/signup', { name: user.name, email: user.email, password: user.password } ).then(res => res.data.token).catch(error => error),
+        logIn: token =>
+        axios.post('https://lektur.kuyrek.com/login', { email: token.email, password: token.password }).then(res => res.data.user)
     }
 };
+
+
+// res.data.token

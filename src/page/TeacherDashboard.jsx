@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Row, Col, Image, Button, Container} from 'react-bootstrap'
+import {Row, Col, Image, Button } from 'react-bootstrap'
 import '../App.css'
 import logo from '../components/assets/logo.png'
 import axios from 'axios'
@@ -19,6 +19,8 @@ class TeacherDashboard extends Component {
         .then(parsedJSON => parsedJSON.results.map(data => (
           {
             thumbnail: `${data.picture.large}`,
+            name: `${data.name.first}`,
+            email : `${data.email}`
           }
         )))
         .then(items => this.setState({
@@ -33,43 +35,62 @@ class TeacherDashboard extends Component {
         <div> 
              {
               items.length > 0 ? items.map(item => {
-              const {thumbnail} = item;
+              const {thumbnail, name, email} = item;
                return (
-        <div className='backgroundTeacher'>
-        {/* <h1>ini dashboard teacher</h1> */}
-        <Row> 
-            <Col>
-            <div className='TeacherLeft'>
-                <div className='avatar'>
-            <Image src={thumbnail} roundedCircle className='avatar'/>
-
-                </div>
-            <h4 className='teacher'>John Doe</h4>
-            <p className='teacher'>john.doe@gmail.com</p>
-            <p className='teacher'><a href="#">Edit Profile</a></p>
-
-            </div>
-            </Col>
-            <Col>
-            <div className='TeacherRight'>
-                <Container>
-                <Row>
-                    <Col>
-                <h2>Course</h2>
+            <div className='TeacherDashboard'>  
+                <Row className='dashboardTeacherRow'>
+                    <Col className='profileCardTeacherCol'>
+                        <div className='profileCardTeacher'>
+                                <Image src={thumbnail} roundedCircle className='avatar'/>
+                            <br/>
+                            <br/>
+                            <div className='aboutDashboard'>
+                                <h3>{name}</h3>
+                                <p>{email}</p>
+                                <br/>
+                                <a>Edit Profile</a>
+                            </div>
+                        </div>
                     </Col>
                     <Col>
-                <Button className="accButton" type="button" class="btn btn-link" href="#Course">New Course</Button>
-
+                        <div className='coursesBox'>
+                                <div className='coursesBoxUnderline'>
+                                    <Row className='coursesBoxRow'>
+                                        <h3>Courses</h3>
+                                        <div className='tombolCourse'>
+                                            <Button>New Course</Button>
+                                        </div>
+                                    </Row>
+                                </div>
+                                <Col className='coursesBoxCol mt-5'>
+                                    <Row className='allCourses sm-2'>
+                                        <Col className='m-3'>
+                                            <div>
+                                                <img />
+                                            </div>
+                                        </Col>
+                                        <Col className='coursesLists m-3'> 
+                                            <div>
+                                                <h5>Judul</h5>
+                                                <br/>
+                                                <p className='keterangan'>Keterangan</p>
+                                                <p className='enrolledStatus'>Enrolled status</p>
+                                            </div>
+                                        </Col>
+                                        <Col className='mt-3'>
+                                            <div className='teacherButtons'>
+                                                    <Button className='inviteButton' >Invite</Button>
+                                                    <Button className='editButton'>Edit</Button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </div>
                     </Col>
+                    
+                    
                 </Row>
-                </Container>
             </div>
-        </Col>
-
-        </Row>
-        <div>
-        </div>
-        </div>
         );
     }) : null
   }

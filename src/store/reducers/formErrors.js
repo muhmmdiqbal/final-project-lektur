@@ -1,11 +1,14 @@
-import { CREATE_USER_FAILURE, CREATE_USER_REQUEST } from "../types";
+// import { CREATE_USER_FAILURE, CREATE_USER_REQUEST } from "../types";
+import ACTION from '../types';
 
 export default function formErrors(state = {}, action = {}) {
   switch (action.type) {
-    case CREATE_USER_REQUEST:
-      return { ...state, signup: {} };
-    case CREATE_USER_FAILURE:
-      return { ...state, signup: action.errors };
+    case ACTION.SIGN_UP_REQUEST:
+      return { ...state, signUp: {} };
+    case ACTION.USER_LOG_IN:
+      return { ...state, logIn: {} };
+    case ACTION.SIGN_UP_FAILURE:
+      return { ...state, signUp: action.errors };
     default:
       return state;
   }

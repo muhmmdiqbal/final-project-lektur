@@ -34,9 +34,8 @@ const Footer = () => {
                 </ul>
                 </Col>
                 <Col className="footerli float-right">
-                    <div className='footerLogo'>
-                        <Image src={logo} className='logo' />
-                        <br/>
+                    <div className='footerLogo' >
+                            <NavLink><Image src={logo} className='logo' alt="/" /></NavLink>
                             Lektur © 2020. All rights reserved
                     </div>
                 </Col>
