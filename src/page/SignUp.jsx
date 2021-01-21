@@ -15,9 +15,10 @@ const SignUp = () => {
     const { name, email, password, confirmPassword } = userData;
     // const createUserFailure = useSelector((state)) => state.user.createUserFailure);
     const dispatch = useDispatch();
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // alert('bisa');
     dispatch(signUpRequest({name, email, password}));
     };
 
@@ -40,18 +41,22 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit}>
                         <p>Name*</p>
                         <div className="containerForm">
-                            <input className="formInput" value={name} onChange={handleChange} type="text" name="name" placeholder="John Doe" required></input>
+                            <input className="formInput nameForm" value={name} onChange={handleChange} type="text" name="name" placeholder="John Doe" required></input>
                         </div><br/>
                         <p>Email*</p>
                         <div className="containerForm">
-                            <input className="formInput" value={email} onChange={handleChange} type="email" name="email" placeholder="john@doe.com" required></input>
+                            <input className="formInput emailForm" value={email} onChange={handleChange} type="email" name="email" placeholder="john@doe.com" required></input>
                         </div><br/>
                         <p>Password*</p>
                         <div className="containerForm">
-                            <input className="formInput" value={password} onChange={handleChange} type="password" id="password" name="fname" placeholder="********" required></input>
+                            <input className="formInput passwordForm" value={password} onChange={handleChange} type="password" id="password" name="password" placeholder="********" required></input>
                         </div><br/>
+                        {/* <p>Confirm Password*</p>
+                        <div className="containerForm">
+                            <input className="formInput" value={confirmPassword} onChange={handleChange} type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required></input>
+                        </div><br/><br/><br/> */}
                         <div className="SignUp-button">
-                            <Button className="accButton" type="button" class="btn btn-link">Sign Up</Button>
+                            <Button className="accButton" type="submit" class="btn btn-link">Sign Up</Button>
                         </div><br/>
                         <div classNmae="loginQuestion">Already have an account? <a href="#Login">Login</a></div>
                     </form>
