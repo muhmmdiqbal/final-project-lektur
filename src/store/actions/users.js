@@ -41,6 +41,15 @@ import ACTION from '../types';
     payload: payload
   });
 
+  export const getCourse = payload => ({
+    type: ACTION.GET_COURSE,
+    payload: payload
+  })
+
+  export const getCourseFailure = errors => ({
+    type: ACTION.GET_COURSE,
+    errors
+  });
   // export const fetchCurrentUserRequest = () => ({
   //   type: FETCH_CURRENT_USER_REQUEST
   // });

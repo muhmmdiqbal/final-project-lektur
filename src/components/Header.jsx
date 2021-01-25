@@ -4,18 +4,6 @@ import { dataUserLoggedIn } from '../store/actions/users'
 import { selectCurrentUser } from '../App';
 import logo from './assets/logo.png';
 import '../App.css';
-import Home from '../page/Home';
-import Teacher from '../page/Teacher';
-import Detail from '../page/Detail';
-import SignUp from '../page/SignUp';
-import Login from '../page/Login'
-import NavCourse from '../page/NavCourse'
-import TeacherDashboard from '../page/TeacherDashboard'
-import Course from '../page/Course'
-import Assesment from '../page/Assesment'
-import NewLesson from '../page/NewLesson'
-import Students from '../page/Students'
-import Filled from '../page/Filled'
 
 import { 
   Navbar, 
@@ -45,48 +33,29 @@ const Header = () => {
       <div className="borderNav">
         <Navbar sticky='top' expand='lg'>
           <Navbar.Brand href="/"><Image className='logo' src={logo} alt='logo app' /></Navbar.Brand>
-            <Col>
-              <Form className="search">
-                <FormControl type="text" placeholder="Search course or lecturer" />
-              </Form> 
-            </Col>
+            {/* <Container> */}
+          <Col>
+            <Form className="search" action='SearchResult'>
+              <FormControl type="text" placeholder="Search course or lecturer" />
+            </Form> 
+          </Col>
           <Nav className="justify-content-end">
-              <NavDropdown title="Category" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Business</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Art & Humanity</NavDropdown.Item>
-              </NavDropdown>
-              {/* <Nav.Link as={Link} to="/TeacherDashboard">{userData.name}</Nav.Link> */}
-              <Nav.Link as={Link} to="/Teacher" >For Teacher</Nav.Link>
-              <div className="garis"></div>
-              {/* { userData ? null : 
-              (<Nav.Link as={Link} to="/Login">Avatar </Nav.Link>)
-              } */}
-              <Nav.Link as={Link} to="/Login">Login </Nav.Link> 
-              {/* <Nav.Link as={Link} to="/Login">Avatar </Nav.Link> */}
-              {/* // <Nav.Link as={Link} to="/Login">Login </Nav.Link> */}
+            <NavDropdown title="Category" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="catProgramming">Programming</NavDropdown.Item>
+              <NavDropdown.Item href="catGame">Game</NavDropdown.Item>
+              <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
+            </NavDropdown>
+          { userData.name ? 
+          <Nav.Link as={Link} to="/Teacher">{userData.name}</Nav.Link> :
+          <Nav.Link as={Link} to="/Teacher">For Teacher  </Nav.Link> 
+          
+          }
+          
+          <div className="garis"></div>
+          <Nav.Link as={Link} to="/Login">Login </Nav.Link>
           </Nav>
-          {/* <Button variant="dark" href="#Login">Logout</Button>  */}
-          <Button variant="dark" href="#SignUp">Sign Up</Button>
+          <Button variant="dark" as={Link} to="/SignUp">Sign Up</Button>
         </Navbar>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/Teacher' component={Teacher} />
-          <Route exact path='/Login' component={Login} />
-          <Route exact path='/SignUp' component={SignUp} />
-          <Route exact path='/Detail' component={Detail} />
-          <Route exact path='/TeacherDashboard' component={TeacherDashboard} />
-          <Route exact path='/NavCourse' component={NavCourse} />
-          <Route exact path='/Course' component={Course} />
-          <Route exact path='/Assesment' component={Assesment} />
-          <Route exact path='/Students' component={Students} />
-          <Route exact path='/NewLesson' component={NewLesson} />
-          <Route exact path='/Filled' component={Filled} />
-          <Route render={function() {
-            return (
-              <p>Not Found!</p>
-            )
-          }} />
-        </Switch>
       </div>
     )
 }

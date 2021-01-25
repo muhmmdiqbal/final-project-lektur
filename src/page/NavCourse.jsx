@@ -21,11 +21,6 @@ const navCourse = () => {
             <li><NavLink to="/Assesment">Assesment</NavLink></li>
             <li><NavLink to="/Students">Students</NavLink></li>
           </ul>
-          {/* <div className="content">
-            <Route exact path="/Course" component={Course}/>
-            <Route active tag="a" exact path="/Assesment" component={Assesment}/>
-            <Route exact path="/Students" component={Students}/>
-          </div> */}
         </div>
         {/* </HashRouter> */}
         {/* </Container> */}

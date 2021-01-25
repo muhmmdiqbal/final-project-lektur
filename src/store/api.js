@@ -13,7 +13,19 @@ export default {
             localStorage.setItem('token', token);
             window.location.href ="/"
             })
-            .catch(error => error)
+            .catch(error => error),
+        course: item =>
+        axios.get('https://lektur.kuyrek.com/courses/all', 
+        { 
+            image: item.image, 
+            title: item.title, 
+            description: item.description, 
+            category: item.category,
+
+        }).then(res => res.data.user),
+        
     }
 };
 
+
+// res.data.token

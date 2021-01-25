@@ -8,7 +8,7 @@ import axios from 'axios'
 //     Link
 //   } from 'react-router-dom';
 
-class learnCard extends Component {
+class CatProgramming extends Component {
     constructor(){
         super()
         this.state = {
@@ -41,12 +41,16 @@ render() {
                     return (
                         <div >
             
-                <Card className="Card" key={item.id} ><a href="Detail" className="Judul stretched-link">
-                    <Card.Img className="cardimg" as={Image} variant="top" fluid={true} alt="Card image" src="https://lektur.kuyrek.com/imgCourses/e92fa7d8c98b8ca95a8ae936800648c0.jpg"/></a>
+                <Card className="Card" key={item.id}>
+                    <Card.Img className="cardimg" as={Image} variant="top" fluid={true} alt="Card image" overlay='white-slight'
+            hover
+            waves src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"/>
                     <Card.Body>
-                        <Card.Title>{item.title}</Card.Title>
-                    <small className="text-muted">{item.user.name}</small>
-                    <Card.Text>{item.description}</Card.Text>
+                        <Card.Title>{item.title}
+                        <small className="text-muted">{item.user.name}</small>
+                    </Card.Title>
+                    <Card.Text>{item.description}
+                    </Card.Text>
                     </Card.Body>
                     <Card.Footer>
                         <small className="text-muted">{item.category}</small>
@@ -57,7 +61,7 @@ render() {
             </div>
             )
             } ):null}
-            </CardDeck><br />
+            </CardDeck><br /><br /><br />
             
             </Fragment>
         </Container> 
@@ -66,4 +70,4 @@ render() {
     )
 }
 }
-export default learnCard
+export default CatProgramming

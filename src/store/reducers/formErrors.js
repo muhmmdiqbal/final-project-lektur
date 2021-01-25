@@ -11,6 +11,8 @@ export default function formErrors(state = {}, action = {}) {
       return { ...state, signUp: action.errors };
     case ACTION.GET_USER:
       return { ...state, getUSer: {} };
+    // case ACTION.GET_DATA_HOME:
+    //   return { ...state, homeData: {}};
     default:
       return state;
   }
