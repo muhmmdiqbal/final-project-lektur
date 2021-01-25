@@ -47,7 +47,7 @@ body {
 
 .container-signUp{
   width: 531px;
-  height: 559px;
+  height: 699px;
   margin: auto;
   background-color: white;
   border-radius: 3px;
@@ -132,31 +132,69 @@ body {
   color: black;
 }
 
-.desc-detail{
-  background-color: #E5E5E5;
-  padding-bottom: 64px;
-  padding-left: 0px;
-}
-
 .containerSuggestion{
   background-color: white;
   width: 100%;
-  height: 587px;
+  /* height: 557px; */
   padding-top: 56px;
 }
 
 .containerDescription{
-  padding-top: 60px;
+  margin-top: 60px;
+  margin-left: 30px;
   margin-bottom: 72px;
 }
 
 .containerText{
-  width: 644px;
+  width: 520px;
   text-align: justify;
 }
 
-.containerSuggestion h5{
-  margin-left: 236px;
+@media (min-width: 1200px){
+  .containerSuggestion h3{
+    margin-left: 170px;
+  }
+}
+
+@media only screen and (min-width: 1360px){
+
+  .profileCardTeacher {
+    border: 2px solid #e5e5e54b;
+    text-align: center;
+    width: 279px;
+    height: 322px;
+    margin-left: 122px;
+    margin-bottom: 45px;
+    padding-top: 21px;
+    background: #FFFFFF;
+/* Soft Grey */
+
+border: 1px solid #E6E6E6;
+box-sizing: border-box;
+/* Default */
+
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+}
+
+@media only screen and (max-width: 1360px){
+  .profileCardTeacher{
+    width: 893px;
+    height: 200px;
+    border: 2px solid #e5e5e54b;
+    padding-top: 28px;
+    padding-left: 41px;
+    margin-right: 45px;
+    margin-left: 122px;
+    margin-bottom: 45px;
+  }
+
+  .aboutDashboard{
+    margin-top: -140px;
+    margin-left: 250px;
+  }
+
 }
 
 .footerSmall{
@@ -186,45 +224,51 @@ body {
   padding-bottom: 112px;
 }
 
-.TeacherLeft {
-  position: absolute;
-  width: 279px;
-  height: 322px;
-  left: 60px;
-  top: 60px;
-  padding-top: 30px;
-
-  /* White */
-  background: #FFFFFF;
-  /* Soft Grey */
-  border: 1px solid #E6E6E6;
-  box-sizing: border-box;
-  /* Default */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+.detailBody{
+  background-color: #F5F5F5;
+  padding-bottom: 64px;
 }
 
-.TeacherRight {
-  width: 893px;
-  height: 500px;
-  left: 10px;
-  top: 60px;
-
-  /* White */
-  background: #FFFFFF;
-  /* Soft Grey */
+.detailCard{
+  width: 474px;
+  height: 498px;
+  position: relative;
+  margin-right: 30px;
+  margin-left: auto;
+  margin-bottom: -274px;
+  margin-top: -226px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
-  /* Default */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.teacher {
+.jumbotronDetail{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.034);
+  background-image:url(/src/components/assets/jumbotron.webp);
+  height: 50vh;
+  background-size: cover;
+  width: 100%;
+  margin-bottom: 0 !important;
+  border-radius: 0px !important;
+}
+
+.insightCourse{
   text-align: center;
 }
 
-.avatar {
-  margin: auto;
-  text-align: center;
+.containerContent{
+  width: 421px;
+  height: 54px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.034);
+  padding-left: 22px;
+  padding-top: 18px;
+}
+
+.courseList{
+  margin: auto !important;
+}
+
+.contentInsight{
+  padding-left: 22px;
 }
 
 ul.header li {
@@ -267,4 +311,104 @@ ul.header li a {
   /* Default */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
+}
+
+.coursesBox{
+  width: 750px;
+  height: auto;
+  border: 2px solid #e5e5e53a;
+  padding-top: 45px;
+  margin-right: 107px;
+  margin-left: 122px;
+  background-color: white;
+  background: #FFFFFF;
+/* Soft Grey */
+
+border: 1px solid #E6E6E6;
+box-sizing: border-box;
+/* Default */
+
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profileCardTeacher{
+  background-color: white;
+}
+
+.tombolCourse{
+  margin-left: auto;
+  margin-right: 34px;
+}
+
+.dashboardTeacherRow{
+  padding-top: 72px;
+  padding-bottom: 174px;
+  display:flex;
+  
+}
+
+
+.coursesBoxUnderline{
+  border-bottom: 1px solid #9999994b;
+}
+
+.coursesBoxRow h3{
+  margin-left: 32px;
+}
+
+.coursesBoxRow{
+  margin-bottom: 30px;
+}
+
+.teacherButtons{
+  text-align: right;
+}
+
+.inviteButton{
+  margin-right: 30px;
+}
+
+.allCourses{
+  border-bottom: 1px solid #e5e5e54b;
+}
+
+.keterangan{
+  margin-bottom: 5px;
+}
+
+.enrolledStatus{
+  font-size: 14px ;
+}
+
+.row{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.TeacherDashboard{
+  background-color: #e5e5e5;
+}
+
+.Card {
+  position: auto;
+width: 250px;
+height: 420px;
+background: #FFFFFF;
+/* Soft Grey */
+
+border: 1px solid #E6E6E6;
+box-sizing: border-box;
+/* Default */
+
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cardimg {
+  width: 100px;
+  height: 100px;
+}
+
+.h4student {
+  text-align: right;
+  padding-right: 20px;
 }

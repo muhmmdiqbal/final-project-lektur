@@ -1,7 +1,7 @@
 import React from 'react' 
 import { Jumbotron, Card, Button, Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
-import logo from './assets/logo.png'
+import logo from './assets/jumbotronBot.jpg'
 
 const enroll = () => {
     return (
@@ -20,8 +20,8 @@ const enroll = () => {
                     </p>
                     </Col>
                     <Col>
-                    <Card>
-                        <Card.Img className="jumbotronVid" variant="large" src={logo} />
+                    <Card><a href="Detail" className="Judul stretched-link">
+                        <Card.Img className="jumbotronVid" variant="large" src={logo} /></a>
                         <Card.Body>
                             <Row>
                                 <Col>

@@ -13,26 +13,15 @@ function Home() {
             <h1>What to learn next</h1>
             <div className="teacher">
             {/* <Row className="teacher"> */}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}
-                <Button variant="outline-warning">Business</Button>{' '}s
+                <Button variant="outline-warning">Programming</Button>{' '}
+                <Button variant="outline-warning">Game</Button>{' '}
+                <Button variant="outline-warning">Cooking</Button>{' '}
 
             {/* </Row> */}
             </div>
-            <LearnCard />
             </Container>
+            <LearnCard />
+
             <JumbotronBot />
         </div>
     )

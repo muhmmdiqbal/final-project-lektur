@@ -1,49 +1,26 @@
 import axios from 'axios';
+import user from './reducers/user';
 
 export default {
     user: {
-        login: credentials =>
-        axios.post('https://lektur.kuyrek.com/login', { credentials }).then(res => res.data.user),
-        signup: user =>
-        axios.post('https://lektur.kuyrek.com/signup', { user }).then(res => res.data.user),
-        confirm: token =>
-        axios.post('https://lektur.kuyrek.com/login', { token }).then(res => res.data.user)
+        // login: credentials =>
+        // axios.post('https://lektur.kuyrek.com/login', { credentials }).then(res => res.data.token),
+        signUp: user =>
+            axios.post('https://lektur.kuyrek.com/signup', { name: user.name, email: user.email, password: user.password } ).then(res => res.data.token).catch(error => error),
+        logIn: token =>
+        axios.post('https://lektur.kuyrek.com/login', { email: token.email, password: token.password }).then(res => res.data.user),
+        course: item =>
+        axios.get('https://lektur.kuyrek.com/courses/all', 
+        { 
+            image: item.image, 
+            title: item.title, 
+            description: item.description, 
+            category: item.category,
+
+        }).then(res => res.data.user)
+        
     }
 };
 
-// import axios from "axios";
 
-// const API_URL = "https://lektur.kuyrek.com/";
-
-// const register = (name, email, password) => {
-//   return axios.post(API_URL + "signup", {
-//     name,
-//     email,
-//     password,
-//   });
-// };
-
-// const login = (username, password) => {
-//   return axios
-//     .post(API_URL + "signin", {
-//       username,
-//       password,
-//     })
-//     .then((response) => {
-//       if (response.data.accessToken) {
-//         localStorage.setItem("user", JSON.stringify(response.data));
-//       }
-
-//       return response.data;
-//     });
-// };
-
-// const logout = () => {
-//   localStorage.removeItem("user");
-// };
-
-// export default {
-//   register,
-//   login,
-//   logout,
-// };
+// res.data.token
