@@ -9,6 +9,8 @@ export default function formErrors(state = {}, action = {}) {
       return { ...state, logIn: {} };
     case ACTION.SIGN_UP_FAILURE:
       return { ...state, signUp: action.errors };
+    case ACTION.GET_USER:
+      return { ...state, getUSer: {} };
     default:
       return state;
   }

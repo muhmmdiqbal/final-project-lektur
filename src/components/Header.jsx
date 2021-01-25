@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { dataUserLoggedIn } from '../store/actions/users'
+import { selectCurrentUser } from '../App';
 import logo from './assets/logo.png';
 import '../App.css';
 import Home from '../page/Home';
@@ -13,8 +16,6 @@ import Assesment from '../page/Assesment'
 import NewLesson from '../page/NewLesson'
 import Students from '../page/Students'
 import Filled from '../page/Filled'
-
-
 
 import { 
   Navbar, 
@@ -32,28 +33,39 @@ import {
   Link
 } from 'react-router-dom';
 
+
 const Header = () => {
+  const userData = useSelector (state => state.user)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(dataUserLoggedIn());
+  }, []);
+  console.log(userData)
     return (
       <div className="borderNav">
-        {/* <Nav className="mr-auto">
-        </Nav> */}
         <Navbar sticky='top' expand='lg'>
           <Navbar.Brand href="/"><Image className='logo' src={logo} alt='logo app' /></Navbar.Brand>
-            {/* <Container> */}
-          <Col>
-            <Form className="search">
-              <FormControl type="text" placeholder="Search course or lecturer" />
-            </Form> 
-          </Col>
+            <Col>
+              <Form className="search">
+                <FormControl type="text" placeholder="Search course or lecturer" />
+              </Form> 
+            </Col>
           <Nav className="justify-content-end">
-            <NavDropdown title="Category" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Business</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Art & Humanity</NavDropdown.Item>
-            </NavDropdown>
-          <Nav.Link as={Link} to="/Teacher">For Teacher </Nav.Link>
-          <div className="garis"></div>
-          <Nav.Link as={Link} to="/Login">Login </Nav.Link>
+              <NavDropdown title="Category" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Business</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Art & Humanity</NavDropdown.Item>
+              </NavDropdown>
+              {/* <Nav.Link as={Link} to="/TeacherDashboard">{userData.name}</Nav.Link> */}
+              <Nav.Link as={Link} to="/Teacher" >For Teacher</Nav.Link>
+              <div className="garis"></div>
+              {/* { userData ? null : 
+              (<Nav.Link as={Link} to="/Login">Avatar </Nav.Link>)
+              } */}
+              <Nav.Link as={Link} to="/Login">Login </Nav.Link> 
+              {/* <Nav.Link as={Link} to="/Login">Avatar </Nav.Link> */}
+              {/* // <Nav.Link as={Link} to="/Login">Login </Nav.Link> */}
           </Nav>
+          {/* <Button variant="dark" href="#Login">Logout</Button>  */}
           <Button variant="dark" href="#SignUp">Sign Up</Button>
         </Navbar>
         <Switch>

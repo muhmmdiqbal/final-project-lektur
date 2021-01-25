@@ -1,5 +1,11 @@
 import ACTION from '../types';
   
+
+  export const userLoggedIn = user => ({
+    type: ACTION.SIGN_UP_SUCCESS,
+    user
+  });
+
   export const signUpRequest = payload => ({
     type: ACTION.SIGN_UP_REQUEST,
     payload: payload
@@ -11,7 +17,7 @@ import ACTION from '../types';
   });
   
   export const createUserFailure = errors => ({
-    type: ACTION.CREATE_USER_FAILURE,
+    type: ACTION.SIGN_UP_FAILURE,
     errors
   });
   
@@ -22,6 +28,16 @@ import ACTION from '../types';
 
   export const createUserLogOut = payload => ({
     type: ACTION.USER_LOG_OUT,
+    payload: payload
+  });
+
+  export const dataUserLoggedIn = () => ({
+    type: ACTION.GET_USER,
+    // payload: payload
+  });
+
+  export const userLoggedInSuccess = payload => ({
+    type: ACTION.GET_USER_SUCCESS,
     payload: payload
   });
 

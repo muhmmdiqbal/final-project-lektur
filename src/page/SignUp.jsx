@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpRequest, createUserFailure } from '../store/actions/users';
 import { Button} from 'react-bootstrap';
@@ -9,16 +9,21 @@ const SignUp = () => {
         name: "",
         email: "",
         password: "",
-    //     confirmPassword: "",
+        isError: "",
+        confirmPassword: "",
+        signUpError: "",
     });
 
     const { name, email, password, confirmPassword } = userData;
-    // const createUserFailure = useSelector((state)) => state.user.createUserFailure);
+
     const dispatch = useDispatch();
-    
+    const [ isError, setIsError] = useState ( false );
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // alert('bisa');
+        if (password !== confirmPassword) {
+            setIsError ('Password Confirmation Do Not Match!')
+        }
     dispatch(signUpRequest({name, email, password}));
     };
 
@@ -49,12 +54,16 @@ const SignUp = () => {
                         </div><br/>
                         <p>Password*</p>
                         <div className="containerForm">
-                            <input className="formInput passwordForm" value={password} onChange={handleChange} type="password" id="password" name="password" placeholder="********" required></input>
+                            <input className="formInput passwordForm" value={password} onChange={handleChange} type="password" id="password" name="password" placeholder="Password" required></input>
                         </div><br/>
-                        {/* <p>Confirm Password*</p>
+                        <p>Confirm Password*</p>
                         <div className="containerForm">
-                            <input className="formInput" value={confirmPassword} onChange={handleChange} type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required></input>
-                        </div><br/><br/><br/> */}
+                            <input className="formInput" value={confirmPassword} onChange={handleChange} type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required></input>
+                        </div><br/>
+                        <div style={{ position: "absolute", alignSelf: "left"}}>
+                            { isError && <p className="text-danger"> {isError}</p> }
+                        </div>
+                        <br/><br/>
                         <div className="SignUp-button">
                             <Button className="accButton" type="submit" class="btn btn-link">Sign Up</Button>
                         </div><br/>
