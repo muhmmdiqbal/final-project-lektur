@@ -12,7 +12,7 @@ const SignUp = () => {
     //     confirmPassword: "",
     });
 
-    const { name, email, password, confirmPassword } = userData;
+    const { name, email, password } = userData;
     // const createUserFailure = useSelector((state)) => state.user.createUserFailure);
     const dispatch = useDispatch();
     

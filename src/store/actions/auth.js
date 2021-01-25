@@ -1,6 +1,13 @@
 import ACTION from "../types";
 import api from "../api";
 import setAuthorizationHeader from "../utils/setAuthorizationHeader";
+import {
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  SET_MESSAGE,
+} from "../types";
+import AuthService from "../api";
+
 
 export const userLoggedIn = user => ({
   type: ACTION.SIGN_UP_SUCCESS,
@@ -31,3 +38,5 @@ export const login = credentials => dispatch =>
 //   });
 
 export const validateToken = token => () => api.user.validateToken(token);
+
+

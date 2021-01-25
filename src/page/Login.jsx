@@ -39,12 +39,12 @@ const Login = () => {
                             <input className="formInput" value={password} onChange={handleChange} type="password" id="password" name="password" placeholder="********" required></input>
                         </div>
                         <div className="forgotPass">
-                            <a href="/">Forgot Password</a>
+                            <a href="StudentDashboard">Forgot Password</a>
                         </div><br/><br/>
                         <div className="loginButton">
                             <Button className="accButton" type="submit" class="btn btn-link" >Login</Button>
                         </div><br/>
-                        <div>New user? <a href="#SignUp">Create an account</a></div>
+                        <div>New user? <a href="TeacherDashboard">Create an account</a></div>
                     </form>
                 </div>
             </div>

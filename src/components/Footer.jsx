@@ -6,9 +6,9 @@ import '../App.css'
 const Footer = () => {
     return (
     <div> 
-        <Container className="footerContainer">
+        <Container className="footerContainer" fluid>
             <Row >
-                <Col md="auto">
+                <Col >
                     <ul className='list-unstyled'>
                         <NavLink className='text-dark'><li><strong className="footerstr">COURSE</strong></li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Business</li></NavLink>
@@ -17,7 +17,7 @@ const Footer = () => {
                         <NavLink className='text-dark'><li className="footerli">Self Development</li></NavLink>
                     </ul>
                 </Col>
-                <Col md="auto">
+                <Col>
                     <ul className='list-unstyled'>
                         <NavLink className='text-dark'><li><strong className="footerstr">TEACH</strong></li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Teach at Lecture</li></NavLink>

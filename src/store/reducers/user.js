@@ -6,6 +6,8 @@ export default function user (state = { loaded: false }, action = {}) {
             return { ...action.user, loaded: true };
         case ACTION.USER_LOG_IN:
             return { ...action.user, loaded: true };
+        case ACTION.GET_COURSE:
+            return { ...action.user, loaded: true };
         // case FETCH_CURRENT_USER_SUCCESS:
         //     return { ...state, ...action.user, loaded: true };
         // case USER_LOGGED_OUT:

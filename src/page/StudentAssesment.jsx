@@ -6,8 +6,9 @@ import axios from 'axios'
 import { 
     Link
   } from 'react-router-dom';
+import NavStudent from './NavStudent'
 
-class TeacherDashboard extends Component {
+class StudentAssesment extends Component {
     constructor(){
         super()
         this.state = {
@@ -36,14 +37,13 @@ class TeacherDashboard extends Component {
         const {items } = this.state;
     return (
         <div> 
-             
-            <div className='TeacherDashboard'>  
-                <Row className='dashboardTeacherRow'>
-                    <Col className='profileCardTeacherCol'>
-                    {
+             {
               items.length > 0 ? items.map(item => {
               const {thumbnail, name, email} = item;
                return (
+            <div className='TeacherDashboard'>  
+                <Row className='dashboardTeacherRow'>
+                    <Col className='profileCardTeacherCol'>
                         <div className='profileCardTeacher'>
                                 <Image src={thumbnail} roundedCircle className='avatar'/>
                             <br/>
@@ -55,20 +55,20 @@ class TeacherDashboard extends Component {
                                 <a>Edit Profile</a>
                             </div>
                         </div>
-                        );
-    }) : null
-  }
                     </Col>
                     <Col>
                         <div className='coursesBox'>
-                                <div className='coursesBoxUnderline'>
+                            <NavStudent />
+                                {/* <div className='coursesBoxUnderline'>
                                     <Row className='coursesBoxRow'>
-                                        <h3>Courses</h3>
-                                        <div className='tombolCourse'>
-                                            <Button as={Link} to="/Course">New Course</Button>
-                                        </div>
+                                        <Col>
+                                        <h4 className="h4student"><a href="Detail" className="Judul stretched-link">Courses</a></h4>
+                                        </Col>
+                                        <Col>
+                                        <h4><a href="Detail" className="Judul stretched-link">Assesment</a></h4>
+                                        </Col>
                                     </Row>
-                                </div>
+                                </div> */}
                                 <Col className='coursesBoxCol mt-5'>
                                     <Row className='allCourses sm-2'>
                                         <Col className='m-3'>
@@ -98,9 +98,11 @@ class TeacherDashboard extends Component {
                     
                 </Row>
             </div>
-        
+        );
+    }) : null
+  }
         </div>
     )
 }}
 
-export default TeacherDashboard
+export default StudentAssesment

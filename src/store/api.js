@@ -8,7 +8,17 @@ export default {
         signUp: user =>
             axios.post('https://lektur.kuyrek.com/signup', { name: user.name, email: user.email, password: user.password } ).then(res => res.data.token).catch(error => error),
         logIn: token =>
-        axios.post('https://lektur.kuyrek.com/login', { email: token.email, password: token.password }).then(res => res.data.user)
+        axios.post('https://lektur.kuyrek.com/login', { email: token.email, password: token.password }).then(res => res.data.user),
+        course: item =>
+        axios.get('https://lektur.kuyrek.com/courses/all', 
+        { 
+            image: item.image, 
+            title: item.title, 
+            description: item.description, 
+            category: item.category,
+
+        }).then(res => res.data.user)
+        
     }
 };
 
