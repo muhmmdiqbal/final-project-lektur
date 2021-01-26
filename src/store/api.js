@@ -4,9 +4,18 @@ import axios from 'axios';
 export default {
     user: {
         getData: () =>
-            axios.get('https://lektur.kuyrek.com/userProfile', { 'headers': { 'Authorization': `Bearer ${localStorage.getItem('token')}`} }).then(res => res.data.data),
+            axios.get('https://lektur.kuyrek.com/userProfile', 
+            { 
+                'headers': 
+                { 'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }}).then(res => res.data.data),
         signUp: user =>
-            axios.post('https://lektur.kuyrek.com/signup', { name: user.name, email: user.email, password: user.password } ).then(res => res.data.token).catch(error => error),
+            axios.post('https://lektur.kuyrek.com/signup', 
+            { 
+                name: user.name, 
+                email: user.email, 
+                password: user.password 
+            } ).then(res => res.data.token).catch(error => error),
         logIn: credentials =>
             axios.post('https://lektur.kuyrek.com/login', { email: credentials.email, password: credentials.password }).then(res => res.data.token).then((token)=> {
             setTimeout(console.log('masuk'), 500)
@@ -14,17 +23,10 @@ export default {
             window.location.href ="/"
             })
             .catch(error => error),
-        course: item =>
-        axios.get('https://lektur.kuyrek.com/courses/all', 
-        { 
-            image: item.image, 
-            title: item.title, 
-            description: item.description, 
-            category: item.category,
-
-        }).then(res => res.data.user),
-        
-    }
+        getCourse: () =>
+            axios.get('https://lektur.kuyrek.com/courses/all').then(res => res.data.data)
+            
+        }
 };
 
 

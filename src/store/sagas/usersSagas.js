@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { createUserFailure, dataUserLoggedIn, userLoggedIn, userLoggedInSuccess } from '../actions/users';
+import { createUserFailure, dataUserLoggedIn, userLoggedIn, userLoggedInSuccess, getCourseSuccess } from '../actions/users';
 import api from '../api';
 // import history from '../history';
 
@@ -15,20 +15,14 @@ export function* createUserSignUp({payload}) {
     }
 }
 
-export function* getCourse({payload}) {
-    // console.log(payload, 'ini data')
-    // try {
-    //     const user = yield call(api.user.course, payload);
-    //     // localStorage.bookwormJWT = user.token;
-    //     yield put(userLoggedIn(user));
-    //     // history.push('/');
-    // } catch (err) {
-    //     yield put(getCourseFailure(err.message));
-    // }
-    const user = yield call(api.user.course, payload)
+export function* getDataCourse() {
+   
+        const user = yield call(api.user.getCourse);
+        yield put(getCourseSuccess(user));
+     }
+    // const user = yield call(api.user.getCourse)
 
-    yield put(userLoggedIn(user))
-}
+    // yield put(userLoggedIn(user))}
 
 export function* createUserLogIn({payload}) {
 

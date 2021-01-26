@@ -1,64 +1,68 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import {Row, Col, Image, Button } from 'react-bootstrap'
 import '../App.css'
 import logo from '../components/assets/logo.png'
+import { useDispatch, useSelector } from 'react-redux';
+import { dataUserLoggedIn } from '../store/actions/users'
+import { selectCurrentUser } from '../App';
 import axios from 'axios'
 import { 
     Link
   } from 'react-router-dom';
 
-class TeacherDashboard extends Component {
-    constructor(){
-        super()
-        this.state = {
-            items: []
-        }
-    }
+// class TeacherDashboard extends Component {
+//     constructor(){
+//         super()
+//         this.state = {
+//             items: []
+//         }
+//     }
 
 
-    componentDidMount(){
-        fetch("https://randomuser.me/api/?results=1&nat=de")
-        .then(res => res.json())
-        .then(parsedJSON => parsedJSON.results.map(data => (
-          {
-            thumbnail: `${data.picture.large}`,
-            name: `${data.name.first}`,
-            email : `${data.email}`
-          }
-        )))
-        .then(items => this.setState({
-          items,
-          isLoaded: false
-        }))
-        .catch(error => console.log('parsing failed', error))
-    }
-    render() {
-        const {items } = this.state;
+//     componentDidMount(){
+//         fetch("https://randomuser.me/api/?results=1&nat=de")
+//         .then(res => res.json())
+//         .then(parsedJSON => parsedJSON.results.map(data => (
+//           {
+//             thumbnail: `${data.picture.large}`,
+//             name: `${data.name.first}`,
+//             email : `${data.email}`
+//           }
+//         )))
+//         .then(items => this.setState({
+//           items,
+//           isLoaded: false
+//         }))
+//         .catch(error => console.log('parsing failed', error))
+//     }
+//     render() {
+//         const {items } = this.state;
+const TeacherDashboard = () => {
+    const userData = useSelector (state => state.user)
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(dataUserLoggedIn());
+    }, []);
+
     return (
         <div> 
              
             <div className='TeacherDashboard'>  
                 <Row className='dashboardTeacherRow'>
-                    <Col className='profileCardTeacherCol'>
-                    {
-              items.length > 0 ? items.map(item => {
-              const {thumbnail, name, email} = item;
-               return (
-                        <div className='profileCardTeacher'>
-                                <Image src={thumbnail} roundedCircle className='avatar'/>
+                <Col className='profileCardTeacherCol'>
+                    
+                    <div className='profileCardTeacher'>
+                            <Image src={userData.image} roundedCircle className='avatar'/>
+                        <br/>
+                        <br/>
+                        <div className='aboutDashboard'>
+                            <h3>{userData.name}</h3>
+                            <p>{userData.email}</p>
                             <br/>
-                            <br/>
-                            <div className='aboutDashboard'>
-                                <h3>{name}</h3>
-                                <p>{email}</p>
-                                <br/>
-                                <a>Edit Profile</a>
-                            </div>
+                            <a>Edit Profile</a>
                         </div>
-                        );
-    }) : null
-  }
-                    </Col>
+                    </div>
+                </Col>
                     <Col>
                         <div className='coursesBox'>
                                 <div className='coursesBoxUnderline'>
@@ -101,6 +105,6 @@ class TeacherDashboard extends Component {
         
         </div>
     )
-}}
+}
 
 export default TeacherDashboard
