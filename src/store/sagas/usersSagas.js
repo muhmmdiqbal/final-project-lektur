@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { createUserFailure, dataUserLoggedIn, userLoggedIn, userLoggedInSuccess, dataCourse } from '../actions/users';
+import { createUserFailure, dataUserLoggedIn, userLoggedIn, userLoggedInSuccess, getCourseSuccess } from '../actions/users';
 import api from '../api';
 // import history from '../history';
 
@@ -18,7 +18,7 @@ export function* createUserSignUp({payload}) {
 export function* getDataCourse() {
    
         const user = yield call(api.user.getCourse);
-        yield put(dataCourse(user));
+        yield put(getCourseSuccess(user));
      }
     // const user = yield call(api.user.getCourse)
 

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, Component } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataCourse } from '../store/actions/users'
 // import Detail from '../page/Detail'
-import { Card, Container, CardDeck, CardColumns, Image } from 'react-bootstrap'
+import { dataCourse } from '../store/actions/users'
+import { Card, Container, CardDeck } from 'react-bootstrap'
 // import axios from 'axios'
 // import { 
 //     Switch,
@@ -29,31 +29,36 @@ import { Card, Container, CardDeck, CardColumns, Image } from 'react-bootstrap'
 //     }
 
 // render() {
-//     const{data} = this.state
-//     console.log(data, 'CH')
-const LearnCard = () => {
-    const item = useSelector (state => state.user)
+    // const{data} = this.state
+// {id, image, name, title, category, description}
+
+const LearnCard = ({title = ""}) => {
+    const data = useSelector (state => state.course)
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(dataCourse());
     }, []);
-    console.log(item)
+    console.log(data, 'item course')
     return (
     <div>
         <Container >
             <CardDeck className="cardList">
             <div>
-                    <Card className="Card" key={item.id} ><a href="Detail" className="Judul stretched-link">
-                        <Card.Img className="cardimg" as={Image} variant="top" fluid={true} alt="Card image" src={item.image}/></a>
+            
+                    <Card className="Card" key={data.id} ><a href="Detail" className="Judul stretched-link">
+                        <Card.Img className="cardimg" variant="top" fluid={true} alt="Card image" src={data.image}/></a>
                         <Card.Body>
-                            <Card.Title>{item.title}</Card.Title>
-                        <small className="text-muted">{item.name}</small>
-                        <Card.Text>{item.description}</Card.Text>
+                            <Card.Title>{title}</Card.Title>
+                        <small className="text-muted">{data.name}</small>
+                        <Card.Text>{data.description}</Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <small className="text-muted">{item.category}</small>
+                            <small className="text-muted">{data.category}game</small>
                         </Card.Footer>
                     </Card>
+                    
+                
+                
                     </div>
                 <br />
             </CardDeck><br />

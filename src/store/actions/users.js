@@ -40,6 +40,10 @@ import ACTION from '../types';
     type: ACTION.GET_USER_SUCCESS,
     payload: payload
   });
+  export const getCourseSuccess = payload => ({
+    type: ACTION.GET_COURSE_SUCCESS,
+    payload: payload
+  });
 
   export const dataCourse = () => ({
     type: ACTION.GET_COURSE,

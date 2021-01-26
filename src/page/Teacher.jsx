@@ -28,7 +28,7 @@ function Teacher() {
                         <div className="SignUp-button">
                             <Button className="accButton" type="button" class="btn btn-link">Sign Up</Button>
                         </div><br/>
-                        <div classNmae="loginQuestion">Already have an account? <a href="#Login">Login</a></div>
+                        <div classNmae="loginQuestion">Already have an account? <a href="Login">Login</a></div>
                     </form>
                 </div>
             </div>

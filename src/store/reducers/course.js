@@ -1,13 +1,9 @@
 import ACTION from '../types';
 
-export default function user (state = { loaded: false }, action = {}) {
+export default function course (state = [], action = []) {
     switch (action.type) {
-        case ACTION.SIGN_UP_SUCCESS:
-            return { ...action.user, loaded: true };
-        case ACTION.USER_LOG_IN:
-            return { ...action.user, loaded: true };
-        case ACTION.GET_USER_SUCCESS: 
-            return { ...action.payload, loaded: true };
+        case ACTION.GET_COURSE_SUCCESS:
+             return [...action.payload] ;
         // case FETCH_CURRENT_USER_SUCCESS:
         //     return { ...state, ...action.user, loaded: true };
         // case USER_LOGGED_OUT:

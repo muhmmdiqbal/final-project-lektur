@@ -5,16 +5,24 @@ import { Container, Button } from 'react-bootstrap';
 import Jumbotron from '../components/Jumbotron';
 import JumbotronBot from '../components/JumbotronBot';
 import LearnCard from '../components/Card';
-
+import { dataCourse } from '../store/actions/users'
 
 function Home() {
-//   const dispatch = useDispatch();
-//   useEffect(() => {
-//     if (localStorage.getItem('token')){
-//       dispatch(dataUserLoggedIn());
+    const userData = useSelector (state => state.user)
+    const dispatch = useDispatch();
+    useEffect(() => {
+    if (localStorage.getItem('token')){
+      dispatch(dataUserLoggedIn());
       
-//     }
-//     }, []);
+    }
+    }, []);
+
+    // const course = useSelector (state => state.course)
+    // useEffect(() => {
+    //   dispatch(dataCourse());
+    // }, []);
+    // console.log(course, 'item course')
+
     return(
         <div>
             <Jumbotron />
@@ -29,9 +37,11 @@ function Home() {
             {/* </Row> */}
             </div>
             </Container>
-            <LearnCard />
-
+            <LearnCard/>
+            { userData.role ? 
+            null :
             <JumbotronBot />
+            }
         </div>
     )
 }
