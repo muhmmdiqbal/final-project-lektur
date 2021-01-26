@@ -46,7 +46,7 @@ const Header = () => {
               <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
             </NavDropdown>
           { userData.name ? 
-          <Nav.Link as={Link} to="/StudentDashboard">{userData.name}</Nav.Link> :
+          <Nav.Link as={Link} to="/TeacherDashboard">{userData.name}</Nav.Link> :
           <Nav.Link as={Link} to="/Teacher">For Teacher  </Nav.Link> 
         } 
           
@@ -54,10 +54,11 @@ const Header = () => {
           <Navbar.Brand href="/"><Image className='logo' src={userData.image} alt='' /></Navbar.Brand> :
           <div className="garis">
           <Nav.Link as={Link} to="/Login">Login </Nav.Link>
-          <Button variant="dark" as={Link} to="/SignUp">Sign Up</Button>
           </div>
         } 
           </Nav>
+          
+          <Button variant="dark" as={Link} to="/SignUp">Sign Up</Button>
         
         </Navbar>
       </div>

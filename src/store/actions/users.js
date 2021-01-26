@@ -41,9 +41,9 @@ import ACTION from '../types';
     payload: payload
   });
 
-  export const getCourse = payload => ({
+  export const dataCourse = () => ({
     type: ACTION.GET_COURSE,
-    payload: payload
+    // payload: payload
   })
 
   export const getCourseFailure = errors => ({

@@ -14,15 +14,17 @@ export default {
             window.location.href ="/"
             })
             .catch(error => error),
-        course: item =>
+        getCourse: (data) =>
         axios.get('https://lektur.kuyrek.com/courses/all', 
         { 
-            image: item.image, 
-            title: item.title, 
-            description: item.description, 
-            category: item.category,
+            id: data.id,
+            name: data.user.name,
+            image: data.image, 
+            title: data.title, 
+            description: data.description, 
+            category: data.category,
 
-        }).then(res => res.data.user),
+        }).then(res => res.data.data)
         
     }
 };
