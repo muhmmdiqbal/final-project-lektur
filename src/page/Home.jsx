@@ -8,13 +8,14 @@ import LearnCard from '../components/Card';
 
 
 function Home() {
-//   const dispatch = useDispatch();
-//   useEffect(() => {
-//     if (localStorage.getItem('token')){
-//       dispatch(dataUserLoggedIn());
+    const userData = useSelector (state => state.user)
+    const dispatch = useDispatch();
+    useEffect(() => {
+    if (localStorage.getItem('token')){
+      dispatch(dataUserLoggedIn());
       
-//     }
-//     }, []);
+    }
+    }, []);
     return(
         <div>
             <Jumbotron />
@@ -30,8 +31,10 @@ function Home() {
             </div>
             </Container>
             <LearnCard />
-
+            { userData.role ? 
+            null :
             <JumbotronBot />
+            }
         </div>
     )
 }

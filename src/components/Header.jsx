@@ -9,6 +9,7 @@ import {
   Navbar, 
   Image, 
   Col, 
+  Row,
   Form, 
   FormControl, 
   Nav, 
@@ -32,29 +33,36 @@ const Header = () => {
     return (
       <div className="borderNav">
         <Navbar sticky='top' expand='lg'>
-          <Navbar.Brand href="/"><Image className='logo' src={logo} alt='logo app' /></Navbar.Brand>
-            {/* <Container> */}
-          <Col>
-            <Form className="search" action='SearchResult'>
-              <FormControl type="text" placeholder="Search course or lecturer" />
-            </Form> 
-          </Col>
-          <Nav className="justify-content-end">
-            <NavDropdown title="Category" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="catProgramming">Programming</NavDropdown.Item>
-              <NavDropdown.Item href="catGame">Game</NavDropdown.Item>
-              <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
-            </NavDropdown>
-          { userData.name ? 
-          <Nav.Link as={Link} to="/Teacher">{userData.name}</Nav.Link> :
-          <Nav.Link as={Link} to="/Teacher">For Teacher  </Nav.Link> 
-          
-          }
-          
-          <div className="garis"></div>
-          <Nav.Link as={Link} to="/Login">Login </Nav.Link>
-          </Nav>
-          <Button variant="dark" as={Link} to="/SignUp">Sign Up</Button>
+              <Navbar.Brand className='mr-auto' href="/">
+                <Image className='logo' src={logo} alt='logo app' />
+              </Navbar.Brand>
+              <Form className="search " action='SearchResult'>
+                <Nav>
+                  <FormControl className='searchForm' type="text" placeholder="Search course or lecturer" />
+                  <button className='searchButton'>Search</button>
+                </Nav>
+              </Form> 
+              <Nav className='mr-3 ml-auto'>
+                <NavDropdown title="Category" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="catProgramming">Programming</NavDropdown.Item>
+                  <NavDropdown.Item href="catGame">Game</NavDropdown.Item>
+                  <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
+                </NavDropdown>
+                { userData.role ? 
+                <Nav.Link as={Link} to="/StudentDashboard">{userData.name}</Nav.Link> :
+                <div>
+                  <Nav>
+                    <Nav.Link as={Link} to="/Teacher">For Teacher  </Nav.Link> 
+                    <div className="garis"></div>
+                    <Nav.Link as={Link} to="/Login">Login </Nav.Link>
+                  </Nav>
+                </div>
+                }
+                { userData.role ?
+                <Button variant="dark" as={Link} to="/Login">Logout</Button> :
+                <Button variant="dark" as={Link} to="/SignUp">Sign Up</Button>
+                }
+              </Nav>
         </Navbar>
       </div>
     )
