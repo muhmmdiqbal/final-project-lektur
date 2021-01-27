@@ -5,7 +5,7 @@ import { Container, Button } from 'react-bootstrap';
 import Jumbotron from '../components/Jumbotron';
 import JumbotronBot from '../components/JumbotronBot';
 import LearnCard from '../components/Card';
-
+import { dataCourse } from '../store/actions/users'
 
 function Home() {
     const userData = useSelector (state => state.user)
@@ -16,6 +16,13 @@ function Home() {
       
     }
     }, []);
+
+    // const course = useSelector (state => state.course)
+    // useEffect(() => {
+    //   dispatch(dataCourse());
+    // }, []);
+    // console.log(course, 'item course')
+
     return(
         <div>
             <Jumbotron />
@@ -30,7 +37,7 @@ function Home() {
             {/* </Row> */}
             </div>
             </Container>
-            <LearnCard />
+            <LearnCard/>
             { userData.role ? 
             null :
             <JumbotronBot />
