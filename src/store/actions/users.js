@@ -54,6 +54,11 @@ import ACTION from '../types';
     type: ACTION.GET_COURSE,
     errors
   });
+
+  // export const getDataCourse = (payload) => ({
+  //   type: ACTION.GET_DATA_COURSE,
+  //   payload: payload
+  // })
   // export const fetchCurrentUserRequest = () => ({
   //   type: FETCH_CURRENT_USER_REQUEST
   // });

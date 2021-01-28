@@ -16,13 +16,14 @@ export function* createUserSignUp({payload}) {
 }
 
 export function* getDataCourse() {
-   
-        const user = yield call(api.user.getCourse);
-        yield put(getCourseSuccess(user));
-     }
-    // const user = yield call(api.user.getCourse)
+    const user = yield call(api.user.getCourse);
+    yield put(getCourseSuccess(user));
+}
 
-    // yield put(userLoggedIn(user))}
+// export function* getDataCourseSuccess({payload}) {
+//     const user = yield call(api.user.getCourse, payload);
+//     yield put(getDataCourse(user));
+// }
 
 export function* createUserLogIn({payload}) {
 
