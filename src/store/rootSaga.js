@@ -6,6 +6,7 @@ import {
     createUserSignUp, 
     getUserSaga, 
     getDataCourse, 
+    getDataStudent,
     addDataCourse, 
     addDataLesson 
 } from "./sagas/usersSagas";
@@ -15,6 +16,7 @@ export default function* rootSaga() {
     yield takeLatest(ACTION.USER_LOG_IN, createUserLogIn);
     yield takeLatest(ACTION.GET_USER, getUserSaga);
     yield takeLatest(ACTION.GET_COURSE, getDataCourse);
+    yield takeLatest(ACTION.GET_STUDENT, getDataStudent);
     yield takeLatest(ACTION.ADD_COURSE, addDataCourse);
     yield takeLatest(ACTION.ADD_LESSON, addDataLesson);
 }

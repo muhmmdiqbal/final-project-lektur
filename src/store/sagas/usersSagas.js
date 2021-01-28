@@ -43,11 +43,9 @@ export function* addDataLesson({payload}) {
 }
 
 export function* getDataCourse() {
-   
-        const user = yield call(api.user.getCourse);
-        yield put(getCourseSuccess(user));
-     }
-    // const user = yield call(api.user.getCourse)
+    const user = yield call(api.user.getCourse);
+    yield put(getCourseSuccess(user));
+}
 
     // yield put(userLoggedIn(user))}
 export function* getDataStudent() {

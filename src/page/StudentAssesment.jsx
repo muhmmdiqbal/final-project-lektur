@@ -1,108 +1,126 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import {Row, Col, Image, Button } from 'react-bootstrap'
 import '../App.css'
 import logo from '../components/assets/logo.png'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { dataUserLoggedIn, dataCourse } from '../store/actions/users'
+import { selectCurrentUser } from '../App';
 import { 
     Link
   } from 'react-router-dom';
 import NavStudent from './NavStudent'
 
-class StudentAssesment extends Component {
-    constructor(){
-        super()
-        this.state = {
-            items: []
-        }
-    }
+// class StudentDashboard extends Component {
+//     constructor(){
+//         super()
+//         this.state = {
+//             items: []
+//         }
+//     }
 
 
-    componentDidMount(){
-        fetch("https://randomuser.me/api/?results=1&nat=de")
-        .then(res => res.json())
-        .then(parsedJSON => parsedJSON.results.map(data => (
-          {
-            thumbnail: `${data.picture.large}`,
-            name: `${data.name.first}`,
-            email : `${data.email}`
-          }
-        )))
-        .then(items => this.setState({
-          items,
-          isLoaded: false
-        }))
-        .catch(error => console.log('parsing failed', error))
-    }
-    render() {
-        const {items } = this.state;
+//     componentDidMount(){
+//         fetch("https://randomuser.me/api/?results=1&nat=de")
+//         .then(res => res.json())
+//         .then(parsedJSON => parsedJSON.results.map(data => (
+//           {
+//             thumbnail: `${data.picture.large}`,
+//             name: `${data.name.first}`,
+//             email : `${data.email}`
+//           }
+//         )))
+//         .then(items => this.setState({
+//           items,
+//           isLoaded: false
+//         }))
+//         .catch(error => console.log('parsing failed', error))
+//     }
+//     render() {
+//         const {items } = this.state;
+const StudentAssesment = () => {
+    const userData = useSelector (state => state.user)
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(dataUserLoggedIn());
+    }, []);
+
+    const courseData = useSelector (state => state.course)
+    // const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(dataCourse());
+    }, []);
+
+    console.log(userData);
     return (
         <div> 
-             {
+             {/* {
               items.length > 0 ? items.map(item => {
               const {thumbnail, name, email} = item;
-               return (
+               return ( */}
             <div className='TeacherDashboard'>  
                 <Row className='dashboardTeacherRow'>
                     <Col className='profileCardTeacherCol'>
+                    
                         <div className='profileCardTeacher'>
-                                <Image src={thumbnail} roundedCircle className='avatar'/>
+                                <Image className="imageProfile" src={userData.image} roundedCircle/>
                             <br/>
                             <br/>
                             <div className='aboutDashboard'>
-                                <h3>{name}</h3>
-                                <p>{email}</p>
-                                <br/>
+                                <h3>{userData.name}</h3>
+                                <p>{userData.email}</p>
+                                
                                 <a>Edit Profile</a>
                             </div>
                         </div>
+                    
                     </Col>
                     <Col>
                         <div className='coursesBox'>
-                            <NavStudent />
-                                {/* <div className='coursesBoxUnderline'>
-                                    <Row className='coursesBoxRow'>
-                                        <Col>
-                                        <h4 className="h4student"><a href="Detail" className="Judul stretched-link">Courses</a></h4>
-                                        </Col>
-                                        <Col>
-                                        <h4><a href="Detail" className="Judul stretched-link">Assesment</a></h4>
-                                        </Col>
-                                    </Row>
-                                </div> */}
+                        <NavStudent />
+
+                                {courseData.map((courseData) => (
                                 <Col className='coursesBoxCol mt-5'>
                                     <Row className='allCourses sm-2'>
-                                        <Col className='m-3'>
+                                        
+                                            
+                                        <Col className=''>
                                             <div>
-                                                <img />
+                                                <img className="imageTeacherDashboard" src={courseData.image}/>
                                             </div>
                                         </Col>
                                         <Col className='coursesLists m-3'> 
                                             <div>
-                                                <h5>Judul</h5>
+                                                <h5>{courseData.title}</h5>
                                                 <br/>
-                                                <p className='keterangan'>Keterangan</p>
-                                                <p className='enrolledStatus'>Enrolled status</p>
+                                                <p className='keterangan text-muted'>By {courseData.user.name}</p>
                                             </div>
                                         </Col>
                                         <Col className='mt-3'>
-                                            <div className='teacherButtons'>
-                                                    <Button className='inviteButton' >Invite</Button>
-                                                    <Button className='editButton'>Edit</Button>
-                                            </div>
+                                            {/* <div className='teacherButtons'>
+                                                    <Button className='inviteButton' variant="outline-warning">Invite</Button>
+                                                    <Button className='editButton' variant="warning">Edit</Button>
+                                            </div> */}
                                         </Col>
                                     </Row>
+                        <br/>
+
                                 </Col>
+                                
+                                        ))}
+
                             </div>
                     </Col>
+                            
                     
                     
                 </Row>
             </div>
-        );
-    }) : null
-  }
+        {/* );
+    }) : null */}
+  
         </div>
     )
-}}
+}
 
 export default StudentAssesment

@@ -8,12 +8,12 @@ import '../App.css';
 import { 
   Navbar, 
   Image, 
-  Col, 
-  Row,
   Form, 
   FormControl, 
   Nav, 
   NavDropdown, 
+  Col,
+  Row,
   Button } from 'react-bootstrap';
 
 import { 
@@ -29,10 +29,10 @@ const Header = () => {
   useEffect(() => {
     dispatch(dataUserLoggedIn());
   }, []);
-  console.log(userData)
+  console.log(userData.image)
     return (
       <div className="borderNav">
-        <Navbar sticky='top' expand='lg'>
+        <Navbar sticky='top' expand='lg' >
               <Navbar.Brand className='mr-auto' href="/">
                 <Image className='logo' src={logo} alt='logo app' />
               </Navbar.Brand>
@@ -43,13 +43,37 @@ const Header = () => {
                 </Nav>
               </Form> 
               <Nav className='mr-3 ml-auto'>
-                <NavDropdown title="Category" id="collasible-nav-dropdown">
+                <NavDropdown title="Category" id="basic-nav-dropdown" alignRight>
                   <NavDropdown.Item href="catProgramming">Programming</NavDropdown.Item>
                   <NavDropdown.Item href="catGame">Game</NavDropdown.Item>
                   <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
                 </NavDropdown>
-                { userData.role ? 
-                <Nav.Link as={Link} to="/TeacherDashboard">{userData.name}</Nav.Link> :
+                <div className="garis"></div>
+                { userData.role ?
+                <Nav className='ml-auto'>
+                  { userData.role === 'teacher' ?
+                  <div>
+                    <NavDropdown title={userData.name} id="basic-nav-dropdown" alignRight>
+                      <NavDropdown.Item as={Link} to='/TeacherDashboard'>My Course</NavDropdown.Item>
+                      <NavDropdown.Item as={Link} >Edit Profile</NavDropdown.Item>
+                      <NavDropdown.Item>Logout</NavDropdown.Item>
+                    </NavDropdown>
+                  </div> :
+                  <div>
+                    <Row >
+                        {/* <img className='headerImageProfile' src={userData.image} />  */}
+                        <NavDropdown title={<img src={userData.image} className='headerImageProfile'/> + userData.name } id="collasible-nav-dropdown" alignRight>
+                          <NavDropdown.Item as={Link} >
+                            <img className='headerImageProfile' src={userData.image} />
+                            <p>See your profile</p>
+                          </NavDropdown.Item>
+                          <NavDropdown.Item as={Link} to='/StudentDashboard'>My Course</NavDropdown.Item>
+                          <NavDropdown.Item>Logout</NavDropdown.Item>
+                        </NavDropdown>
+                    </Row>
+                  </div>
+                  } 
+                </Nav> :
                 <div>
                   <Nav>
                     <Nav.Link as={Link} to="/Teacher">For Teacher  </Nav.Link> 
@@ -58,12 +82,12 @@ const Header = () => {
                   </Nav>
                 </div>
                 }
-                { userData.role ?
-                <Button variant="dark" as={Link} to="/Login">Logout</Button> :
+                { userData.role ? null :
                 <Button variant="dark" as={Link} to="/SignUp">Sign Up</Button>
                 }
               </Nav>
         </Navbar>
+        
       </div>
     )
 }
