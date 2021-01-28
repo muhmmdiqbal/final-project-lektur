@@ -11,6 +11,24 @@ import ACTION from '../types';
     payload: payload
   });
 
+  export const dataAddCourse = payload => ({
+    type: ACTION.ADD_COURSE,
+    payload: payload
+  })
+  export const addCourseSuccess = payload => ({
+    type: ACTION.ADD_COURSE_SUCCESS,
+    payload: payload
+  });
+
+  export const dataAddLesson = payload => ({
+    type: ACTION.ADD_LESSON,
+    payload: payload
+  })
+  export const addLessonSuccess = payload => ({
+    type: ACTION.ADD_LESSON_SUCCESS,
+    payload: payload
+  });
+
   export const signUpSuccess = payload => ({
     type: ACTION.SIGN_UP_SUCCESS,
     payload: payload
@@ -44,11 +62,21 @@ import ACTION from '../types';
     type: ACTION.GET_COURSE_SUCCESS,
     payload: payload
   });
-
+  
   export const dataCourse = () => ({
     type: ACTION.GET_COURSE,
     // payload: payload
-  })
+  });
+
+  export const getStudentSuccess = payload => ({
+    type: ACTION.GET_STUDENT_SUCCESS,
+    payload: payload
+  });
+  
+  export const dataStudent = () => ({
+    type: ACTION.GET_STUDENT,
+    // payload: payload
+  });
 
   export const getCourseFailure = errors => ({
     type: ACTION.GET_COURSE,

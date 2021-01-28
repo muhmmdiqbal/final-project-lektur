@@ -49,7 +49,7 @@ const Header = () => {
                   <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
                 </NavDropdown>
                 { userData.role ? 
-                <Nav.Link as={Link} to="/StudentDashboard">{userData.name}</Nav.Link> :
+                <Nav.Link as={Link} to="/TeacherDashboard">{userData.name}</Nav.Link> :
                 <div>
                   <Nav>
                     <Nav.Link as={Link} to="/Teacher">For Teacher  </Nav.Link> 

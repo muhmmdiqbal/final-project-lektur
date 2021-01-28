@@ -10,8 +10,8 @@ const Footer = () => {
             <Row >
                 <Col >
                     <ul className='list-unstyled'>
-                        <NavLink className='text-dark'><li><strong className="footerstr">COURSE</strong></li></NavLink>
-                        <NavLink className='text-dark'><li className="footerli">Business</li></NavLink>
+                        <NavLink className='text-dark' href="course"><li><strong className="footerstr">COURSE</strong></li></NavLink>
+                        <NavLink className='text-dark' href="business"><li className="footerli">Business</li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Technology</li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Graphic Design</li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Self Development</li></NavLink>

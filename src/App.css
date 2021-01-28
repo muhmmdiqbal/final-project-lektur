@@ -363,7 +363,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
 .dashboardTeacherRow{
   padding-top: 72px;
-  padding-bottom: 174px;
+  padding-bottom: 180px;
   display:flex;
   
 }
@@ -425,11 +425,29 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cardimg {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 .h4student {
   text-align: right;
   padding-right: 20px;
+}
+
+.notFound {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.imageTeacherDashboard {
+  width: 275px;
+  height: 185px;
+}
+
+.imageProfile {
+  width: 150px;
+  height: 150px;
 }

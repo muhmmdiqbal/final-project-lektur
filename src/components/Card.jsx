@@ -2,7 +2,7 @@ import React, { useEffect, Component } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import Detail from '../page/Detail'
 import { dataCourse } from '../store/actions/users'
-import { Card, Container, CardDeck } from 'react-bootstrap'
+import { Card, Container, CardDeck, CardGroup} from 'react-bootstrap'
 // import axios from 'axios'
 // import { 
 //     Switch,
@@ -42,13 +42,14 @@ const LearnCard = ({title = ""}) => {
     return (
     <div>
         <Container >
+        {data.map((data) => (
+            <CardGroup>
             <CardDeck className="cardList">
             <div>
-            
                     <Card className="Card" key={data.id} ><a href="Detail" className="Judul stretched-link">
                         <Card.Img className="cardimg" variant="top" fluid={true} alt="Card image" src={data.image}/></a>
                         <Card.Body>
-                            <Card.Title>{title}</Card.Title>
+                            <Card.Title>{data.title}</Card.Title>
                         <small className="text-muted">{data.name}</small>
                         <Card.Text>{data.description}</Card.Text>
                         </Card.Body>
@@ -56,12 +57,14 @@ const LearnCard = ({title = ""}) => {
                             <small className="text-muted">{data.category}game</small>
                         </Card.Footer>
                     </Card>
-                    
                 
                 
                     </div>
                 <br />
-            </CardDeck><br />
+            </CardDeck>
+            </CardGroup>
+            ))}
+            <br />
         </Container> 
         
     </div>

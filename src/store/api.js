@@ -24,9 +24,27 @@ export default {
             })
             .catch(error => error),
         getCourse: () =>
-            axios.get('https://lektur.kuyrek.com/courses/all').then(res => res.data.data)
-            
+            axios.get('https://lektur.kuyrek.com/courses/all').then(res => res.data.data),
+        addCourse: course =>
+            axios.post('https://lektur.kuyrek.com/courses/create', 
+            { 
+                title: course.title, 
+                overview: course.overview, 
+                image: course.image 
+            } ).then(res => res.data.data).catch(error => error), 
+        addLesson: lesson =>
+            axios.post('https://lektur.kuyrek.com/lessons/create', 
+            { 
+                title: lesson.title, 
+                description: lesson.description, 
+                video: lesson.video,
+                material: lesson.material
+            } ).then(res => res.data.data).catch(error => error),
+        getStudent: () =>
+            axios.get('https://lektur.kuyrek.com/enrolls/get/byTeacherCourse/600079355af27d5219a2345b').then(res => res.data.data),
+        
         }
+        
 };
 
 
