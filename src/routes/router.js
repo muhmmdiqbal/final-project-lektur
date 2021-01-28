@@ -20,6 +20,8 @@ import CatCooking from '../page/CatCooking'
 import StudentDashboard from '../page/StudentDashboard'
 import StudentAssesment from '../page/StudentAssesment'
 import SearchResult from '../components/SearchResult'
+import haha from '../components/assets/haha.jpg';
+import {Image} from 'react-bootstrap'
 
 
 const routes = () => {
@@ -46,7 +48,15 @@ const routes = () => {
 
         <Route render={function() {
           return (
-            <p>Not Found!</p>
+            <div>
+            <br />
+            <br />
+            <h1 className="notFound">Yaaah Not Found!</h1>
+            <Image className="notFound" src={haha}/>
+            <br />
+            <br />
+            <br />
+            </div>
           )
         }} />
       </Switch>

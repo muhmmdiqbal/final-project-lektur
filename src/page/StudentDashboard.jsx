@@ -4,7 +4,7 @@ import '../App.css'
 import logo from '../components/assets/logo.png'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux';
-import { dataUserLoggedIn } from '../store/actions/users'
+import { dataUserLoggedIn, dataCourse } from '../store/actions/users'
 import { selectCurrentUser } from '../App';
 import { 
     Link
@@ -44,6 +44,13 @@ const StudentDashboard = () => {
     useEffect(() => {
       dispatch(dataUserLoggedIn());
     }, []);
+
+    const courseData = useSelector (state => state.course)
+    // const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(dataCourse());
+    }, []);
+
     console.log(userData);
     return (
         <div> 
@@ -56,13 +63,13 @@ const StudentDashboard = () => {
                     <Col className='profileCardTeacherCol'>
                     
                         <div className='profileCardTeacher'>
-                                <Image src={userData.image} roundedCircle className='avatar'/>
+                                <Image className="imageProfile" src={userData.image} roundedCircle/>
                             <br/>
                             <br/>
                             <div className='aboutDashboard'>
                                 <h3>{userData.name}</h3>
                                 <p>{userData.email}</p>
-                                <br/>
+                                
                                 <a>Edit Profile</a>
                             </div>
                         </div>
@@ -70,42 +77,41 @@ const StudentDashboard = () => {
                     </Col>
                     <Col>
                         <div className='coursesBox'>
-                            <NavStudent />
-                                {/* <div className='coursesBoxUnderline'>
-                                    <Row className='coursesBoxRow'>
-                                        <Col>
-                                        <h4 className="h4student"><a href="Detail" className="Judul stretched-link">Courses</a></h4>
-                                        </Col>
-                                        <Col>
-                                        <h4><a href="Detail" className="Judul stretched-link">Assesment</a></h4>
-                                        </Col>
-                                    </Row>
-                                </div> */}
+                        <NavStudent />
+
+                                {courseData.map((courseData) => (
                                 <Col className='coursesBoxCol mt-5'>
                                     <Row className='allCourses sm-2'>
-                                        <Col className='m-3'>
+                                        
+                                            
+                                        <Col className=''>
                                             <div>
-                                                <img />
+                                                <img className="imageTeacherDashboard" src={courseData.image}/>
                                             </div>
                                         </Col>
                                         <Col className='coursesLists m-3'> 
                                             <div>
-                                                <h5>Judul</h5>
+                                                <h5>{courseData.title}</h5>
                                                 <br/>
-                                                <p className='keterangan'>Keterangan</p>
-                                                <p className='enrolledStatus'>Enrolled status</p>
+                                                <p className='keterangan text-muted'>By {courseData.user.name}</p>
                                             </div>
                                         </Col>
                                         <Col className='mt-3'>
                                             {/* <div className='teacherButtons'>
-                                                    <Button className='inviteButton' >Invite</Button>
-                                                    <Button className='editButton'>Edit</Button>
+                                                    <Button className='inviteButton' variant="outline-warning">Invite</Button>
+                                                    <Button className='editButton' variant="warning">Edit</Button>
                                             </div> */}
                                         </Col>
                                     </Row>
+                        <br/>
+
                                 </Col>
+                                
+                                        ))}
+
                             </div>
                     </Col>
+                            
                     
                     
                 </Row>
