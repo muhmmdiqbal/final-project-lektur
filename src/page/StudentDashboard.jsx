@@ -44,7 +44,7 @@ const StudentDashboard = () => {
     useEffect(() => {
       dispatch(dataUserLoggedIn());
     }, []);
-
+    console.log(userData);
     return (
         <div> 
              {/* {
@@ -97,10 +97,10 @@ const StudentDashboard = () => {
                                             </div>
                                         </Col>
                                         <Col className='mt-3'>
-                                            <div className='teacherButtons'>
+                                            {/* <div className='teacherButtons'>
                                                     <Button className='inviteButton' >Invite</Button>
                                                     <Button className='editButton'>Edit</Button>
-                                            </div>
+                                            </div> */}
                                         </Col>
                                     </Row>
                                 </Col>

@@ -24,8 +24,14 @@ export default {
             })
             .catch(error => error),
         getCourse: () =>
-            axios.get('https://lektur.kuyrek.com/courses/all').then(res => res.data.data)
-            
+            axios.get('https://lektur.kuyrek.com/courses/all'  ).then(res => res.data.data)
+        
+            // getCourse: (token) =>
+            // axios.get('https://lektur.kuyrek.com/courses/all', { 
+            //     'headers':
+            //     { 'Authorization' : `Bearer ${token}` } 
+            // } ).then(res => res.data.data)
+
         }
 };
 

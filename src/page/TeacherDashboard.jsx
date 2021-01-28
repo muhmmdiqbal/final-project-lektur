@@ -43,7 +43,7 @@ const TeacherDashboard = () => {
     useEffect(() => {
       dispatch(dataUserLoggedIn());
     }, []);
-
+    console.log(userData);
     return (
         <div> 
              
