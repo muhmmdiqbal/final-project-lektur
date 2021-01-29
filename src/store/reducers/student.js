@@ -1,8 +1,8 @@
 import ACTION from '../types';
 
-export default function course (state = [], action = []) {
+export default function student (state = [], action = []) {
     switch (action.type) {
-        case ACTION.GET_COURSE_SUCCESS:
+        case ACTION.GET_STUDENT_SUCCESS:
              return [...action.payload] ;
         default:
             return state;

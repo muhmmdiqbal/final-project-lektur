@@ -365,7 +365,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
 .dashboardTeacherRow{
   padding-top: 72px;
-  padding-bottom: 174px;
+  padding-bottom: 180px;
   display:flex;
   
 }
@@ -436,6 +436,23 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   padding-right: 20px;
 }
 
+.notFound {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.imageTeacherDashboard {
+  width: 275px;
+  height: 185px;
+}
+
+.imageProfile {
+  width: 150px;
+  height: 150px;
+}
 .footerLogo{
   text-align: right;
 }

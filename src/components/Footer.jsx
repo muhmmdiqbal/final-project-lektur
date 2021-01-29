@@ -9,9 +9,9 @@ const Footer = () => {
         <Container className="footerContainer" fluid>
             <Row className='mr-1 ml-5'>
                 <Col >
-                    <ul className='list-unstyled mr-7'>
-                        <NavLink className='text-dark'><li><strong className="footerstr">COURSE</strong></li></NavLink>
-                        <NavLink className='text-dark'><li className="footerli">Business</li></NavLink>
+                    <ul className='list-unstyled'>
+                        <NavLink className='text-dark' href="course"><li><strong className="footerstr">COURSE</strong></li></NavLink>
+                        <NavLink className='text-dark' href="business"><li className="footerli">Business</li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Technology</li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Graphic Design</li></NavLink>
                         <NavLink className='text-dark'><li className="footerli">Self Development</li></NavLink>

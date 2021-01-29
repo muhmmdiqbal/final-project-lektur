@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { dataStudent } from '../store/actions/users'
 import NavCourse from './NavCourse'
 import { Container, Button, Form, Row, Col } from 'react-bootstrap'
 
 
-const students = () => {
+const Students = () => {
+
+    const studentData = useSelector (state => state.student)
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(dataStudent());
+    }, []);
+    console.log(studentData, 'item student')
+
     return (
         <div>
         <NavCourse />
@@ -21,19 +31,21 @@ const students = () => {
                                 <input className="formInput" type="text" id="fname" name="fname" placeholder="Search"></input>
                                 </div><br/>
                                 <h4>Filter</h4>
-                                <div className="containerForm">
+                                {/* <div className="containerForm">
                                 <input className="formInput" type="text" id="fname" name="fname" placeholder="Choose one"></input>
-                                </div><br/>
+                                </div> */}
+                                <Form.Control as="select">
+                                    <option>Choose one</option>
+                                </Form.Control>
+                                <br/>
                                 <h4>Sort</h4>
-                                <div className="containerForm">
-                                <input  className="formInput" type="dropdown" id="sort" name="cars" placeholder="Choose one"></input>
-                                <select id="sort" name="cars" className="formInput">
-                                    <option value="volvo" className="formInput">Volvo</option>
-                                    {/* <option value="saab">Saab</option>
-                                    <option value="fiat">Fiat</option>
-                                    <option value="audi">Audi</option> */}
-                                </select>
-                                </div><br/>
+                                {/* <div className="containerForm"> */}
+                                {/* <input  className="formInput" type="dropdown" id="sort" name="cars" placeholder="Choose one"></input> */}
+                                <Form.Control as="select">
+                                    <option>Choose one</option>
+                                </Form.Control>
+                                {/* </div> */}
+                                <br/>
                         </Form>         
                 </div>
             </Container>
@@ -44,14 +56,32 @@ const students = () => {
         
             <Container>
                 <div>
-                    <br /><Row><Col>
-                    <h5>Student</h5>
+                    <br />
+                    <Row><Col>
+                    <h5>Students</h5>
                     </Col>
                         <Col>
                         <div className="loginButton">
                             <Button className="accButton" type="submit" class="btn btn-link" href="#Filled">Save Exam</Button>
-                        </div></Col>
-                        </Row><hr />      
+                        </div>
+                        </Col>
+                        </Row><hr /> 
+                        {studentData.map((studentData) => (
+                        <Row>
+                        <Col>
+                        <div>
+                        <h3>{studentData.user.name}</h3>
+                        <p>{studentData.status}</p>
+                        </div>
+                        </Col> 
+                        <Col>
+                        <div>
+                        <h3>{studentData.totalLessonComplete}</h3>
+                        </div>
+                         </Col> 
+                        </Row> 
+                        ))}  
+
                 </div>
             
             </Container>
@@ -64,4 +94,4 @@ const students = () => {
     )
 }
 
-export default students
+export default Students

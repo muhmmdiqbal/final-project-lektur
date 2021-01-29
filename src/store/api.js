@@ -29,11 +29,11 @@ export default {
             axios.get('https://lektur.kuyrek.com/courses/all' ).then(res => res.data.data),
         
         // GET COURSES
-            // getCourse: getCoursesDetail =>
-            // axios.get(`https://lektur.kuyrek.com/courses/
-            // ${
-            //     getCoursesDetail
-            // }` ).then(res => res.data.data),
+            getCourse: getCoursesDetail =>
+            axios.get(`https://lektur.kuyrek.com/courses/
+            ${
+                getCoursesDetail
+            }` ).then(res => res.data.data),
         }
 };
 
