@@ -28,7 +28,6 @@ const Det = (props) => {
                     Are you sure?
                 </Button>
                 </Modal.Footer>
-                
                 <Modal className='kecil' show={show1} onHide={handleClose1}>
                 
                     <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
