@@ -1,12 +1,11 @@
 import React from 'react'
-import { Container, Button, Form, Row, Col, Jumbotron,Image } from 'react-bootstrap'
+import { Container, Button, Form, Row, Col, Jumbotron,Image, ToggleButton } from 'react-bootstrap'
 import NavCourse from './NavCourse'
 import logo from '../components/assets/logo.png'
 
 const newLesson = () => {
     return (
         <div>
-            
         <NavCourse />
         <Jumbotron>
             <Container>

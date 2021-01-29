@@ -40,6 +40,8 @@ import ACTION from '../types';
     type: ACTION.GET_USER_SUCCESS,
     payload: payload
   });
+  
+  // COURSES
   export const getCourseSuccess = payload => ({
     type: ACTION.GET_COURSE_SUCCESS,
     payload: payload
@@ -55,16 +57,7 @@ import ACTION from '../types';
     errors
   });
 
-  // export const getDataCourse = (payload) => ({
-  //   type: ACTION.GET_DATA_COURSE,
-  //   payload: payload
-  // })
-  // export const fetchCurrentUserRequest = () => ({
-  //   type: FETCH_CURRENT_USER_REQUEST
-  // });
-  
-  // export const fetchCurrentUserSuccess = user => ({
-  //   type: FETCH_CURRENT_USER_SUCCESS,
-  //   user
-  // });
-  
+  export const getDataCourse = payload => ({
+    type: ACTION.GET_COURSE_DETAIL,
+    payload: payload
+  })

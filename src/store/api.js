@@ -23,15 +23,17 @@ export default {
             window.location.href ="/"
             })
             .catch(error => error),
-        getCourse: () =>
-            axios.get('https://lektur.kuyrek.com/courses/all'  ).then(res => res.data.data)
         
-            // getCourse: (token) =>
-            // axios.get('https://lektur.kuyrek.com/courses/all', { 
-            //     'headers':
-            //     { 'Authorization' : `Bearer ${token}` } 
-            // } ).then(res => res.data.data)
-
+        // COURSES
+        getCourse: () =>
+            axios.get('https://lektur.kuyrek.com/courses/all' ).then(res => res.data.data),
+        
+        // GET COURSES
+            // getCourse: getCoursesDetail =>
+            // axios.get(`https://lektur.kuyrek.com/courses/
+            // ${
+            //     getCoursesDetail
+            // }` ).then(res => res.data.data),
         }
 };
 

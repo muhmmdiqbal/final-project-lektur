@@ -29,7 +29,7 @@ const Header = () => {
   useEffect(() => {
     dispatch(dataUserLoggedIn());
   }, []);
-  console.log(userData.image)
+  console.log(userData)
     return (
       <div className="borderNav">
         <Navbar sticky='top' expand='lg' >

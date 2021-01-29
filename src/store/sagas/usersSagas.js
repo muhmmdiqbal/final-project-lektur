@@ -15,16 +15,6 @@ export function* createUserSignUp({payload}) {
     }
 }
 
-export function* getDataCourse() {
-    const user = yield call(api.user.getCourse);
-    yield put(getCourseSuccess(user));
-}
-
-// export function* getDataCourseSuccess({payload}) {
-//     const user = yield call(api.user.getCourse, payload);
-//     yield put(getDataCourse(user));
-// }
-
 export function* createUserLogIn({payload}) {
 
     try {
@@ -43,3 +33,15 @@ export function* getUserSaga () {
         yield put(createUserFailure(err.message));
     }
 }
+
+// COURSES
+export function* getDataCourse() {
+    const user = yield call(api.user.getCourse);
+    yield put(getCourseSuccess(user));
+}
+
+export function* getCoursesDetail({payload}) {
+    const user = yield call(api.user.getCourse, payload);
+    yield put(getDataCourse(user));
+}
+

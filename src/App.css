@@ -236,10 +236,6 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
 
-.cardList{
-  padding-top: 62px;
-}
-
 .suggestionCard{
   margin-top: -62px;
 }
@@ -451,6 +447,27 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .headerImageProfile{
-  border-radius: 300px;
   width: 120px;
+}
+
+.CardContent{
+  margin-top: 25px;
+}
+
+.kecil .modal-dialog{
+  width: 250px !important;
+  margin: auto !important;
+  text-align: center !important;
+  margin-top: 50px !important;
+  padding-bottom: 20px !important;
+}
+
+.kecil .modal-content{
+  height: 150px;
+  padding-bottom: 20px;
+}
+
+.confirmationButton, 
+.confirmationButton1{
+  margin: 10px;
 }

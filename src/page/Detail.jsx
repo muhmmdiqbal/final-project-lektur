@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState, Component } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDataCourse } from '../store/actions/users';
 import { Jumbotron, Card, Button, Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
 import logo from '../components/assets/logo.png'
 import CardPage from '../components/Card'
 
 
-function Detail() {
+function Detail( props ) {
+    const params = useParams ();
+    console.log(params.id, 'ini id');
     return(
         <div>
             <div className="detailBody">
                 <Jumbotron fluid className="jumbotronDetail">
                 <Container>
-                    <p>Art & Humanity</p>
-                    <h1>Create Cinematic Music Video</h1>
-                    <h4>By Justin Junaedi</h4>
+                    <p></p>
+                    <h1></h1>
+                    <h4></h4>
                     <p><Button variant="warning">Enroll now</Button></p>
                 </Container>
 
