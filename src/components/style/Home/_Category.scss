@@ -1,0 +1,26 @@
+.category {
+  margin-top: 64px;
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: $primary-color;
+  }
+  .col {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn {
+    padding: 10px 24px;
+    margin: 0px 24px;
+    color: $heading-color;
+    border: 1px solid $heading-color;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 24px;
+  }
+}

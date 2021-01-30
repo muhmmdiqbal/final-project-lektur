@@ -1,0 +1,48 @@
+.logo {
+  height: 4rem;
+}
+
+.dropdown {
+  &:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+.navbar {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  background-color: $bg-color-primary;
+  &::after {
+    height: 50px;
+  }
+}
+
+.navbar-nav {
+  .dropdown-item {
+    font-size: 14px;
+    font-weight: 500;
+    color: $paragraphColor;
+  }
+  .btn {
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+  }
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 14px;
+  color: $paragraphColor;
+  p {
+    font-weight: 700;
+    margin-bottom: auto;
+  }
+}
+
+.garis {
+  border-left: 1px solid $primary-color;
+  height: 36px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

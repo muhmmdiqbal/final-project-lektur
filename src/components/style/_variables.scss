@@ -1,0 +1,29 @@
+// color
+$primary-color: black;
+$paragraphColor: black;
+$border-color: #16213B;
+$heading-color: #EF9C27;
+$footer-link-color: #2D2D2D;
+$card-border: #E6E6E6;
+$card-text-top: #3E89AE;
+
+// bg-color
+$bg-color-primary: #FFF;
+
+// bg-image
+$bg-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/image/jumbotron.webp);
+$card-bg-cat: rgba(240, 166, 62, 0.2);
+$bg-regist: url(/src/components/assets/image/jumbotronBot.jpg);
+
+// logo
+$logo: url('../assets/image/logo.png');
+
+// font
+$font-stack: 'Montserrat', sans-serif;
+
+// btn-mixin
+@mixin button() {
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 2px;
+}

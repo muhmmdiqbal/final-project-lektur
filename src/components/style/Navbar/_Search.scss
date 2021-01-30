@@ -1,0 +1,41 @@
+@mixin formFocus() {
+  box-shadow: none !important;
+  outline: none !important;
+  color: none !important;
+  border: none !important;
+}
+
+.search {
+  border: 1px solid $border-color;
+  width: 500px;
+  height: 38px;
+  margin-left: 50px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.searchButton {
+  margin-right: 20px;
+  padding-top: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  width: 17px;
+  height: 17px;
+  &:focus {
+    @include formFocus();
+  }
+}
+
+.searchForm {
+  border-style: none !important;
+  outline-style: none !important;
+  font-size: 14px;
+  &:focus {
+    @include formFocus();
+  }
+  &::placeholder {
+    font-size: 11px;
+    align-items: center;
+  }
+}
