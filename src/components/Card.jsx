@@ -1,15 +1,27 @@
-import React, { useEffect, Component } from 'react';
+import React, { useEffect, Component, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataCourse } from '../store/actions/users'
 import { Card, Container, CardDeck } from 'react-bootstrap'
+import axios from 'axios';
 
 const LearnCard = () => {
-    const courses = useSelector (state => state.course);
-    const dispatch = useDispatch();
+    // const courses = useSelector (state => state.course);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //   dispatch(dataCourse());
+    // }, []);
+
+    const [course, setCourse] = useState(null);
+    let {courseId} = useParams();
     useEffect(() => {
-      dispatch(dataCourse());
+        const urlCourse = `https://lektur.kuyrek.com/courses/${courseId}`;
+        axios.get(urlCourse).then(res => {
+        setCourse(res.data);
+        })
     }, []);
-    console.log(courses, 'item course')
+    let courseDetail;
+    course === null ? courseDetail = null : courseDetail = course.course[0];
+    console.log(course, 'item course')
                 return (
                     <div>
                         <Container>
@@ -18,7 +30,7 @@ const LearnCard = () => {
                             <div key={idx}>
                                 <Card className="Card" >
                                     <Card.Img className="cardimg" variant="top" fluid='true' src={course.image} />
-                                    <a href="Detail" className="Judul stretched-link">
+                                    <a href="Detail" className="Judul stretched-link" onClick={getCourseId}>
                                     </a>
                                     <Card.Body>
                                         <Card.Title>{course.title}</Card.Title>
