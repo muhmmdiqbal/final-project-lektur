@@ -1,42 +1,12 @@
 import React, { useEffect } from "react";
 import {Row, Col, Image, Button } from 'react-bootstrap'
 import '../App.css'
-import logo from '../components/assets/logo.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { dataUserLoggedIn, dataCourse } from '../store/actions/users'
-import { selectCurrentUser } from '../App';
-import axios from 'axios'
 import { 
     Link
   } from 'react-router-dom';
 
-// class TeacherDashboard extends Component {
-//     constructor(){
-//         super()
-//         this.state = {
-//             items: []
-//         }
-//     }
-
-
-//     componentDidMount(){
-//         fetch("https://randomuser.me/api/?results=1&nat=de")
-//         .then(res => res.json())
-//         .then(parsedJSON => parsedJSON.results.map(data => (
-//           {
-//             thumbnail: `${data.picture.large}`,
-//             name: `${data.name.first}`,
-//             email : `${data.email}`
-//           }
-//         )))
-//         .then(items => this.setState({
-//           items,
-//           isLoaded: false
-//         }))
-//         .catch(error => console.log('parsing failed', error))
-//     }
-//     render() {
-//         const {items } = this.state;
 const TeacherDashboard = () => {
     const userData = useSelector (state => state.user)
     const dispatch = useDispatch();
@@ -44,13 +14,11 @@ const TeacherDashboard = () => {
       dispatch(dataUserLoggedIn());
     }, []);
     const courseData = useSelector (state => state.course)
-    // const dispatch = useDispatch();
     useEffect(() => {
       dispatch(dataCourse());
     }, []);
     console.log(courseData, 'item course')
     console.log(userData, 'item user')
-
     return (
         <div> 
              

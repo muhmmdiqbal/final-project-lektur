@@ -1,6 +1,6 @@
 import ACTION from '../types';
   
-
+  
   export const userLoggedIn = user => ({
     type: ACTION.SIGN_UP_SUCCESS,
     user
@@ -9,6 +9,16 @@ import ACTION from '../types';
   export const signUpRequest = payload => ({
     type: ACTION.SIGN_UP_REQUEST,
     payload: payload
+  });
+
+  //SIGN UP TEACHER
+  export const teacherSignUpRequest = payload => ({
+    type: ACTION.SIGN_UP_REQUEST_TEACHER,
+    payload: payload
+  });
+
+  export const userLoggedOut = () => ({
+    type: ACTION.USER_LOG_OUT
   });
 
   export const dataAddCourse = payload => ({
@@ -44,11 +54,6 @@ import ACTION from '../types';
     payload: payload
   });
 
-  export const createUserLogOut = payload => ({
-    type: ACTION.USER_LOG_OUT,
-    payload: payload
-  });
-
   export const dataUserLoggedIn = () => ({
     type: ACTION.GET_USER,
     // payload: payload
@@ -67,9 +72,8 @@ import ACTION from '../types';
   
   export const dataCourse = () => ({
     type: ACTION.GET_COURSE,
-    // payload: payload
   });
-
+  
   export const getStudentSuccess = payload => ({
     type: ACTION.GET_STUDENT_SUCCESS,
     payload: payload
@@ -87,5 +91,10 @@ import ACTION from '../types';
 
   export const getDataCourse = payload => ({
     type: ACTION.GET_COURSE_DETAIL,
+    payload: payload
+  })
+
+  export const getCourseDetail = payload => ({
+    type: ACTION.GET_COURSE_DETAIL_SUCCESS,
     payload: payload
   })

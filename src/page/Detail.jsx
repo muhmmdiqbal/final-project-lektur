@@ -4,47 +4,55 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDataCourse } from '../store/actions/users';
 import { Jumbotron, Card, Button, Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
-import logo from '../components/assets/logo.png'
 import CardPage from '../components/Card'
 
 
 function Detail( props ) {
-    const params = useParams ();
-    console.log(params.id, 'ini id');
+    const detailCourse = useSelector (state => state.detailcourse)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getDataCourse( props.match.params.id ));
+      }, []);
+    console.log(detailCourse, 'ini coursenya')
+    console.log(props.match.params.id, 'ini parameternya')
+    if (detailCourse.loaded === false) {
+        return (null)
+    }
     return(
         <div>
             <div className="detailBody">
-                <Jumbotron fluid className="jumbotronDetail">
-                <Container>
-                    <p></p>
-                    <h1></h1>
-                    <h4></h4>
-                    <p><Button variant="warning">Enroll now</Button></p>
+                <Jumbotron fluid className="jumbotronDetail" style={{ backgroundImage: `url(${detailCourse.image})`, backgroundSize: 'cover', backgroundWidth: '1265', backgroundHeight: '100%' }}>
+                    {/* style={{ backgroundImage: `url(${detailCourse.image})`, backgroundSize: 'cover' }} */}
+                <Container className='containerJumbotron'>
+                    <p className="text-white">{detailCourse.category}</p>
+                    <h1 className="text-white">{detailCourse.title}</h1>
+                    <h4 className="text-white">Create by: {detailCourse.user.name}</h4>
+                    <br/><br/>
+                    <Button variant="warning" className="text-white"> ENROLL NOW </Button>
                 </Container>
-
                 </Jumbotron>
                 <Container>
 
                 <Card className="detailCard">
-
                     <Card.Body>
+                        <Row className='detailCardImage' style={{ backgroundImage: `url(${detailCourse.image})`, backgroundSize: 'cover' }}></Row>
+                        <br/>
                         <Row className="insightCourse">
                             <Col>
-                                <h1>14</h1>
-                                <p2>Learning videos</p2>
+                                <h1>{detailCourse.lesson}</h1>
+                                <p2>Lesson</p2>
                             </Col>
                             <Col>
-                                <h1>12</h1>
-                                <p2>Learning Music</p2>
+                                <h1>{detailCourse.material}</h1>
+                                <p2>Material</p2>
                             </Col>
                         </Row>
-                        <br/>
                         <br/>
                         <Row className="contentInsight">
                             <h5>Content</h5>
                         </Row>
                         <Row>
-                        <div className="courseList">
+                        <div className="courseList" >
                             <Row>
                                 <div className="containerContent">
                                     <p><a href="#/Detail">Lesson #1:</a></p>
@@ -74,21 +82,22 @@ function Detail( props ) {
 
                 <div className="containerDescription">
                 <Container>
-
                     <h2>Description</h2>
                         <div className="containerText">
-                            <p>Nascetur consequat quam tellus sed convallis amet, nunc. Venenatis, eget faucibus iaculis facilisi pellentesque eleifend mattis vel. Nunc euismod morbi lectus aliquam pretium, pharetra, tellus orci. Lobortis at nulla dictum risus amet. Nunc dolor sit vitae arcu facilisis eu. Tortor, turpis arcu in est. Ullamcorper fringilla ut tempus nulla dolor lorem proin porta neque. Neque eu lorem ultrices id. Et mattis lacus fermentum id nec, aenean enim, curabitur. Enim, donec quis odio ut enim scelerisque id erat laoreet. Vitae sodales rhoncus, et ut ut. Amet, porttitor adipiscing nullam mauris. Lobortis interdum imperdiet mauris pharetra risus proin etiam est.</p>
+                            <p>{detailCourse.description}</p>
                         </div>
-                </Container>
-                        
+                </Container> 
                 </div>
                 <div className="containerSuggestion">
+                    <br/>
                     
-                    <h3>Related Course</h3><br/><br/>
-                        <div className="suggestionCard">
-                            <CardPage />
-                            <br/>
-                        </div>
+                    <div className="suggestionCard">
+                        <Container>  
+                            <h3 className='relatedCourse'>Related Course</h3>
+                        </Container>
+                        <CardPage />
+                        <br/>
+                    </div>
                         
                 </div>
             </div>

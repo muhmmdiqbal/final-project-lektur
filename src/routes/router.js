@@ -20,6 +20,7 @@ import CatCooking from '../page/CatCooking'
 import StudentDashboard from '../page/StudentDashboard'
 import StudentAssesment from '../page/StudentAssesment'
 import SearchResult from '../components/SearchResult'
+import Det from '../page/Det';
 import haha from '../components/assets/haha.jpg';
 import {Image} from 'react-bootstrap'
 

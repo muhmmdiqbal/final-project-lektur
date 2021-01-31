@@ -28,13 +28,10 @@ function Home() {
             <Jumbotron />
             <Container><br />
             <h1>What to learn next</h1>
-            <div className="teacher">
-            {/* <Row className="teacher"> */}
-                <Button variant="outline-warning">Programming</Button>{' '}
-                <Button variant="outline-warning">Game</Button>{' '}
+            <div>
+                <Button variant="outline-warning"  className="paginationButton">Programming</Button>{' '}
+                <Button variant="outline-warning"  className="paginationButton">Game</Button>{' '}
                 <Button variant="outline-warning">Cooking</Button>{' '}
-
-            {/* </Row> */}
             </div>
             </Container>
             <LearnCard/>

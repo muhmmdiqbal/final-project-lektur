@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { dataUserLoggedIn } from '../store/actions/users'
-import { selectCurrentUser } from '../App';
+import { useSelector } from 'react-redux';
 import logo from './assets/logo.png';
 import '../App.css';
 
@@ -23,13 +21,13 @@ import {
 } from 'react-router-dom';
 
 
-const Header = () => {
+const Header = (props) => {
   const userData = useSelector (state => state.user)
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(dataUserLoggedIn());
-  }, []);
-  console.log(userData)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    window.location.href='/'
+};
     return (
       <div className="borderNav">
         <Navbar sticky='top' expand='lg' >
@@ -43,32 +41,36 @@ const Header = () => {
                 </Nav>
               </Form> 
               <Nav className='mr-3 ml-auto'>
-                <NavDropdown title="Category" id="basic-nav-dropdown" alignRight>
+                <NavDropdown className='mr-2' title="Category" id="basic-nav-dropdown" alignRight>
                   <NavDropdown.Item href="catProgramming">Programming</NavDropdown.Item>
                   <NavDropdown.Item href="catGame">Game</NavDropdown.Item>
                   <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
                 </NavDropdown>
-                <div className="garis"></div>
                 { userData.role ?
                 <Nav className='ml-auto'>
                   { userData.role === 'teacher' ?
                   <div>
-                    <NavDropdown title={userData.name} id="basic-nav-dropdown" alignRight>
-                      <NavDropdown.Item as={Link} to='/TeacherDashboard'>My Course</NavDropdown.Item>
-                      <NavDropdown.Item as={Link} >Edit Profile</NavDropdown.Item>
-                      <NavDropdown.Item>Logout</NavDropdown.Item>
-                    </NavDropdown>
+                    <Row>
+                      <div className="garis"></div>
+                      <NavDropdown title={userData.name} id="basic-nav-dropdown" alignRight>
+                        <NavDropdown.Item as={Link} to='/TeacherDashboard'>My Course</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} >Edit Profile</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleSubmit}>Logout</NavDropdown.Item>
+                      </NavDropdown>
+                    </Row>
                   </div> :
                   <div>
                     <Row >
-                        {/* <img className='headerImageProfile' src={userData.image} />  */}
-                        <NavDropdown title={<img src={userData.image} className='headerImageProfile'/> + userData.name } id="collasible-nav-dropdown" alignRight>
+                        <div className="garis"></div>
+                        <NavDropdown className='headerProfileDropDown' title={ <><img src={userData.image} className='headerImageProfileOutside'/> {userData.name}</>} 
+                        id="collasible-nav-dropdown" alignRight
+                        >
                           <NavDropdown.Item as={Link} >
                             <img className='headerImageProfile' src={userData.image} />
                             <p>See your profile</p>
                           </NavDropdown.Item>
                           <NavDropdown.Item as={Link} to='/StudentDashboard'>My Course</NavDropdown.Item>
-                          <NavDropdown.Item>Logout</NavDropdown.Item>
+                          <NavDropdown.Item onClick={handleSubmit}>Logout</NavDropdown.Item>
                         </NavDropdown>
                     </Row>
                   </div>
@@ -83,7 +85,7 @@ const Header = () => {
                 </div>
                 }
                 { userData.role ? null :
-                <Button variant="dark" as={Link} to="/SignUp">Sign Up</Button>
+                <Button variant="dark" as={Link} to="/SignUp" className='mr-auto ml-3'>Sign Up</Button>
                 }
               </Nav>
         </Navbar>
