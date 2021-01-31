@@ -20,6 +20,7 @@ import CatCooking from '../page/CatCooking'
 import StudentDashboard from '../page/StudentDashboard'
 import StudentAssesment from '../page/StudentAssesment'
 import SearchResult from '../components/SearchResult'
+import Det from '../page/Det';
 import haha from '../components/assets/haha.jpg';
 import {Image} from 'react-bootstrap'
 
@@ -31,7 +32,7 @@ const routes = () => {
         <Route exact path='/Teacher' component={Teacher} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/SignUp' component={SignUp} />
-        <Route exact path='/Detail' component={Detail} />
+        <Route exact path='/Detail/:id' component={Detail} />
         <Route exact path='/TeacherDashboard' component={TeacherDashboard} />
         <Route exact path='/NavCourse' component={NavCourse} />
         <Route exact path='/Course' component={Course} />
@@ -45,7 +46,7 @@ const routes = () => {
         <Route exact path='/StudentDashboard' component={StudentDashboard} />
         <Route exact path='/StudentAssesment' component={StudentAssesment} />
         <Route exact path='/SearchResult' component={SearchResult} />
-
+        <Route exact path='/Det' component={Det} />
         <Route render={function() {
           return (
             <div>

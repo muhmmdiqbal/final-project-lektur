@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpRequest, createUserFailure } from '../store/actions/users';
-import { Button} from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 
 
 const SignUp = () => {
+    const signUpStatus = useSelector (state => state.user)
     const [userData, setUserData] = useState ({
         name: "",
         email: "",
@@ -18,13 +19,31 @@ const SignUp = () => {
 
     const dispatch = useDispatch();
     const [ isError, setIsError] = useState ( false );
+    const [ show, setShow ] = useState(false);
+    const [ notif, setNotif ] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleClose1 = () => setNotif(false);
+
+    useEffect (() => {
+        if (signUpStatus.status === 'Signup success!'){
+            setShow(true);
+        } 
+    }, [signUpStatus]);
+
+
+    console.log(signUpStatus, 'error')
+    useEffect (() => {
+        if (signUpStatus.errorMessages !== ''){
+            setNotif(true);
+        } 
+    }, [signUpStatus]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
             setIsError ('Password Confirmation Do Not Match!')
         }
-    dispatch(signUpRequest({name, email, password}));
+        dispatch(signUpRequest({name, email, password}));
     };
 
     const handleChange = (e) => {
@@ -40,6 +59,28 @@ const SignUp = () => {
     return (
         <div className="signUp-background">
             <div className="container-signUp">
+            <Modal show={notif} onHide={handleClose1}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                        <Modal.Body>Seems like you're using the registered email that have already used.</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose1}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                        <Modal.Body>Your Account was successfuly made! <br/>Please check your email.</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose} href='/Login' >
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
                 <h4>Start Learning!</h4>
                 <p>Create your account</p>
                 <div>
@@ -66,7 +107,8 @@ const SignUp = () => {
                         <br/><br/>
                         <div className="SignUp-button">
                             <Button className="accButton" type="submit" class="btn btn-link">Sign Up</Button>
-                        </div><br/>
+                        </div>
+                        <br/>
                         <div classNmae="loginQuestion">Already have an account? <a href="Login">Login</a></div>
                     </form>
                 </div>
