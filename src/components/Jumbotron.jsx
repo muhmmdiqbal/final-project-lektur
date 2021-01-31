@@ -21,13 +21,13 @@ const enroll = () => {
                     </Col>
                     <Col>
                     <Card><a href="Detail" className="Judul stretched-link">
-                        <Card.Img className="jumbotronVid" variant="large" src={logo} /></a>
+                        <Card.Img className="jumbotronVid" variant="large" src="https://lektur.kuyrek.com/imgCourses/f3bd3ed6c5060d3c2da5bc97b42f9e77.jpg" /></a>
                         <Card.Body>
                             <Row>
                                 <Col>
                                 
-                            <Card.Title>Sales and marketing master class<br/>
-                            <small className="text-muted">Susan sarah</small>
+                            <Card.Title>MMR explanation for noob<br/>
+                            <small className="text-muted">John Doe</small>
 
                             </Card.Title>
                             </Col>
