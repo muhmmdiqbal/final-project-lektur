@@ -6,6 +6,7 @@ $heading-color: #EF9C27;
 $footer-link-color: #2D2D2D;
 $card-border: #E6E6E6;
 $card-text-top: #3E89AE;
+$form-input-border: #9F9F9F;
 
 // bg-color
 $bg-color-primary: #FFF;
@@ -27,3 +28,12 @@ $font-stack: 'Montserrat', sans-serif;
     font-weight: 700;
     border-radius: 2px;
 }
+
+// form-mixin
+@mixin formFocus() {
+    box-shadow: none !important;
+    outline: none !important;
+    color: none !important;
+    border: none !important;
+  }
+  

@@ -10874,11 +10874,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: 500;
   font-size: 14px;
   color: black;
-}
-
-.nav-link p {
-  font-weight: 700;
-  margin-bottom: auto;
+  margin: 0px 32px;
 }
 
 .garis {
@@ -10964,13 +10960,13 @@ a.text-dark:hover, a.text-dark:focus {
   color: #EF9C27;
   font-size: 14px;
   font-weight: 700;
-  padding-left: 15px;
 }
 
 .footerli {
   color: #2D2D2D;
   font-size: 12px;
   font-weight: 400;
+  margin-left: -48px;
 }
 
 .jumbotronTop {
@@ -11105,63 +11101,132 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 24px;
 }
 
-.courselist {
+.cardList {
   margin-top: 48px;
 }
 
-.courselist .card {
-  width: 270px;
+.cardList .card {
+  position: auto;
+  width: 250px;
   border: 1px solid #e6e6e6;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-right: -24px;
-  margin-top: 35px;
 }
 
-.courselist .card .card-title {
+.cardList .card .card-title {
   font-size: 16px;
   font-weight: bold;
   color: black;
 }
 
-.courselist .card .card-title .writer {
+.cardList .card .card-title .writer {
   font-size: 14px;
   font-weight: 400;
+  margin-top: 5px;
 }
 
-.courselist .card .card-title .note {
+.cardList .card .card-title .note {
+  margin-top: 5px;
   font-size: 12px;
   font-weight: 400;
 }
 
-.courselist .card .card-body .card-text {
+.cardList .card .card-body .card-text {
   font-size: 14px;
   font-weight: 400;
   color: black;
 }
 
-.courselist .card .catcard {
+.cardList .card .card-footer {
   background-color: rgba(240, 166, 62, 0.2);
 }
 
-.courselist .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.cardList .card .card-footer .card-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+}
+
+.container-login {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(245, 245, 245, 0.9)), to(rgba(245, 245, 245, 0.9))), url(/src/components/assets/image/jumbotron.webp);
+  background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/image/jumbotron.webp);
+  background-size: cover;
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.container-login .card {
+  width: 531px;
+  margin: auto;
+  background-color: white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #E6E6E6;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 40px 42px 42px 50px;
+}
+
+.container-login .card .card-title {
+  color: #16213B;
+}
+
+.container-login .card .card-title h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.container-login .card .card-title p {
+  font-size: 18px;
+}
+
+.container-login .card .formInput {
+  width: 100%;
+  border-style: none;
+  border-bottom: 1px solid #9F9F9F;
+}
+
+.container-login .card .formInput:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: none !important;
+  color: none !important;
+}
+
+.container-login .card .form-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+}
+
+.container-login .card .form-label span {
+  color: red;
+}
+
+.container-login .card .btn {
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+  margin-top: 50px;
+  background-color: #16213B;
+  border-color: #16213B;
+  margin-right: -125px;
+}
+
+.container-login .card .new {
+  margin-top: 100px;
+}
+
+.container-login .card .card-text {
+  font-size: 14px;
+  color: black;
+}
+
+.btnsign {
+  float: inline-end;
 }
 
 * {

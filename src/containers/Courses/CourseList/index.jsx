@@ -1,89 +1,55 @@
-import React from 'react';
-import { Container, Card, Row, Col } from 'react-bootstrap';
-import '../../../components/style/App.css'
+import React, { useEffect } from 'react';
+import { Container, Card, CardDeck } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { dataCourse } from '../../../store/actions';
 
-const CourseList = () => {
+import '../../../components/style/App.css';
+
+const CourseList = ({
+    course,
+    dataCourse
+}) => {
+
+    useEffect(() => {
+        dataCourse();
+    }, [dataCourse]);
+
     return (
-        <Container className="courselist">
-            <Row>
-                <Col>
-                    <Card>
-                        <Card.Img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" alt="Image" />
-                        <Card.Body>
-                            <Card.Title>Course <br />
-                                <small className="writer text-muted">John Doe</small><br />
-                                <small className="note text-muted">15 Videos &nbsp;&nbsp;&nbsp;&nbsp; 3 Learning Material</small>
-                            </Card.Title>
-                            <Card.Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, enim. Dolorem autem voluptatum quos illum eum. Repellat atque, officia ducimus cupiditate corporis laboriosam, cum, esse sed earum deserunt ut dolore.</Card.Text>
-                        </Card.Body>
-                        <Card.Body className="catcard">
-                            <Card.Text>Alala</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card>
-                        <Card.Img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" alt="Image" />
-                        <Card.Body>
-                            <Card.Title>Course <br />
-                                <small className="writer text-muted">John Doe</small><br />
-                                <small className="note text-muted">15 Videos &nbsp;&nbsp;&nbsp;&nbsp; 3 Learning Material</small>
-                            </Card.Title>
-                            <Card.Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, enim. Dolorem autem voluptatum quos illum eum. Repellat atque, officia ducimus cupiditate corporis laboriosam, cum, esse sed earum deserunt ut dolore.</Card.Text>
-                        </Card.Body>
-                        <Card.Body className="catcard">
-                            <Card.Text>Alala</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card>
-                        <Card.Img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" alt="Image" />
-                        <Card.Body>
-                            <Card.Title>Course <br />
-                                <small className="writer text-muted">John Doe</small><br />
-                                <small className="note text-muted">15 Videos &nbsp;&nbsp;&nbsp;&nbsp; 3 Learning Material</small>
-                            </Card.Title>
-                            <Card.Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, enim. Dolorem autem voluptatum quos illum eum. Repellat atque, officia ducimus cupiditate corporis laboriosam, cum, esse sed earum deserunt ut dolore.</Card.Text>
-                        </Card.Body>
-                        <Card.Body className="catcard">
-                            <Card.Text>Alala</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card>
-                        <Card.Img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" alt="Image" />
-                        <Card.Body>
-                            <Card.Title>Course <br />
-                                <small className="writer text-muted">John Doe</small><br />
-                                <small className="note text-muted">15 Videos &nbsp;&nbsp;&nbsp;&nbsp; 3 Learning Material</small>
-                            </Card.Title>
-                            <Card.Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, enim. Dolorem autem voluptatum quos illum eum. Repellat atque, officia ducimus cupiditate corporis laboriosam, cum, esse sed earum deserunt ut dolore.</Card.Text>
-                        </Card.Body>
-                        <Card.Body className="catcard">
-                            <Card.Text>Alala</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card>
-                        <Card.Img src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ" alt="Image" />
-                        <Card.Body>
-                            <Card.Title>Course <br />
-                                <small className="writer text-muted">John Doe</small><br />
-                                <small className="note text-muted">15 Videos &nbsp;&nbsp;&nbsp;&nbsp; 3 Learning Material</small>
-                            </Card.Title>
-                            <Card.Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, enim. Dolorem autem voluptatum quos illum eum. Repellat atque, officia ducimus cupiditate corporis laboriosam, cum, esse sed earum deserunt ut dolore.</Card.Text>
-                        </Card.Body>
-                        <Card.Body className="catcard">
-                            <Card.Text>Alala</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+        <React.Fragment>
+            <Container>
+                <CardDeck className="cardList">
+                    {course && course.map((v, index) => (
+                        <div key={index}>
+                            <Card className="h-100">
+                                <Card.Img className="cardimg" variant="top" fluid='true' src={v.image} />
+                                <Card.Body>
+                                    <Card.Title>{v.title} <br />
+                                        <Card.Text className="writer">{v.user.name}</Card.Text>
+                                        <span className="note">{v.lesson} Videos &nbsp;&nbsp;&nbsp;&nbsp; {v.material} Learning Material</span>
+                                    </Card.Title>
+                                    <Card.Text>{v.description}</Card.Text>
+                                </Card.Body>
+                                <Card.Footer>
+                                    <Card.Text>{v.category}</Card.Text>
+                                </Card.Footer>
+                            </Card>
+                        </div>
+                    ))}
+                </CardDeck>
+            </Container>
+        </React.Fragment>
     )
-}
+};
 
-export default CourseList;
+const mapStateToProps = state => ({
+    course: state.course
+});
+
+const mapDispatchToProps = {
+    dataCourse,
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CourseList);

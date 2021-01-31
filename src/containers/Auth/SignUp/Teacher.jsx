@@ -6,14 +6,14 @@ import '../../../components/style/App.css';
 import Header from '../../../components/Navbar/Header';
 import Footer from '../../../components/Footer';
 
-const SignUp = () => {
+const SignUpTeacher = () => {
     return (
         <React.Fragment>
             <Header />
             <Container className="container-login" fluid>
                 <Card>
                     <Card.Title>
-                        <h4>Start Learning!</h4>
+                        <h4>Start Teaching!</h4>
                         <p>Create your account</p>
                     </Card.Title>
                     <Form>
@@ -45,4 +45,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp;
+export default SignUpTeacher;

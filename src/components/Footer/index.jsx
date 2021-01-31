@@ -3,6 +3,8 @@ import { Row, Col, NavLink, Container, Image } from 'react-bootstrap';
 import logo from '../assets/image/logo.png';
 import '../style/App.css';
 
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
     return (
         <div>
@@ -34,7 +36,7 @@ const Footer = () => {
                         </ul>
                     </Col>
                     <Col className="footerli float-right">
-                        <NavLink><Image src={logo} className='logo' alt="/" /></NavLink>
+                        <NavLink as={Link} to="/"><Image src={logo} className='logo' alt="/" /></NavLink>
                             Lektur © 2020. All rights reserved
                     </Col>
                 </Row>

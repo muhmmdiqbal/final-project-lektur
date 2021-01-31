@@ -1,32 +1,43 @@
 import React from 'react';
-import { Card, Container, Form } from 'react-bootstrap';
+import { Card, Container, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import '../../../components/style/App.css';
+
+import Header from '../../../components/Navbar/Header';
+import Footer from '../../../components/Footer';
 
 const Login = () => {
     return (
-        <Container className="logIn-background">
-            <Card className="container-logIn">
-                <Card.Title>
-                <h4>Welcome Back!</h4>
-                <p>Login to your account</p>
-                </Card.Title>
+        <React.Fragment>
+            <Header />
+            <Container className="container-login" fluid>
+                <Card>
+                    <Card.Title>
+                        <h4>Welcome Back!</h4>
+                        <p>Login to your account</p>
+                    </Card.Title>
                     <Form>
-                        <p>Email*</p>
-                        <div className="containerForm">
-                            <input className="formInput" value={email} onChange={handleChange} type="email" id="email" name="email" placeholder="john@doe.com" required></input>
-                        </div><br />
-                        <p>Password*</p>
-                        <div className="containerForm">
-                            <input className="formInput" value={password} onChange={handleChange} type="password" id="password" name="password" placeholder="********" required></input>
-                        </div>
-                        <div className="forgotPass">
-                            <a href="StudentDashboard">Forgot Password</a>
-                        </div><br /><br />
-                        <div className="loginButton">
-                            <Button className="accButton" type="submit" class="btn btn-link" >Login</Button>
-                        </div><br />
-                        <div>New user? <a href="TeacherDashboard">Create an account</a></div>
+                        <Form.Group>
+                            <Form.Label>Email<span>*</span></Form.Label>
+                            <Form.Control className="formInput" type="email" id="email" name="email" placeholder="john@doe.com" required />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Password<span>*</span></Form.Label>
+                            <Form.Control className="formInput" type="password" id="password" name="password" placeholder="********" required />
+                            <Card.Text className="float-right">
+                                <a href="/">Forgot Password</a>
+                        </Card.Text>
+                        </Form.Group>
+                        <Button className="float-right" type="submit">Login</Button>
+                        <Form.Group>
+                            <Card.Text className="new">New user? <Link to="/Signup">Create an account</Link></Card.Text>
+                        </Form.Group>
                     </Form>
-            </Card>
-        </Container>
+                </Card>
+            </Container>
+            <Footer />
+        </React.Fragment>
     )
 }
+
+export default Login;
