@@ -40,6 +40,10 @@ export default {
         // COURSES
         getCourse: () =>
             axios.get('https://lektur.kuyrek.com/courses/all' ).then(res => res.data.data),
+
+        // COURSES CATEGORY
+        getCourseCategory: getCategory =>
+            axios.get(`https://lektur.kuyrek.com/courses/find/byCategory?key=${getCategory}` ).then(res => res.data.data),
         
         // GET COURSES
         getCourseDataDetail: getCoursesDetail =>

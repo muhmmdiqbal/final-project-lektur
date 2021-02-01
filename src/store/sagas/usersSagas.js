@@ -9,6 +9,7 @@ import {
     addLessonSuccess,
     getStudentSuccess,
     getCourseDetail,
+    getCourseCategorySuccess
  } from '../actions/users';
 import api from '../api';
 // import history from '../history';
@@ -68,6 +69,13 @@ export function* getCourseData({payload}) {
     const user = yield call(api.user.getCourseDataDetail, payload);
     console.log(user, 'ini apa gitu')
     yield put(getCourseDetail(user))
+}
+
+// COURSES CATEGORY
+export function* getDataCourseCategory({payload}) {
+    const user = yield call(api.user.getCourseCategory, payload);
+    console.log(user, 'ini category')
+    yield put(getCourseCategorySuccess(user));
 }
 
 // ADD DATA

@@ -377,7 +377,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
 .Card {
   position: auto;
-width: 250px;
+width: 240px;
 height: 420px;
 background: #FFFFFF;
 /* Soft Grey */
@@ -586,4 +586,17 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 /* Home */
 .paginationButton{
   margin-right: 15px;
+}
+
+.dashboardTabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 120%;
+    color: rgb(0, 0, 0);
+  text-decoration: none;
+  display: inline-block;
+  float: none;
+  border-bottom: 0px solid transparent;
 }
