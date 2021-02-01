@@ -92,6 +92,16 @@ import ACTION from '../types';
   })
   export const getLessonsDetail = payload => ({
     type: ACTION.GET_LESSONS_SUCCESS,
+  // COURSES CATEGORY
+  })
+  
+  export const getCourseCategorySuccess = payload => ({
+    type: ACTION.GET_COURSE_CATEGORY_SUCCESS,
+    payload: payload
+  });
+  
+  export const dataCourseCategory = (payload) => ({
+    type: ACTION.GET_COURSE_CATEGORY,
     payload: payload
   });
   

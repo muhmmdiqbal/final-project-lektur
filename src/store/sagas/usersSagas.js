@@ -9,6 +9,7 @@ import {
     addLessonSuccess,
     getStudentSuccess,
     getCourseDetail,
+    getCourseCategorySuccess
  } from '../actions/users';
 import api from '../api';
 // import history from '../history';
@@ -72,6 +73,13 @@ export function* getCourseData({payload}) {
 export function* getLessons({payload}) {
     const user = yield call(api.user.getLesson, payload);
     yield put(getLessonsDetail(user));
+}
+
+// COURSES CATEGORY
+export function* getDataCourseCategory({payload}) {
+    const user = yield call(api.user.getCourseCategory, payload);
+    console.log(user, 'ini category')
+    yield put(getCourseCategorySuccess(user));
 }
 
 // ADD DATA

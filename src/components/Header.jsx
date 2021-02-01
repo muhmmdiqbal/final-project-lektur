@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  { dataUserLoggedIn } from '../store/actions/users';
 import logo from './assets/logo.png';
+import { dataCourse, getDataCourse } from '../store/actions/users'
 import '../App.css';
 
 import { 
@@ -24,17 +25,23 @@ import {
 
 const Header = () => {
   const userData = useSelector (state => state.user)
-  const dispatch = useDispatch();
+  const category = ['Cooking' , 'Game' , 'Programming'];
   const handleSubmit = async (e) => {
     e.preventDefault();
     localStorage.removeItem('token');
-    window.location.href='/'  
-  };
+    window.location.href='/'
+};
+  const dispatch = useDispatch();
   useEffect(() => {
-    if (localStorage.getItem('token')){
-      dispatch(dataUserLoggedIn());
-    }
+    dispatch(dataCourse());
   }, []);
+
+const handleCategory = category =>  e  => {
+    e.preventDefault();
+    window.location.href =`/Category/${category}`
+  };
+  console.log(category, 'item category')
+
     return (
       <div className="borderNav">
         <Navbar sticky='top' expand='lg' >
@@ -47,12 +54,15 @@ const Header = () => {
                   <button className='searchButton'>Search</button>
                 </Nav>
               </Form> 
-              <Nav className='mr-3 ml-auto'>
+              <Nav className='mr-3 ml-auto' >
+              
                 <NavDropdown className='mr-2' title="Category" id="basic-nav-dropdown" alignRight>
-                  <NavDropdown.Item href="catProgramming">Programming</NavDropdown.Item>
-                  <NavDropdown.Item href="catGame">Game</NavDropdown.Item>
-                  <NavDropdown.Item href="catCooking">Cooking</NavDropdown.Item>
-                </NavDropdown>
+                {category.map((category, idx) => (
+                  <NavDropdown.Item key={idx} onClick={handleCategory (category)}>{category}</NavDropdown.Item>
+               
+                  ))}
+                  </NavDropdown>
+                
                 { userData.role ?
                 <Nav className='ml-auto'>
                   { userData.role === 'teacher' ?
