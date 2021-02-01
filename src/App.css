@@ -57,20 +57,8 @@ body {
   margin-right: 10px ;
 }
 
-.jumbotronTop {
-  background-image: linear-gradient(0deg, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), url(/src/components/assets/jumbotron.webp);
-  background-size: cover;
-  height: 200%;
-  width: 100%;
-  margin-bottom: 0 !important;
-}
-.jumbotronBot {
-  background-image: url(/src/components/assets/jumbotronBot.jpg);
-  background-size: cover;
-  height: 50vh;
-  width: 100%;
-  margin-bottom: 0 !important;
-}
+
+
 
 .container-signUp{
   width: 531px;
@@ -166,21 +154,11 @@ body {
   padding-top: 56px;
 }
 
-.containerDescription{
-  margin-top: 60px;
-  margin-left: 30px;
-  margin-bottom: 72px;
-}
+
 
 .containerText{
   width: 520px;
   text-align: justify;
-}
-
-@media (min-width: 1200px){
-  .containerSuggestion h3{
-    margin-left: 170px;
-  }
 }
 
 @media only screen and (min-width: 1360px){
@@ -194,13 +172,9 @@ body {
     margin-bottom: 45px;
     padding-top: 21px;
     background: #FFFFFF;
-/* Soft Grey */
-
-border: 1px solid #E6E6E6;
-box-sizing: border-box;
-/* Default */
-
-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E6E6E6;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   }
 
 }
@@ -236,13 +210,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
 
-.cardList{
-  padding-top: 62px;
-}
 
-.suggestionCard{
-  margin-top: -62px;
-}
 
 .backgroundTeacher {
   background-color: #F5F5F5;
@@ -256,17 +224,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   padding-bottom: 64px;
 }
 
-.detailCard{
-  width: 474px;
-  height: 498px;
-  position: relative;
-  margin-right: 30px;
-  margin-left: auto;
-  margin-bottom: -274px;
-  margin-top: -226px;
-  border: 1px solid #E6E6E6;
-  box-sizing: border-box;
-}
+
 
 .jumbotronDetail{
   border-bottom: 1px solid rgba(0, 0, 0, 0.034);
@@ -292,6 +250,8 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
 .courseList{
   margin: auto !important;
+  overflow-y: scroll;
+  height: 120px;
 }
 
 .contentInsight{
@@ -468,12 +428,175 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .headerImageProfile{
-  border-radius: 300px;
   width: 120px;
 }
 
-.tabs {
-  color: black;
-  background-color: transparent;
+.CardContent{
+  margin-top: 25px;
+}
+
+.confirmationButton, 
+.confirmationButton1{
+  margin: 10px;
+}
+
+.headerProfileDropDown
+.dropdown-toggle{
+  margin-top: -10px;
+  margin-bottom: -20px;
+}
+
+.headerImageProfileOutside{
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.dropdown-menu{
+  margin-top: 25px !important;
+}
+
+
+/* SearchBar */
+
+
+/* Detail Page */
+@media only screen and (max-width: 1366px){
+
+  .containerJumbotron{
+    margin-left: 5vh !important;
+  }
+
+  .containerDescription{
+    margin-left: -13vh;
+  }
+
+  .detailCard{
+    margin-right: -7vh;
+  }
+
+  .relatedCourse{
+    margin-left: -6vh !important;
+  }
+
+}
+
+/* big Screen */
+@media only screen and (min-width: 1366px){
+
+  .containerJumbotron{
+    margin-left: 20vh !important;
+  }
+
+  .containerDescription{
+    margin-left: -18vh;
+  }
+
+  .detailCard{
+    margin-right: -10vh;
+  }
+
+  .relatedCourse{
+    margin-left: -9vh !important;
+  }
+
+}
+
+.detailCardImage{
+  width: 390px;
+  height: 260px;
+  margin: auto !important;
+  border-radius: 3px;
+  background-size: cover;
+}
+
+.containerJumbotron{
+  background-color: rgba(0, 0, 0, 0.425) !important;
+  border-radius: 5px;
+  width: 570px !important;
+  margin-bottom: -10px !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.containerJumbotron p{
+  font-size: 20px;
+  margin-bottom: -5px;
+}
+
+.detailCard{
+  width: 474px;
+  height: 625px;
+  position: relative;
+  margin-left: auto;
+  margin-bottom: -324px;
+  margin-top: -315px;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  padding-top: 15px;
+}
+
+.containerDescription{
+  margin-top: 60px;
+  margin-bottom: 72px;
+  height: 250px;
+}
+
+.suggestionCard{
+  margin-top: -62px;
+}
+
+.jumbotronDetail{
+  background-size: cover !important;
+}
+
+/* Jumbotron */
+/* Top */
+.judulHome{
+  margin-top: 120px;
+  margin-left: -15px;
+}
+
+.judulHome h1{
+  font-size: 50px;
+}
+
+.jumbotronTop {
+  background-image: linear-gradient(rgb(228, 225, 225), rgba(0, 0, 0, 0)), url(/src/components/assets/jumbotron.webp);
+  background-size: cover;
+  height: 200%;
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+
+/* Bot */
+.judulJumbotronBottom{
+  margin-top: 70px;
+}
+
+.jumbotronBot {
+  background-image: linear-gradient(rgba(241, 231, 231, 0.322), rgba(0, 0, 0, 0)), url(/src/components/assets/jumbotronBot.jpg);
+  background-size: cover;
+  height: 50vh;
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+
+/* Home */
+.paginationButton{
+  margin-right: 15px;
+}
+
+.dashboardTabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 120%;
+    color: rgb(0, 0, 0);
   text-decoration: none;
+  display: inline-block;
+  float: none;
+  border-bottom: 0px solid transparent;
 }

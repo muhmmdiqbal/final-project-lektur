@@ -1,21 +1,27 @@
 import axios from 'axios';
-// import user from './reducers/user';
 
 export default {
     user: {
-        getData: () =>
-            axios.get('https://lektur.kuyrek.com/userProfile', 
-            { 
-                'headers': 
-                { 'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }}).then(res => res.data.data),
+        
+        // STUDENT SIGN UP
         signUp: user =>
             axios.post('https://lektur.kuyrek.com/signup', 
             { 
                 name: user.name, 
                 email: user.email, 
                 password: user.password 
-            } ).then(res => res.data.token).catch(error => error),
+            } ).then(res => res.data.status).catch(error => error),
+        
+        //TEACHER SIGN UP
+        teacherSignUp: teacher =>
+            axios.post('https://lektur.kuyrek.com/signupTeacher',
+            {
+                name: teacher.name,
+                email: teacher.email,
+                password: teacher.password
+            }).then(res => res.data.status).catch(error => error),
+
+        //USER LOGIN
         logIn: credentials =>
             axios.post('https://lektur.kuyrek.com/login', { email: credentials.email, password: credentials.password }).then(res => res.data.token).then((token)=> {
             setTimeout(console.log('masuk'), 500)
@@ -23,28 +29,33 @@ export default {
             window.location.href ="/"
             })
             .catch(error => error),
+
+        getData: () =>
+            axios.get('https://lektur.kuyrek.com/userProfile', 
+            { 
+                'headers': 
+                { 'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }}).then(res => res.data.data),
+            
+        // COURSES
         getCourse: () =>
-            axios.get('https://lektur.kuyrek.com/courses/all').then(res => res.data.data),
-        addCourse: course =>
-            axios.post('https://lektur.kuyrek.com/courses/create', 
-            { 
-                title: course.title, 
-                overview: course.overview, 
-                image: course.image 
-            } ).then(res => res.data.data).catch(error => error), 
-        addLesson: lesson =>
-            axios.post('https://lektur.kuyrek.com/lessons/create', 
-            { 
-                title: lesson.title, 
-                description: lesson.description, 
-                video: lesson.video,
-                material: lesson.material
-            } ).then(res => res.data.data).catch(error => error),
-        getStudent: () =>
-            axios.get('https://lektur.kuyrek.com/enrolls/get/byTeacherCourse/600079355af27d5219a2345b').then(res => res.data.data),
+            axios.get('https://lektur.kuyrek.com/courses/all' ).then(res => res.data.data),
+
+        // COURSES CATEGORY
+        getCourseCategory: getCategory =>
+            axios.get(`https://lektur.kuyrek.com/courses/find/byCategory?key=${getCategory}` ).then(res => res.data.data),
         
-        }
-        
+        // GET COURSES
+        getCourseDataDetail: getCoursesDetail =>
+            axios.get(`https://lektur.kuyrek.com/courses/${getCoursesDetail}` ).then(res => res.data.data).catch(error =>error.message),
+
+    }
+        // getCourseDataDetail: getCoursesDetail =>
+        //     axios.get(`https://lektur.kuyrek.com/courses/${getCoursesDetail}` ).then(res => res.data.data).then((course)=> 
+        //     {
+        //         window.location.href =`/Detail/${course.id}`
+        //     }).catch(error =>error.message)
+        // }
 };
 
 

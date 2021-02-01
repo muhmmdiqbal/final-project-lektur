@@ -7,10 +7,10 @@ const enroll = () => {
     <div>
         <Jumbotron fluid className="jumbotronBot">
             <Container>
-                <h1>Create your own class</h1>
-                <p>
+                <div className='judulJumbotronBottom'>
+                    <h1>Create your own class</h1>
                     <Button variant="dark" href="#Teacher">Register now</Button>
-                </p>
+                </div>
             </Container>
         </Jumbotron>
     </div>

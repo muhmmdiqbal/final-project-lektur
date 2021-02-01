@@ -9,15 +9,9 @@ const enroll = () => {
         <Jumbotron fluid className="jumbotronTop">
             <Container>
                 <Row>
-                    <Col>
-                    <h1>Bring your class at home</h1>
-                    {/* <p>
-                        This is a simple hero unit, a simple jumbotron-style component for calling
-                        extra attention to featured content or information.
-                    </p> */}
-                    <p>
-                    <Button variant="dark">Enroll now</Button>
-                    </p>
+                    <Col className='judulHome'>
+                        <h1>Bring your class at home</h1>
+                        <Button variant="dark"> Enroll now </Button>
                     </Col>
                     <Col>
                     <Card><a href="Detail" className="Judul stretched-link">

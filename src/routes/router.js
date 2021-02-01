@@ -14,12 +14,10 @@ import Assesment from '../page/Assesment'
 import NewLesson from '../page/NewLesson'
 import Students from '../page/Students'
 import Filled from '../page/Filled'
-import CatProgramming from '../page/CatProgramming'
-import CatGame from '../page/CatGame'
-import CatCooking from '../page/CatCooking'
 import StudentDashboard from '../page/StudentDashboard'
 import StudentAssesment from '../page/StudentAssesment'
 import SearchResult from '../components/SearchResult'
+import Category from '../page/Category';
 import haha from '../components/assets/haha.jpg';
 import {Image} from 'react-bootstrap'
 
@@ -31,7 +29,7 @@ const routes = () => {
         <Route exact path='/Teacher' component={Teacher} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/SignUp' component={SignUp} />
-        <Route exact path='/Detail' component={Detail} />
+        <Route exact path='/Detail/:id' component={Detail} />
         <Route exact path='/TeacherDashboard' component={TeacherDashboard} />
         <Route exact path='/NavCourse' component={NavCourse} />
         <Route exact path='/Course' component={Course} />
@@ -39,13 +37,10 @@ const routes = () => {
         <Route exact path='/Students' component={Students} />
         <Route exact path='/NewLesson' component={NewLesson} />
         <Route exact path='/Filled' component={Filled} />
-        <Route exact path='/CatProgramming' component={CatProgramming} />
-        <Route exact path='/CatGame' component={CatGame} />
-        <Route exact path='/CatCooking' component={CatCooking} />
         <Route exact path='/StudentDashboard' component={StudentDashboard} />
         <Route exact path='/StudentAssesment' component={StudentAssesment} />
         <Route exact path='/SearchResult' component={SearchResult} />
-
+        <Route exact path='/Category/:category' component={Category} />
         <Route render={function() {
           return (
             <div>

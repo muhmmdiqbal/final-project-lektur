@@ -1,6 +1,6 @@
 import ACTION from '../types';
   
-
+  
   export const userLoggedIn = user => ({
     type: ACTION.SIGN_UP_SUCCESS,
     user
@@ -9,6 +9,16 @@ import ACTION from '../types';
   export const signUpRequest = payload => ({
     type: ACTION.SIGN_UP_REQUEST,
     payload: payload
+  });
+
+  //SIGN UP TEACHER
+  export const teacherSignUpRequest = payload => ({
+    type: ACTION.SIGN_UP_REQUEST_TEACHER,
+    payload: payload
+  });
+
+  export const userLoggedOut = () => ({
+    type: ACTION.USER_LOG_OUT
   });
 
   export const dataAddCourse = payload => ({
@@ -44,11 +54,6 @@ import ACTION from '../types';
     payload: payload
   });
 
-  export const createUserLogOut = payload => ({
-    type: ACTION.USER_LOG_OUT,
-    payload: payload
-  });
-
   export const dataUserLoggedIn = () => ({
     type: ACTION.GET_USER,
     // payload: payload
@@ -58,6 +63,8 @@ import ACTION from '../types';
     type: ACTION.GET_USER_SUCCESS,
     payload: payload
   });
+  
+  // COURSES
   export const getCourseSuccess = payload => ({
     type: ACTION.GET_COURSE_SUCCESS,
     payload: payload
@@ -65,9 +72,19 @@ import ACTION from '../types';
   
   export const dataCourse = () => ({
     type: ACTION.GET_COURSE,
-    // payload: payload
   });
 
+  // COURSES CATEGORY
+  export const getCourseCategorySuccess = payload => ({
+    type: ACTION.GET_COURSE_CATEGORY_SUCCESS,
+    payload: payload
+  });
+  
+  export const dataCourseCategory = (payload) => ({
+    type: ACTION.GET_COURSE_CATEGORY,
+    payload: payload
+  });
+  
   export const getStudentSuccess = payload => ({
     type: ACTION.GET_STUDENT_SUCCESS,
     payload: payload
@@ -83,16 +100,14 @@ import ACTION from '../types';
     errors
   });
 
-  // export const getDataCourse = (payload) => ({
-  //   type: ACTION.GET_DATA_COURSE,
-  //   payload: payload
-  // })
-  // export const fetchCurrentUserRequest = () => ({
-  //   type: FETCH_CURRENT_USER_REQUEST
-  // });
-  
-  // export const fetchCurrentUserSuccess = user => ({
-  //   type: FETCH_CURRENT_USER_SUCCESS,
-  //   user
-  // });
+  export const getDataCourse = payload => ({
+    type: ACTION.GET_COURSE_DETAIL,
+    payload: payload
+  })
+
+  export const getCourseDetail = payload => ({
+    type: ACTION.GET_COURSE_DETAIL_SUCCESS,
+    payload: payload
+  })
+
   
