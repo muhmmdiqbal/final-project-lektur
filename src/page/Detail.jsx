@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Component } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDataCourse } from '../store/actions/users';
+import { getDataCourse, getCoursesLessons } from '../store/actions/users';
 import { Jumbotron, Card, Button, Container, Row, Col } from 'react-bootstrap'
 import '../App.css'
 import CardPage from '../components/Card'
@@ -9,13 +9,19 @@ import CardPage from '../components/Card'
 
 function Detail( props ) {
     const detailCourse = useSelector (state => state.detailcourse)
+    const detailLessons = useSelector (state => state.lessonscourse)
+    const userData = useSelector (state => state.user)
     const dispatch = useDispatch();
+    console.log(userData, 'udah login')
     useEffect(() => {
         dispatch(getDataCourse( props.match.params.id ));
+        dispatch(getCoursesLessons( props.match.params.id ));
       }, []);
-    console.log(detailCourse, 'ini coursenya')
-    console.log(props.match.params.id, 'ini parameternya')
-    if (detailCourse.loaded === false) {
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    // }
+    if (detailCourse.loaded === false || detailLessons.loaded === false) {
         return (null)
     }
     return(
@@ -53,30 +59,16 @@ function Detail( props ) {
                         </Row>
                         <Row>
                         <div className="courseList" >
-                            <Row>
-                                <div className="containerContent">
-                                    <p><a href="#/Detail">Lesson #1:</a></p>
+                            {detailLessons.lesson.map((lessonscourse, idx) => (
+                            <Row key={idx}>
+                                <div className="containerContent" >
+                                    <p><a href="#/Detail">{lessonscourse.title}</a></p>
                                 </div>
                             </Row>
-                            <Row>
-                                <div className="containerContent"> 
-                                    <p><a href="#/Detail">Lesson #2:</a></p>
-                                </div>
-                            </Row>
-                            <Row>
-                                <div className="containerContent">
-                                    <p><a href="#/Detail">Lesson #1:</a></p>
-                                </div>
-                            </Row>
-                            <Row>
-                                <div className="containerContent">
-                                    <p><a href="#/Detail">Lesson #1:</a></p>
-                                </div>
-                            </Row>
+                            ))}
                         </div>
                         </Row>
                     </Card.Body>
-
                 </Card>
                 </Container>
 
@@ -90,15 +82,13 @@ function Detail( props ) {
                 </div>
                 <div className="containerSuggestion">
                     <br/>
-                    
                     <div className="suggestionCard">
                         <Container>  
                             <h3 className='relatedCourse'>Related Course</h3>
                         </Container>
                         <CardPage />
                         <br/>
-                    </div>
-                        
+                    </div> 
                 </div>
             </div>
         </div>

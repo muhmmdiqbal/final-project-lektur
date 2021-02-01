@@ -13,16 +13,8 @@ function Home() {
     useEffect(() => {
     if (localStorage.getItem('token')){
       dispatch(dataUserLoggedIn());
-      
     }
     }, []);
-
-    // const course = useSelector (state => state.course)
-    // useEffect(() => {
-    //   dispatch(dataCourse());
-    // }, []);
-    // console.log(course, 'item course')
-
     return(
         <div>
             <Jumbotron />
@@ -34,11 +26,14 @@ function Home() {
                 <Button variant="outline-warning">Cooking</Button>{' '}
             </div>
             </Container>
-            <LearnCard/>
+            <div className='homeLearnCard'>
+                <LearnCard />
             { userData.role ? 
-            null :
+            <div className='homeBody'>
+            </div> :
             <JumbotronBot />
             }
+            </div>
         </div>
     )
 }

@@ -16,7 +16,6 @@ const LearnCard = () => {
         e.preventDefault();
         window.location.href =`/Detail/${id}`
     };
-    console.log(courses, 'item course')
         return (
             <div>
                 <Container>

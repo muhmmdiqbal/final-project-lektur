@@ -6,12 +6,14 @@ import addCourse from './reducers/addCourse';
 import student from './reducers/course';
 import addLesson from './reducers/addLesson';
 import detailcourse from './reducers/detailcourse';
+import lessonscourse from './reducers/lessonscourse';
 
 export default combineReducers({
     user,
     formErrors,
     course,
     detailcourse,
+    lessonscourse,
     addCourse,
     addLesson,
     student

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import  { dataUserLoggedIn } from '../store/actions/users';
 import logo from './assets/logo.png';
 import '../App.css';
 
@@ -21,13 +22,19 @@ import {
 } from 'react-router-dom';
 
 
-const Header = (props) => {
+const Header = () => {
   const userData = useSelector (state => state.user)
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     localStorage.removeItem('token');
-    window.location.href='/'
-};
+    window.location.href='/'  
+  };
+  useEffect(() => {
+    if (localStorage.getItem('token')){
+      dispatch(dataUserLoggedIn());
+    }
+  }, []);
     return (
       <div className="borderNav">
         <Navbar sticky='top' expand='lg' >

@@ -3,9 +3,9 @@ import {
     createUserFailure,  
     userLoggedIn, 
     userLoggedInSuccess, 
-    userLoggedOut,
     getCourseSuccess, 
     addCourseSuccess,
+    getLessonsDetail,
     addLessonSuccess,
     getStudentSuccess,
     getCourseDetail,
@@ -64,10 +64,14 @@ export function* getDataCourse() {
 }
 
 export function* getCourseData({payload}) {
-    console.log(payload, 'ini dari dispatch')
     const user = yield call(api.user.getCourseDataDetail, payload);
-    console.log(user, 'ini apa gitu')
-    yield put(getCourseDetail(user))
+    yield put(getCourseDetail(user));
+}
+
+// COURSES LESSONS
+export function* getLessons({payload}) {
+    const user = yield call(api.user.getLesson, payload);
+    yield put(getLessonsDetail(user));
 }
 
 // ADD DATA

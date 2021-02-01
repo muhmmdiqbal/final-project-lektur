@@ -7,9 +7,10 @@ import {
     getUserSaga, 
     getDataCourse,
     getCourseData,
+    getLessons,
     getDataStudent,
     addDataCourse, 
-    addDataLesson 
+    addDataLesson, 
 } from "./sagas/usersSagas";
 
 export default function* rootSaga() {
@@ -24,8 +25,10 @@ export default function* rootSaga() {
     yield takeLatest(ACTION.GET_COURSE, getDataCourse);
     // COURSES DETAIL
     yield takeEvery(ACTION.GET_COURSE_DETAIL, getCourseData);
-    yield takeLatest(ACTION.GET_STUDENT, getDataStudent);
+    //GET LESSONS
+    yield takeLatest(ACTION.GET_LESSONS, getLessons);
     // ADD DATA
     yield takeLatest(ACTION.ADD_COURSE, addDataCourse);
+    yield takeLatest(ACTION.GET_STUDENT, getDataStudent);
     yield takeLatest(ACTION.ADD_LESSON, addDataLesson);
 }

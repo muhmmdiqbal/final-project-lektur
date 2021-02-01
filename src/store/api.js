@@ -36,14 +36,18 @@ export default {
                 'headers': 
                 { 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }}).then(res => res.data.data),
-            
+
         // COURSES
         getCourse: () =>
-            axios.get('https://lektur.kuyrek.com/courses/all' ).then(res => res.data.data),
+            axios.get('https://lektur.kuyrek.com/courses/all').then(res => res.data.data),
         
         // GET COURSES
         getCourseDataDetail: getCoursesDetail =>
-            axios.get(`https://lektur.kuyrek.com/courses/${getCoursesDetail}` ).then(res => res.data.data).catch(error =>error.message),
+            axios.get(`https://lektur.kuyrek.com/courses/${getCoursesDetail}` ).then(res => res.data.data).catch(error => error.message),
+        
+        //GET LESSONS
+        getLesson: getLessonDetail =>
+            axios.get(`https://lektur.kuyrek.com/lessons/byCourse/${getLessonDetail}`).then(res => res.data.data).catch(error => error.message),
 
     }
         // getCourseDataDetail: getCoursesDetail =>
