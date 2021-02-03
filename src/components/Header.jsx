@@ -39,7 +39,7 @@ const handleCategory = category =>  e  => {
     e.preventDefault();
     window.location.href =`/Category/${category}`
   };
-  console.log(category, 'item category')
+  // console.log(courses, 'item course')
 
     return (
       <div className="borderNav">

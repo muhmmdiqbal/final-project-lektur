@@ -1,39 +1,44 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  { dataUserLoggedIn } from '../store/actions/users';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Row, Col, Tab, Tabs, Card, CardDeck } from 'react-bootstrap';
 import Jumbotron from '../components/Jumbotron';
 import JumbotronBot from '../components/JumbotronBot';
 import LearnCard from '../components/Card';
-import { dataCourse } from '../store/actions/users'
+import Category from '../page/Category'
+import { dataCourse, dataCourseCategory } from '../store/actions/users'
 
-function Home() {
+const Home = (props) => {
     const userData = useSelector (state => state.user)
+    const category = ['Cooking' , 'Game' , 'Programming'];
+    const courses = useSelector (state => state.category);
     const dispatch = useDispatch();
     useEffect(() => {
     if (localStorage.getItem('token')){
       dispatch(dataUserLoggedIn());
-      
     }
     }, []);
+    useEffect(() => {
+        dispatch(dataCourseCategory(props.match.params.category));
+    }, []);
 
-    // const course = useSelector (state => state.course)
-    // useEffect(() => {
-    //   dispatch(dataCourse());
-    // }, []);
-    // console.log(course, 'item course')
+    const handleCategory = category =>  e  => {
+        e.preventDefault();
+        window.location.href =`/Category/${category}`
+      };
 
     return(
         <div>
             <Jumbotron />
             <Container><br />
-            <h1>What to learn next</h1>
+            <h1>What to learn next</h1><br/>
             <div>
-                <Button variant="outline-warning" className="paginationButton">Programming</Button>{' '}
-                <Button variant="outline-warning" className="paginationButton">Game</Button>{' '}
-                <Button variant="outline-warning">Cooking</Button>{' '}
+                <Button variant="outline-warning" className="paginationButton" onClick={handleCategory (category[0])}>Cooking</Button>{' '}
+                <Button variant="outline-warning" className="paginationButton" onClick={handleCategory (category[1])}>Game</Button>{' '}
+                <Button variant="outline-warning" className="paginationButton" onClick={handleCategory (category[2])}>Programming</Button>{' '}
             </div>
             </Container>
+            
             <LearnCard/>
             { userData.role ? 
             null :
