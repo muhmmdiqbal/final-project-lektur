@@ -5,13 +5,14 @@ import '../../../components/style/App.css';
 
 import Header from '../../../components/Navbar/Header';
 import Footer from '../../../components/Footer';
+// import Spinner from '../../../components/UI/Spinner';
 
 const Login = () => {
     return (
         <React.Fragment>
             <Header />
             <Container className="container-login" fluid>
-                <Card>
+                <Card data-aos="fade">
                     <Card.Title>
                         <h4>Welcome Back!</h4>
                         <p>Login to your account</p>

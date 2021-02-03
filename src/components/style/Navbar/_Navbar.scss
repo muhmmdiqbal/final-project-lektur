@@ -35,6 +35,10 @@
   font-size: 14px;
   color: $paragraphColor;
   margin: 0px 32px;
+  text-align: center;
+  .selected {
+    font-weight: bold;
+  }
 }
 
 .garis {

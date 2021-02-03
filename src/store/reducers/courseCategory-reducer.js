@@ -1,11 +1,12 @@
 import {
     SET_LOADING,
-    GET_COURSES
+    GET_COURSES_BY_CATEGORY
 } from '../actions/types';
 
 const initialState = {
     loading: false,
-    courses: []
+    coursesByCategory: [],
+    loaded: false
 }
 
 export default(state = initialState, {type, payload}) => {
@@ -15,11 +16,12 @@ export default(state = initialState, {type, payload}) => {
                 ...state,
                 loading: true
             }
-        case GET_COURSES:
+        case GET_COURSES_BY_CATEGORY:
             return {
                 ...state,
-                courses: payload,
-                loading: false
+                coursesByCategory: payload,
+                loading: false,
+                loaded: true
             }
         default:
             return state

@@ -11,7 +11,7 @@ const SignUpTeacher = () => {
         <React.Fragment>
             <Header />
             <Container className="container-login" fluid>
-                <Card>
+                <Card data-aos="fade">
                     <Card.Title>
                         <h4>Start Teaching!</h4>
                         <p>Create your account</p>

@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../style/App.css';
 
 import {
-    NavDropdown
+    NavDropdown,
+    Spinner
 } from 'react-bootstrap';
 
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const DropItem = e => {
-    
+import {
+    GET_COURSES_SUCCESS
+} from '../../../store/actions/types';
+
+const DropItem = ({
+    e,
+    course: { loading, courses },
+    getCourses
+}) => {
+
+    useEffect(() => {
+        getCourses()
+    }, [getCourses])
+
     const [show, setShow] = useState(false);
     const showDropdown = (e) => {
         setShow(!show);
@@ -16,12 +31,31 @@ const DropItem = e => {
         setShow(false);
     }
     return (
-        <NavDropdown title="Category" id="collasible-nav-dropdown" show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
-            <NavDropdown.Item href="/">Programming</NavDropdown.Item>
-            <NavDropdown.Item href="/">Game</NavDropdown.Item>
-            <NavDropdown.Item href="/">Cooking</NavDropdown.Item>
-        </NavDropdown>
+        <React.Fragment>
+            <NavDropdown title="Category" id="collasible-nav-dropdown" show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+                {loading ? <Spinner animation="grow" /> : courses && courses.filter((ele, ind) => ind === courses.findIndex(elem => elem.category === ele.category)).map((v, index) => (
+                    <div key={index}>
+                        <NavDropdown.Item href="/">{v.category}</NavDropdown.Item>
+                    </div>
+                ))}
+            </NavDropdown>
+        </React.Fragment>
     )
 }
 
-export default DropItem;
+DropItem.propTypes = {
+    loading: PropTypes.bool,
+    courses: PropTypes.array,
+    getCourses: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    course: state.course,
+    loading: state.loading
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    getCourses: () => dispatch({ type: GET_COURSES_SUCCESS })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(DropItem)

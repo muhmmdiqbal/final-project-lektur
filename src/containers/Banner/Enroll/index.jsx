@@ -1,47 +1,86 @@
-import React from 'react'
-import { Jumbotron, Card, Button, Container, Row, Col } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Jumbotron, Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import '../../../components/style/App.css';
+
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import {
+    GET_COURSES_SUCCESS
+} from '../../../store/actions/types';
 
 import Video from '../../../components/Video/VideoOption';
 
-const Enroll = () => {
+const Enroll = ({
+    course: { loading, courses },
+    getCourses
+}) => {
+
+    useEffect(() => {
+        getCourses()
+    }, [getCourses])
+
+    const maxEnrolled = courses.reduce((acc, curr) => curr.enrolled > acc ? curr.enrolled : acc, 0);
+
     return (
         <Jumbotron fluid className="jumbotronTop">
             <Container>
-                <Row>
-                    <Col>
-                        <h1>Bring your class at home</h1>
-                        <Button variant="dark">Enroll now</Button>
-                    </Col>
-                    <Col>
-                        <Card className="Judul">
-                            <Video />
-                            <Card.Body>
-                                <Row>
-                                    <Col>
-                                        <span className="count">165 count</span>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={6}>
-                                        <Card.Title>Sales and marketing master class</Card.Title>
-                                    </Col>
-                                    <Col xs={6}>
-                                        <Card.Text>4 Study material<br />
-                                        14 Learning studios
+                <div data-aos="fade">
+                    <Row>
+                        <Col>
+                            <h1>Bring your class at home</h1>
+                            <Button variant="dark">Enroll now</Button>
+                        </Col>
+                        <Col>
+                            {loading ? <Spinner animation="grow" /> : courses && courses.reduce((r, o) => (o.enrolled === maxEnrolled) ? [...r, o] : r, []).map((v, index) => (
+                                <div key={index}>
+                                    <Card className="Judul">
+                                        <Video />
+                                        <Card.Body as={Link} to="/">
+                                            <Row>
+                                                <Col>
+                                                    <span className="count">{v.enrolled} Enrolled</span>
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col xs={6}>
+                                                    <Card.Title>{v.title}</Card.Title>
+                                                </Col>
+                                                <Col xs={6}>
+                                                    <Card.Text>{v.material} Study material<br />
+                                                        {v.lesson} Learning studios
                                         </Card.Text>
-                                    </Col>
-                                    <Col xs={6}>
-                                        <small className="text-muted">Susan sarah</small>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                                                </Col>
+                                                <Col xs={6}>
+                                                    <small className="text-muted">{v.user.name}</small>
+                                                </Col>
+                                            </Row>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            ))}
+                        </Col>
+                    </Row>
+                </div>
             </Container>
         </Jumbotron>
     )
 }
 
-export default Enroll
+Enroll.propTypes = {
+    loading: PropTypes.bool,
+    courses: PropTypes.array,
+    getCourses: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    course: state.course,
+    loading: state.loading
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    getCourses: () => dispatch({ type: GET_COURSES_SUCCESS })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Enroll)

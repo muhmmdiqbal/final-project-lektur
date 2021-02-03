@@ -12,7 +12,7 @@ import {
     Button
 } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -25,9 +25,9 @@ const Header = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className='mr-3 ml-auto'>
                     <DropItem />
-                    <Nav.Link as={Link} to='/SignTeacher'>For Teacher</Nav.Link>
+                    <NavLink to='/SignTeacher' activeClassName="selected active" className="nav-link">For Teacher</NavLink>
                     <div className="garis"></div>
-                    <Nav.Link as={Link} to='/Login' className="font-weight-bold active">Login</Nav.Link>
+                    <NavLink to='/Login' className="nav-link font-weight-bold active">Login</NavLink>
                     <Button variant="dark" as={Link} to='/Signup'>Sign Up</Button>
                 </Nav>
             </Navbar.Collapse>
