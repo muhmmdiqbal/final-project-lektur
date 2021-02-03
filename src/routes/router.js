@@ -47,7 +47,7 @@ const routes = () => {
             <br />
             <br />
             <h1 className="notFound">Yaaah Not Found!</h1>
-            <Image className="notFound" src={haha}/>
+            {/* <Image className="notFound" src={haha}/> */}
             <br />
             <br />
             <br />
