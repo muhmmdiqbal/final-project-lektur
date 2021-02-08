@@ -1,12 +1,10 @@
 import ACTION from '../types';
 
-export default function category (state = [], action = {}) {
+export default function searchtitle (state = [], action = {}) {
     switch (action.type) {
-        case ACTION.GET_COURSE_CATEGORY_SUCCESS:
+        case ACTION.GET_TITLE_BY_SEARCH_SUCCESS:
              return [...action.payload] ;
         default:
             return state;
     }
 }
-
-

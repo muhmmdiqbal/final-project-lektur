@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  { dataUserLoggedIn } from '../store/actions/users';
 import logo from './assets/logo.png';
-import { dataCourse, getDataCourse } from '../store/actions/users'
+import { dataCourse } from '../store/actions/users'
 import '../App.css';
 
 import { 
@@ -11,20 +11,22 @@ import {
   Form, 
   FormControl, 
   Nav, 
-  NavDropdown, 
-  Col,
+  NavDropdown,
   Row,
   Button } from 'react-bootstrap';
 
 import { 
-  Switch,
-  Route,
   Link
 } from 'react-router-dom';
 
 const Header = () => {
   const userData = useSelector (state => state.user)
   const category = ['Cooking' , 'Game' , 'Programming'];
+  const [search, setSearch] = useState({
+    title: ''
+  })
+  const {title} = search;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     localStorage.removeItem('token');
@@ -39,15 +41,33 @@ const Header = () => {
     e.preventDefault();
     window.location.href =`/Category/${category}`
   };
+
+  const handleSearch = e => {
+    e.preventDefault();
+    console.log(title, 'ini hasil search')
+    window.location.href =`/SearchResult/${title}`
+  };
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setSearch ((prevUserData) => {
+      return {
+        ...prevUserData,
+        [name]: value,
+      };
+    });
+  };
+  console.log(title, 'change search')
+
     return (
       <div className="borderNav">
         <Navbar sticky='top' expand='lg' >
               <Navbar.Brand className='mr-auto' href="/">
                 <Image className='logo' src={logo} alt='logo app' />
               </Navbar.Brand>
-              <Form className="search " action='SearchResult'>
+              <Form className="search " action='SearchResult' onSubmit={handleSearch}>
                 <Nav>
-                  <FormControl className='searchForm' type="text" placeholder="Search course or lecturer" />
+                  <FormControl className='searchForm' type="text" value={title} name="title" placeholder="Search course or lecturer" onChange={handleChange}/>
                   <button className='searchButton'>Search</button>
                 </Nav>
               </Form> 
