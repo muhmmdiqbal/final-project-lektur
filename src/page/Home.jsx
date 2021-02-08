@@ -28,7 +28,6 @@ const Home = (props) => {
    console.log(enrollCheckers, 'ini cek enroll')
     const category = ['Cooking' , 'Game' , 'Programming'];
     const courses = useSelector (state => state.category);
-    const dispatch = useDispatch();
     useEffect(() => {
     if (localStorage.getItem('token')){
       dispatch(dataUserLoggedIn());
