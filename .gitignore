@@ -10,3 +10,5 @@ node_modules/
 .history/
 node_modules
 .eslintcache
+# Local Netlify folder
+.netlify

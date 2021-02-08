@@ -11,33 +11,6 @@ import {
   } from 'react-router-dom';
 import NavStudent from './NavStudent'
 
-// class StudentDashboard extends Component {
-//     constructor(){
-//         super()
-//         this.state = {
-//             items: []
-//         }
-//     }
-
-
-//     componentDidMount(){
-//         fetch("https://randomuser.me/api/?results=1&nat=de")
-//         .then(res => res.json())
-//         .then(parsedJSON => parsedJSON.results.map(data => (
-//           {
-//             thumbnail: `${data.picture.large}`,
-//             name: `${data.name.first}`,
-//             email : `${data.email}`
-//           }
-//         )))
-//         .then(items => this.setState({
-//           items,
-//           isLoaded: false
-//         }))
-//         .catch(error => console.log('parsing failed', error))
-//     }
-//     render() {
-//         const {items } = this.state;
 const StudentAssesment = () => {
     const userData = useSelector (state => state.user)
     const dispatch = useDispatch();
@@ -46,18 +19,12 @@ const StudentAssesment = () => {
     }, []);
 
     const courseData = useSelector (state => state.course)
-    // const dispatch = useDispatch();
     useEffect(() => {
       dispatch(dataCourse());
     }, []);
 
-    console.log(userData);
     return (
         <div> 
-             {/* {
-              items.length > 0 ? items.map(item => {
-              const {thumbnail, name, email} = item;
-               return ( */}
             <div className='TeacherDashboard'>  
                 <Row className='dashboardTeacherRow'>
                     <Col className='profileCardTeacherCol'>

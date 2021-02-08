@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import  { dataUserLoggedIn } from '../store/actions/users';
+import  { dataUserLoggedIn, checkEnrollStatus } from '../store/actions/users';
 import { Container, Button } from 'react-bootstrap';
 import Jumbotron from '../components/Jumbotron';
 import JumbotronBot from '../components/JumbotronBot';
@@ -9,12 +9,22 @@ import { dataCourse } from '../store/actions/users'
 
 function Home() {
     const userData = useSelector (state => state.user)
+    const enrollCheckers = useSelector (state => state.enrollStatus)
+    console.log(enrollCheckers, 'ini enrollment')
     const dispatch = useDispatch();
     useEffect(() => {
-    if (localStorage.getItem('token')){
-      dispatch(dataUserLoggedIn());
-    }
+        async function getDataUser(){
+            await dispatch(dataUserLoggedIn());
+        }
+            async function forStudent(){
+                if(localStorage.getItem('role') === 'student'){
+                    await dispatch(checkEnrollStatus());
+                }
+            }
+        getDataUser()
+        forStudent()
     }, []);
+   console.log(enrollCheckers, 'ini cek enroll')
     return(
         <div>
             <Jumbotron />

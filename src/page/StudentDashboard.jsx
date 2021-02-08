@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from "react";
-import {Row, Col, Image, Button, Tab, Tabs } from 'react-bootstrap'
+import {Row, Col, Image, Button, Tab, Tabs, Modal } from 'react-bootstrap'
 import '../App.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { dataUserLoggedIn, dataCourse } from '../store/actions/users'
+import { enrolledCourse } from '../store/actions/users'
 import { 
     Link
   } from 'react-router-dom';
-import NavStudent from './NavStudent'
-const StudentDashboard = () => {
+const StudentDashboard = (props) => {
     const userData = useSelector (state => state.user)
+    const enrolledmentResult = useSelector (state => state.enrolledResult)
     const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(dataUserLoggedIn());
-    }, []);
-
-    const courseData = useSelector (state => state.course)
-    useEffect(() => {
-      dispatch(dataCourse());
-    }, []);
-
+    const [ show, setShow ] = useState(false);
     const [key, setKey] = useState('course');
-
-    console.log(userData);
+    const handleClose = () => setShow(false);
+    useEffect(() => {
+        dispatch(enrolledCourse());
+      }, []);
+      console.log(userData, 'data siswa')
+      console.log(enrolledmentResult, 'status enroll')
+    const handleSubmit = _id => e => {
+        e.preventDefault();
+        // if (status.status === 'pending'){
+        //     console.log('ada')
+        //     setShow(true)
+        // }
+        // window.location.href =`/CourseContent/${_id}`
+        }
     return (
         <div> 
             <div className='TeacherDashboard'>  
                 <Row className='dashboardTeacherRow'>
                     <Col className='profileCardTeacherCol'>
-                    
                         <div className='profileCardTeacher'>
                                 <Image className="imageProfile" src={userData.image} roundedCircle/>
                             <br/>
@@ -35,90 +38,85 @@ const StudentDashboard = () => {
                             <div className='aboutDashboard'>
                                 <h3>{userData.name}</h3>
                                 <p>{userData.email}</p>
-                                
                                 <a href="">Edit Profile</a>
                             </div>
                         </div>
-                    
                     </Col>
-                    <Col>
-                        <div className='coursesBox'>
-                        {/* <NavStudent /> */}
+                    <Col className='courseCardCol'>
+                        <div className='coursesBox '>
                         <Tabs
                         activeKey={key}
                         onSelect={(k) => setKey(k)}
                         className="dashboardTabs"
                         fill
                         >
-                        <Tab eventKey="course" title="Course">
-                        {courseData.map((courseData) => (
-                                <Col className='coursesBoxCol mt-5'>
-                                    <Row className='allCourses sm-2'>
-                                        
-                                            
-                                        <Col className=''>
-                                            <div>
-                                                <img className="imageTeacherDashboard" src={courseData.image}/>
-                                            </div>
+                            <Tab eventKey="course" title="Course">
+                                <div className='coursesInside'>
+                                <Modal show={show} onHide={handleClose}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Modal heading</Modal.Title>
+                                    </Modal.Header>
+                                        <Modal.Body>Your Account was successfuly made! <br/>Please check your email.</Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={handleClose} href='/Login' >
+                                            Close
+                                        </Button>
+                                    </Modal.Footer>
+                                </Modal>
+                                {enrolledmentResult.map((enrolledResult, idx) => (
+                                        <Col className='coursesBoxCol mt-5' key={idx}>
+                                            <Row className='allCourses'>    
+                                                <Col className='imageCourse'>
+                                                    <div>
+                                                        <img className="imageTeacherDashboard" src={enrolledResult.course.image}/>
+                                                    </div>
+                                                </Col>
+                                                <Col className='coursesLists m-3'> 
+                                                    <div>
+                                                        <h5>{enrolledResult.course.title}</h5>
+                                                        <p className='keterangan text-muted'>By {enrolledResult.teacher.name}</p>
+                                                        <br/>
+                                                        <Link onClick={handleSubmit (enrolledResult.course._id)}>See course material</Link>
+                                                    </div>
+                                                </Col>
+                                                <Col className='mt-3'>
+                                                <div class="progress">
+                                                    <div class="progress-bar w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                </Col>
+                                            </Row>
+                                        <br/>
                                         </Col>
-                                        <Col className='coursesLists m-3'> 
-                                            <div>
-                                                <h5>{courseData.title}</h5>
-                                                <br/>
-                                                <p className='keterangan text-muted'>By {courseData.user.name}</p>
-                                                <p className='keterangan text-muted'>By {courseData.updated_at}</p>
-                                            </div>
+                                ))}
+                                </div>
+                                </Tab>
+                                <Tab eventKey="assesments" title="Assesments">
+                                <div className='coursesInside'>
+                                        <Col className='coursesBoxCol mt-5'>
+                                            <Row className='allCourses sm-2'>
+                                                <Col className='coursesLists m-3'> 
+                                                    <div>
+                                                        <h5>titel</h5>
+                                                        <br/>
+                                                        <p className='keterangan text-muted'>By </p>
+                                                    </div>
+                                                </Col>
+                                                <Col className='mt-3'>
+                                                <div className='teacherButtons'>
+                                                    <p className='text-muted'><i>No result yet</i></p>
+                                                    <Button className='inviteButton' variant="outline-warning">Take Test</Button>
+                                                </div>
+                                                </Col>
+                                            </Row>
+                                        <br/>
                                         </Col>
-                                        <Col className='mt-3'>
-                                            
-                                        </Col>
-                                    </Row>
-                        <br/>
-
-                                </Col>
-                                
-                                        ))}
-                        </Tab>
-                        <Tab eventKey="assesments" title="Assesments">
-                        {courseData.map((courseData) => (
-                                <Col className='coursesBoxCol mt-5'>
-                                    <Row className='allCourses sm-2'>
-                                        <Col className='coursesLists m-3'> 
-                                            <div>
-                                                <h5>{courseData.title}</h5>
-                                                <br/>
-                                                <p className='keterangan text-muted'>By {courseData.user.name}</p>
-                                            </div>
-                                        </Col>
-                                        <Col className='mt-3'>
-                                        <div className='teacherButtons'>
-                                        <p className='text-muted'><i>No result yet</i></p>
-
-                                        <Button className='inviteButton' variant="outline-warning">Take Test</Button>
-                                                    {/* <Button className='editButton' variant="warning">Edit</Button> */}
-                                        </div>
-                                        </Col>
-                                    </Row>
-                        <br/>
-
-                                </Col>
-                                
-                                        ))}
-                        </Tab>
+                                </div>
+                                </Tab>
                         </Tabs>
-
-                                
-
-                            </div>
+                        </div>
                     </Col>
-                            
-                    
-                    
                 </Row>
             </div>
-        {/* );
-    }) : null */}
-  
         </div>
     )
 }

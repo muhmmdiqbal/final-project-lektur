@@ -1,3 +1,4 @@
+@import '~video-react/dist/video-react.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body {
   font-family: 'Montserrat', sans-serif;
@@ -161,24 +162,6 @@ body {
   text-align: justify;
 }
 
-@media only screen and (min-width: 1360px){
-
-  .profileCardTeacher {
-    border: 2px solid #e5e5e54b;
-    text-align: center;
-    width: 279px;
-    height: 322px;
-    margin-left: 122px;
-    margin-bottom: 45px;
-    padding-top: 21px;
-    background: #FFFFFF;
-    border: 1px solid #E6E6E6;
-    box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-}
-
 @media only screen and (max-width: 1360px){
   .profileCardTeacher{
     width: 893px;
@@ -189,11 +172,6 @@ body {
     margin-right: 45px;
     margin-left: 122px;
     margin-bottom: 45px;
-  }
-
-  .aboutDashboard{
-    margin-top: -140px;
-    margin-left: 250px;
   }
 
 }
@@ -240,23 +218,11 @@ body {
   text-align: center;
 }
 
-.containerContent{
-  width: 421px;
-  height: 54px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.034);
-  padding-left: 22px;
-  padding-top: 18px;
-}
 
-.courseList{
-  margin: auto !important;
-  overflow-y: scroll;
-  height: 120px;
-}
 
-.contentInsight{
-  padding-left: 22px;
-}
+
+
+
 
 ul.header li {
   display: inline;
@@ -300,23 +266,7 @@ ul.header li a {
   border-radius: 2px;
 }
 
-.coursesBox{
-  width: 750px;
-  height: auto;
-  border: 2px solid #e5e5e53a;
-  padding-top: 45px;
-  margin-right: 107px;
-  margin-left: 122px;
-  background-color: white;
-  background: #FFFFFF;
-/* Soft Grey */
 
-border: 1px solid #E6E6E6;
-box-sizing: border-box;
-/* Default */
-
-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
 
 .profileCardTeacher{
   background-color: white;
@@ -346,17 +296,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
 }
 
-.teacherButtons{
-  text-align: right;
-}
 
-.inviteButton{
-  margin-right: 30px;
-}
-
-.allCourses{
-  border-bottom: 1px solid #e5e5e54b;
-}
 
 .keterangan{
   margin-bottom: 5px;
@@ -377,16 +317,12 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
 .Card {
   position: auto;
-width: 240px;
-height: 420px;
-background: #FFFFFF;
-/* Soft Grey */
-
-border: 1px solid #E6E6E6;
-box-sizing: border-box;
-/* Default */
-
-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 240px;
+  height: 420px;
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cardimg {
@@ -411,6 +347,7 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 .imageTeacherDashboard {
   width: 275px;
   height: 185px;
+  border-radius: 4px;
 }
 
 .imageProfile {
@@ -458,9 +395,11 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
+/* ------------------------------------------------------------- */
 /* SearchBar */
 
 
+/* ------------------------------------------------------------- */
 /* Detail Page */
 @media only screen and (max-width: 1366px){
 
@@ -504,11 +443,16 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .detailCardImage{
-  width: 390px;
+  width: 473.5px;
   height: 260px;
   margin: auto !important;
   border-radius: 3px;
   background-size: cover;
+}
+
+.videoCard{
+  margin-left: -21px;
+  margin-top: -21px;
 }
 
 .containerJumbotron{
@@ -525,6 +469,17 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: -5px;
 }
 
+.video-react-big-play-button{
+  margin: auto;
+  margin-left: 183px;
+  margin-top: 100px;
+}
+
+.enrollSend{
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-color: white !important;
+}
+
 .detailCard{
   width: 474px;
   height: 625px;
@@ -534,7 +489,6 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: -315px;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;
-  padding-top: 15px;
 }
 
 .containerDescription{
@@ -551,6 +505,31 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   background-size: cover !important;
 }
 
+.containerContent{
+  width: 421px;
+  height: 54px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.034);
+}
+
+.containerContentButton{
+  width: 415px;
+  height: 54px;
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-color: rgba(255, 255, 255, 0) !important;
+  color: black !important;
+  text-align: left;
+}
+
+.containerContentButton:focus{
+  background-color: #EAF7FE !important;
+}
+
+.courseList{
+  margin: auto !important;
+  overflow-y: scroll;
+  height: 120px;
+}
+/* ------------------------------------------------------------- */
 /* Jumbotron */
 /* Top */
 .judulHome{
@@ -583,12 +562,12 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 0 !important;
 }
 
+/* ------------------------------------------------------------- */
 /* Home */
 .paginationButton{
   margin-right: 15px;
 }
 
-/* home */
 .homeBody{
   bottom: 0;
   background-color: #E5E5E5;
@@ -607,4 +586,61 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   display: inline-block;
   float: none;
   border-bottom: 0px solid transparent;
+}
+
+/* ------------------------------------------------------------- */
+/* Student Dashboard */
+.coursesBox{
+  width: 75vw;
+  height: auto;
+  border: 2px solid #e5e5e53a;
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: white;
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.profileCardTeacher {
+  border: 2px solid #e5e5e54b;
+  text-align: center;
+  width: 279px;
+  height: 322px;
+  margin-left: 15px;
+  margin-bottom: 45px;
+  padding-top: 21px;
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.coursesInside{
+  height: 835px;
+  overflow-y: scroll;
+}
+
+.imageCourse{
+  padding-bottom: 20px;
+}
+
+.teacherButtons{
+  text-align: right;
+}
+
+.allCourses{
+  border-bottom: 1.5px solid #e5e5e54b;
+}
+
+/* Teacher Dashboard */
+.coursesBoxTeacher{
+  padding-top: 35px;
+}
+
+.imageTeacherDashboard{
+  margin-bottom: 15px;
 }

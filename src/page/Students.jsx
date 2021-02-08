@@ -12,7 +12,6 @@ const Students = () => {
     useEffect(() => {
       dispatch(dataStudent());
     }, []);
-    console.log(studentData, 'item student')
 
     return (
         <div>
