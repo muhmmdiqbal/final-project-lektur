@@ -34,23 +34,6 @@ const Header = () => {
   };
   const dispatch = useDispatch();
 
-  const [search, setSearch] = useState({
-    title: "",
-  });
-  const { title } = search;
-  const handleChange = (e) => {
-    const {name, value} = e.target
-    setSearch((prevUserData)=>{
-      return {
-        ...prevUserData,
-        [name] : value
-      }
-    }) 
-  }
-  const handleSearch = e => {
-    e.preventDefault();
-    console.log(title,'ini search')
-  }
   useEffect(() => {
     dispatch(dataUserLoggedIn());
   }, []);
