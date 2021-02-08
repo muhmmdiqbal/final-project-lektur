@@ -44,9 +44,9 @@ const assesment = () => {
             </Container>
                         </div>
                         <br />
-                        <p><a href="#NewLesson">Add New Lesson</a></p>
+                        <p><a href="NewLesson">Add New Lesson</a></p>
                         <div className="loginButton">
-                            <Button className="accButton" type="submit" class="btn btn-link" href="#Filled">Save Exam</Button>
+                            <Button className="accButton" type="submit" class="btn btn-link" href="Filled">Save Exam</Button>
                         </div>
         </Container>
         </div>

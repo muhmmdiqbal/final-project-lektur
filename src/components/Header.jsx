@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import logo from './assets/logo.png';
-import { dataCourse, getDataCourse } from '../store/actions/users'
+import { dataCourse } from '../store/actions/users'
 import '../App.css';
 
 import { 
@@ -10,14 +10,11 @@ import {
   Form, 
   FormControl, 
   Nav, 
-  NavDropdown, 
-  Col,
+  NavDropdown,
   Row,
   Button } from 'react-bootstrap';
 
 import { 
-  Switch,
-  Route,
   Link
 } from 'react-router-dom';
 

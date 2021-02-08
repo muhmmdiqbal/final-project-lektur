@@ -1,9 +1,7 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { dataCourse, getDataCourse } from '../store/actions/users'
+import { dataCourse } from '../store/actions/users'
 import { Card, Container, CardDeck } from 'react-bootstrap'
-import course from '../store/reducers/course';
 
 const LearnCard = () => {
     const courses = useSelector (state => state.course);
@@ -29,7 +27,6 @@ const LearnCard = () => {
                                 <Card.Body>
                                     <Card.Title>{course.title}</Card.Title>
                                         <p>Description: {course.description}</p>
-                                        <h5></h5>
                                 </Card.Body>
                                 <Card.Footer>
                                         <small className="text-muted">Category: {course.category}</small>
