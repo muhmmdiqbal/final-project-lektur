@@ -36,10 +36,7 @@ function Detail( props ) {
         checkDataCourse()
         forStudent()
     }, []);
-    const enrolled = enrollChecked.enroll.find(course => {
-        if(course.course.id === props.match.params.id)
-            return true
-    })
+    const enrolled = enrollChecked.enroll.find(course => course.course.id === props.match.params.id)
     console.log(enrolled, 'ini cuma mau nyoba doang')
     if (detailCourse.loaded === false || detailLessons.loaded === false) {
         return (null)

@@ -18,13 +18,12 @@ const StudentDashboard = (props) => {
       }, []);
       console.log(userData, 'data siswa')
       console.log(enrolledmentResult, 'status enroll')
-    const handleSubmit = _id => e => {
+    const handleSubmit = (_id, status) => e => {
         e.preventDefault();
-        // if (status.status === 'pending'){
-        //     console.log('ada')
-        //     setShow(true)
-        // }
-        // window.location.href =`/CourseContent/${_id}`
+        if (status === 'pending'){
+            setShow(true)
+        }
+        window.location.href =`/CourseContent/${_id}`
         }
     return (
         <div> 
@@ -58,7 +57,7 @@ const StudentDashboard = (props) => {
                                     </Modal.Header>
                                         <Modal.Body>Your Account was successfuly made! <br/>Please check your email.</Modal.Body>
                                     <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleClose} href='/Login' >
+                                        <Button variant="secondary" onClick={handleClose} >
                                             Close
                                         </Button>
                                     </Modal.Footer>
@@ -76,7 +75,7 @@ const StudentDashboard = (props) => {
                                                         <h5>{enrolledResult.course.title}</h5>
                                                         <p className='keterangan text-muted'>By {enrolledResult.teacher.name}</p>
                                                         <br/>
-                                                        <Link onClick={handleSubmit (enrolledResult.course._id)}>See course material</Link>
+                                                        <Link onClick={handleSubmit (enrolledResult.course._id, enrolledResult.status)}>See course material</Link>
                                                     </div>
                                                 </Col>
                                                 <Col className='mt-3'>
