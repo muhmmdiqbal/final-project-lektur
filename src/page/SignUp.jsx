@@ -29,11 +29,10 @@ const SignUp = () => {
             setShow(true);
         } 
     }, [signUpStatus]);
-
-
+    
     console.log(signUpStatus, 'error')
     useEffect (() => {
-        if (signUpStatus.errorMessages !== ''){
+        if (signUpStatus.errorMessages === 'Email is already exist'){
             setNotif(true);
         } 
     }, [signUpStatus]);

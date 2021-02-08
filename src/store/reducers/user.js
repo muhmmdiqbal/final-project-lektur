@@ -9,7 +9,6 @@ export default function user (state = { loaded: false, status:'' , errorMessages
         case ACTION.GET_USER_SUCCESS: 
             return { ...action.payload, loaded: true };
         case ACTION.SIGN_UP_FAILURE:
-            console.log (action.errors, 'ini reducers')
             return { ...state, loaded: true, errorMessages: action.errors };
         default:
             return state;

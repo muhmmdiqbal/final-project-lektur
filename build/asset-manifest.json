@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9a9d2243.chunk.css",
+    "main.js": "/static/js/main.0760f7c5.chunk.js",
+    "main.js.map": "/static/js/main.0760f7c5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7e6a323c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7e6a323c.js.map",
+    "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
+    "static/js/2.888da867.chunk.js": "/static/js/2.888da867.chunk.js",
+    "static/js/2.888da867.chunk.js.map": "/static/js/2.888da867.chunk.js.map",
+    "static/js/3.bebd3fbc.chunk.js": "/static/js/3.bebd3fbc.chunk.js",
+    "static/js/3.bebd3fbc.chunk.js.map": "/static/js/3.bebd3fbc.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.9a9d2243.chunk.css.map": "/static/css/main.9a9d2243.chunk.css.map",
+    "static/js/2.888da867.chunk.js.LICENSE.txt": "/static/js/2.888da867.chunk.js.LICENSE.txt",
+    "static/media/haha.e64e084b.jpg": "/static/media/haha.e64e084b.jpg",
+    "static/media/App.css": "/static/media/jumbotronBot.2f925e64.jpg",
+    "static/media/logo.26677fd4.png": "/static/media/logo.26677fd4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e6a323c.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.888da867.chunk.js",
+    "static/css/main.9a9d2243.chunk.css",
+    "static/js/main.0760f7c5.chunk.js"
+  ]
+}
