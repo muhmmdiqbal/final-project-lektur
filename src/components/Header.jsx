@@ -31,7 +31,24 @@ const Header = () => {
     window.location.href='/'
   };
   const dispatch = useDispatch();
-  
+
+  const [search, setSearch] = useState({
+    title: "",
+  });
+  const { title } = search;
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    setSearch((prevUserData)=>{
+      return {
+        ...prevUserData,
+        [name] : value
+      }
+    }) 
+  }
+  const handleSearch = e => {
+    e.preventDefault();
+    console.log(title,'ini search')
+  }
   useEffect(() => {
     dispatch(dataUserLoggedIn());
   }, []);
@@ -45,12 +62,10 @@ const Header = () => {
               <Navbar.Brand className='mr-auto' href="/">
                 <Image className='logo' src={logo} alt='logo app' />
               </Navbar.Brand>
-              <Form className="search " action='SearchResult'>
-                <Nav>
-                  <FormControl className='searchForm' type="text" placeholder="Search course or lecturer" />
-                  <button className='searchButton'>Search</button>
-                </Nav>
-              </Form> 
+              <form className='searchFormNav' onChange={handleChange}>
+                  <input className='searchForm' name='title' value={title} type="text" placeholder="Search course or lecturer" />
+                  <Button type="submit" onClick={handleSearch} className='searchButton'>Search</Button>
+              </form>
               <Nav className='mr-3 ml-auto' >
                 <NavDropdown className='mr-2' title="Category" id="basic-nav-dropdown" alignRight>
                 {category.map((category, idx) => (

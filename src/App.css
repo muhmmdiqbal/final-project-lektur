@@ -15,11 +15,10 @@ body {
   margin-right: -40px;
 }
 
-.search {
-  border: 1px solid #16213B;
-  width: 546px;
-  box-sizing: border-box;
+.searchFormNav {
+  border: 1px solid black;
   border-radius: 5px;
+  padding-left: 15px;
 }
 
 .searchButton{
@@ -40,6 +39,7 @@ body {
 
 .searchForm{
   border-style: none !important;
+  width: 500px;
 }
 
 .footerstr {
@@ -529,6 +529,54 @@ ul.header li a {
   overflow-y: scroll;
   height: 120px;
 }
+
+.modalImg{
+  width: 250px;
+  border-radius: 5px;
+}
+
+.enrollModal .modal-dialog .modal-content{
+  width: 750px;
+  height: 250px;
+  margin-top: 250px !important;
+  margin-left: -80px;
+}
+
+.closeTextModal{
+  margin: auto;
+  text-align: right;
+  margin-top: -10px;
+  margin-right: -10px;
+}
+
+.closeTextModal button{
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgb(148, 148, 148);
+  border-radius: 5px;
+  color: rgb(148, 148, 148);
+}
+
+.footerModal{
+  background-color: #FAFAFA;
+  width: 748px;
+  margin-left: -16px;
+  height: 60px;
+  margin-top: 15px;
+  padding-top: 15px;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.detailModalTiltle{
+  margin-bottom: 0px;
+  font-size: 18px;
+}
+
+.detailModalAuthors{
+  font-size: 16px;
+}
+
 /* ------------------------------------------------------------- */
 /* Jumbotron */
 /* Top */
@@ -591,7 +639,7 @@ ul.header li a {
 /* ------------------------------------------------------------- */
 /* Student Dashboard */
 .coursesBox{
-  width: 75vw;
+  width: 65vw;
   height: auto;
   border: 2px solid #e5e5e53a;
   margin-right: 20px;
@@ -608,11 +656,12 @@ ul.header li a {
 .profileCardTeacher {
   border: 2px solid #e5e5e54b;
   text-align: center;
-  width: 279px;
-  height: 322px;
+  width: 25vw;
+  flex-direction: row;
+  height: 25vw;
   margin-left: 15px;
   margin-bottom: 45px;
-  padding-top: 21px;
+  padding-top: 51px;
   background: #FFFFFF;
   border: 1px solid #E6E6E6;
   box-sizing: border-box;

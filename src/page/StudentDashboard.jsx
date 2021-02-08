@@ -23,7 +23,7 @@ const StudentDashboard = (props) => {
         if (status === 'pending'){
             setShow(true)
         }
-        window.location.href =`/CourseContent/${_id}`
+        // window.location.href =`/CourseContent/${_id}`
         }
     return (
         <div> 
@@ -55,9 +55,9 @@ const StudentDashboard = (props) => {
                                     <Modal.Header closeButton>
                                         <Modal.Title>Modal heading</Modal.Title>
                                     </Modal.Header>
-                                        <Modal.Body>Your Account was successfuly made! <br/>Please check your email.</Modal.Body>
+                                        <Modal.Body>Please wait coresponding teacher approve you!</Modal.Body>
                                     <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleClose} >
+                                        <Button variant="secondary" onSubmit={handleClose}>
                                             Close
                                         </Button>
                                     </Modal.Footer>

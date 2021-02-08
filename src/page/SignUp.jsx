@@ -58,7 +58,7 @@ const SignUp = () => {
     return (
         <div className="signUp-background">
             <div className="container-signUp">
-            <Modal show={notif} onHide={handleClose1}>
+            <Modal show={show} onHide={handleClose1}>
                     <Modal.Header closeButton>
                         <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
