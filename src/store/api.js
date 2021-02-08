@@ -47,6 +47,10 @@ export default {
         getCourseDataDetail: getCoursesDetail =>
             axios.get(`https://lektur.kuyrek.com/courses/${getCoursesDetail}` ).then(res => res.data.data).catch(error => error.message),
         
+        // GET TITLE BY SEARCH
+        getTitleBySearch: getTitle =>
+            axios.get(`https://lektur.kuyrek.com/courses/find/byTitle?key=${getTitle}` ).then(res => res.data.data).catch(error => error.message),
+    
         // GET LESSONS
         getLesson: getLessonDetail =>
             axios.get(`https://lektur.kuyrek.com/lessons/byCourse/${getLessonDetail}`).then(res => res.data.data).catch(error => error.message),

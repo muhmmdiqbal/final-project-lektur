@@ -693,3 +693,9 @@ ul.header li a {
 .imageTeacherDashboard{
   margin-bottom: 15px;
 }
+
+.searchFormNav {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 15px;
+}

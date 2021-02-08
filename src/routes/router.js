@@ -40,7 +40,7 @@ const routes = () => {
         <Route exact path='/Filled' component={Filled} />
         <Route exact path='/StudentDashboard' component={StudentDashboard} />
         <Route exact path='/StudentAssesment' component={StudentAssesment} />
-        <Route exact path='/SearchResult' component={SearchResult} />
+        <Route exact path='/SearchResult/:title' component={SearchResult} />
         <Route exact path='/Category/:category' component={Category} />
         <Route exac path='/CourseContent/:id' component={CourseContent} />
         <Route render={function() {

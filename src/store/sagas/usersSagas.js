@@ -14,7 +14,8 @@ import {
     getEnrollCourseFailed,
     checkEnrollmentSuccess,
     getEnrolledCourseResult,
-    getCourseCategorySuccess
+    getCourseCategorySuccess,
+    getTitleBySearchSuccess
  } from '../actions/users';
 import api from '../api';
 // import history from '../history';
@@ -90,6 +91,12 @@ export function* getLessons({payload}) {
 export function* getDataCourseCategory({payload}) {
     const user = yield call(api.user.getCourseCategory, payload);
     yield put(getCourseCategorySuccess(user));
+}
+
+// TITLE BY SEARCH
+export function* getDataTitleBySearch({payload}) {
+    const user = yield call(api.user.getTitleBySearch, payload);
+    yield put(getTitleBySearchSuccess(user));
 }
 
 // ENROLL COURSE

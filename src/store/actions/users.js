@@ -164,4 +164,17 @@ import ACTION from '../types';
     errors
   });
 
+  // TITLE BY SEARCH
+  export const getTitleBySearchSuccess = payload => ({
+    type: ACTION.GET_TITLE_BY_SEARCH_SUCCESS,
+    payload: payload
+  });
+
+  export const getTitleBySearch = payload => ({
+    type: ACTION.GET_TITLE_BY_SEARCH,
+    payload: payload
+  });
+
+  
+
   

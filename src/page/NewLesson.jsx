@@ -61,19 +61,19 @@ const NewLesson = () => {
                             <Form.Control type="text" value={title} name="title" onChange={handleChange} placeholder="Title*"/>
                                 </Form.Group>
                                 <Form.Group>
-                            <Form.Control type="text" value={description} name="description" onChange={handleChange} placeholder="Description*"/>
+                            <Form.Control type="textarea" rows={3} value={description} name="description" onChange={handleChange} placeholder="Description*"/>
                                 </Form.Group>
 
                             </Form>
                             </Col>
                             <Col>
                             {/* <Button variant="dark">Upload Video</Button> */}
-                        <Form.File type="file" value={video} name="video" onChange={handleChange} accept="image/png, image/jpeg" label="Upload Video:"></Form.File>
+                        <Form.File type="file" value={video} name="video" onChange={handleChange} accept="video/*" label="Upload Video:"></Form.File>
                             <Form.Text className="text-muted">
                             <i>Required. Max. size 200 MB. Supported format .mp4</i>
                             </Form.Text><br/>
                             {/* <Button variant="outline-dark">Add Lesson Material</Button> */}
-                        <Form.File type="file" value={material} name="video" onChange={handleChange} accept="image/png, image/jpeg" label="Add Lesson Material:"></Form.File>
+                        <Form.File type="file" value={material} name="video" onChange={handleChange} accept="application/pdf" label="Add Lesson Material:"></Form.File>
 
                             <Form.Text className="text-muted">
                             <i>Max. size 20 MB. Supported format .pdf</i>
@@ -92,7 +92,7 @@ const NewLesson = () => {
             <br />
             <p><a href="NewLesson">Add New Lesson</a></p>
             <div className="loginButton">
-                            <Button className="accButton" type="submit" class="btn btn-link" href="#Filled">Publish Course</Button>
+                            <Button className="accButton" type="submit" class="btn btn-link" href="Filled">Publish Course</Button>
                         <p><a href="#Course">Delete Course</a></p>
 
                         </div>
