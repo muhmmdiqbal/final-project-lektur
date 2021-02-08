@@ -15,32 +15,8 @@ body {
   margin-right: -40px;
 }
 
-.searchFormNav {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding-left: 15px;
-}
 
-.searchButton{
-  border-bottom-left-radius: 0px !important;
-  border-top-left-radius: 0px !important;
-  border: none;
-  border-radius: 5px;
-  background-color: white;
-}
 
-.searchForm:focus, 
-.searchButton:focus{
-  box-shadow: none !important;
-  outline: none !important;
-  color: none !important;
-  border: none !important;
-}
-
-.searchForm{
-  border-style: none !important;
-  width: 500px;
-}
 
 .footerstr {
   color: orange;
@@ -397,7 +373,32 @@ ul.header li a {
 
 /* ------------------------------------------------------------- */
 /* SearchBar */
+.search {
+  border: 1px solid #16213B;
+  width: 546px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
 
+.searchButton{
+  border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.searchForm:focus, 
+.searchButton:focus{
+  box-shadow: none !important;
+  outline: none !important;
+  color: none !important;
+  border: none !important;
+}
+
+.searchForm{
+  border-style: none !important;
+}
 
 /* ------------------------------------------------------------- */
 /* Detail Page */
