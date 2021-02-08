@@ -6,7 +6,6 @@ import Reducers from './rootReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(Reducers, composeWithDevTools(applyMiddleware(sagaMiddleware)));
-
 sagaMiddleware.run(Saga);
 
 export default store;

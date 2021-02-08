@@ -22,7 +22,6 @@ const Category = (props) => {
                     {courses.map((category, idx) => (
                     <div className='CardContent' key={idx}>
                         <Card className="Card" type='submit' onClick={handleSubmit (category.id)}>
-                            {/*  as={Link} to={`/Detail/${course.id}`} ) */}
                                 <Card.Img className="cardimg" variant="top" fluid='true' src={category.image} />
                                 <Card.Body>
                                     <Card.Title>{category.title}</Card.Title>

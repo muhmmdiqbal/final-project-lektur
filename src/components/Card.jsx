@@ -9,12 +9,11 @@ const LearnCard = () => {
     useEffect(() => {
       dispatch(dataCourse());
     }, []);
-
     const handleSubmit = id =>  e  => {
         e.preventDefault();
         window.location.href =`/Detail/${id}`
     };
-    console.log(courses, 'item course')
+    console.log(courses, 'ini data course')
         return (
             <div>
                 <Container>
@@ -22,7 +21,6 @@ const LearnCard = () => {
                     {courses.map((course, idx) => (
                     <div className='CardContent' key={idx}>
                         <Card className="Card" type='submit' onClick={handleSubmit (course.id)}>
-                            {/*  as={Link} to={`/Detail/${course.id}`} ) */}
                                 <Card.Img className="cardimg" variant="top" fluid='true' src={course.image} />
                                 <Card.Body>
                                     <Card.Title>{course.title}</Card.Title>

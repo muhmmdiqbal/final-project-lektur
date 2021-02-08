@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import  { dataUserLoggedIn } from '../store/actions/users';
-import { Container, Button, Row, Col, Tab, Tabs, Card, CardDeck } from 'react-bootstrap';
+import  { dataUserLoggedIn, checkEnrollStatus } from '../store/actions/users';
+import { Container, Button } from 'react-bootstrap';
 import Jumbotron from '../components/Jumbotron';
 import JumbotronBot from '../components/JumbotronBot';
 import LearnCard from '../components/Card';
@@ -10,9 +10,24 @@ import { dataCourse, dataCourseCategory } from '../store/actions/users'
 
 const Home = (props) => {
     const userData = useSelector (state => state.user)
+    const enrollCheckers = useSelector (state => state.enrollStatus)
+    console.log(enrollCheckers, 'ini enrollment')
+    const dispatch = useDispatch();
+    useEffect(() => {
+        async function getDataUser(){
+            await dispatch(dataUserLoggedIn());
+        }
+            async function forStudent(){
+                if(localStorage.getItem('role') === 'student'){
+                    await dispatch(checkEnrollStatus());
+                }
+            }
+        getDataUser()
+        forStudent()
+    }, []);
+   console.log(enrollCheckers, 'ini cek enroll')
     const category = ['Cooking' , 'Game' , 'Programming'];
     const courses = useSelector (state => state.category);
-    const dispatch = useDispatch();
     useEffect(() => {
     if (localStorage.getItem('token')){
       dispatch(dataUserLoggedIn());
@@ -38,12 +53,14 @@ const Home = (props) => {
                 <Button variant="outline-warning" className="paginationButton" onClick={handleCategory (category[2])}>Programming</Button>{' '}
             </div>
             </Container>
-            
-            <LearnCard/>
+            <div className='homeLearnCard'>
+                <LearnCard />
             { userData.role ? 
-            null :
+            <div className='homeBody'>
+            </div> :
             <JumbotronBot />
             }
+            </div>
         </div>
     )
 }

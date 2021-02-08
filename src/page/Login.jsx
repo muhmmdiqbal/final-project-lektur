@@ -10,20 +10,18 @@ const Login = () => {
         password: "",
     });
     const { email, password } = userData;
-
+    
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(createUserLogIn({ email, password }));
     };
-
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value });
     };
-
-    
 
     return(
         <div className="logIn-background">

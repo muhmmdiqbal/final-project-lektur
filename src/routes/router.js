@@ -8,18 +8,19 @@ import Detail from '../page/Detail';
 import SignUp from '../page/SignUp';
 import Login from '../page/Login'
 import NavCourse from '../page/NavCourse'
-import TeacherDashboard from '../page/TeacherDashboard'
-import Course from '../page/Course'
-import Assesment from '../page/Assesment'
-import NewLesson from '../page/NewLesson'
-import Students from '../page/Students'
-import Filled from '../page/Filled'
-import StudentDashboard from '../page/StudentDashboard'
-import StudentAssesment from '../page/StudentAssesment'
-import SearchResult from '../components/SearchResult'
+import TeacherDashboard from '../page/TeacherDashboard';
+import Course from '../page/Course';
+import Assesment from '../page/Assesment';
+import NewLesson from '../page/NewLesson';
+import Students from '../page/Students';
+import Filled from '../page/Filled';
+import StudentDashboard from '../page/StudentDashboard';
+import StudentAssesment from '../page/StudentAssesment';
+import SearchResult from '../components/SearchResult';
 import Category from '../page/Category';
+import CourseContent from '../page/CourseContent';
 import haha from '../components/assets/haha.jpg';
-import {Image} from 'react-bootstrap'
+import {Image} from 'react-bootstrap';
 
 
 const routes = () => {
@@ -32,15 +33,16 @@ const routes = () => {
         <Route exact path='/Detail/:id' component={Detail} />
         <Route exact path='/TeacherDashboard' component={TeacherDashboard} />
         <Route exact path='/NavCourse' component={NavCourse} />
-        <Route exact path='/Course' component={Course} />
+        <Route exact path='/Course/' component={Course} />
         <Route exact path='/Assesment' component={Assesment} />
         <Route exact path='/Students' component={Students} />
         <Route exact path='/NewLesson' component={NewLesson} />
         <Route exact path='/Filled' component={Filled} />
         <Route exact path='/StudentDashboard' component={StudentDashboard} />
         <Route exact path='/StudentAssesment' component={StudentAssesment} />
-        <Route exact path='/SearchResult' component={SearchResult} />
+        <Route exact path='/SearchResult/:title' component={SearchResult} />
         <Route exact path='/Category/:category' component={Category} />
+        <Route exac path='/CourseContent/:id' component={CourseContent} />
         <Route render={function() {
           return (
             <div>

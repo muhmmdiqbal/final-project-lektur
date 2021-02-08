@@ -1,6 +1,6 @@
 import ACTION from '../types';
   
-  
+  // SIGN UP
   export const userLoggedIn = user => ({
     type: ACTION.SIGN_UP_SUCCESS,
     user
@@ -15,10 +15,6 @@ import ACTION from '../types';
   export const teacherSignUpRequest = payload => ({
     type: ACTION.SIGN_UP_REQUEST_TEACHER,
     payload: payload
-  });
-
-  export const userLoggedOut = () => ({
-    type: ACTION.USER_LOG_OUT
   });
 
   export const dataAddCourse = payload => ({
@@ -56,7 +52,6 @@ import ACTION from '../types';
 
   export const dataUserLoggedIn = () => ({
     type: ACTION.GET_USER,
-    // payload: payload
   });
 
   export const userLoggedInSuccess = payload => ({
@@ -64,6 +59,16 @@ import ACTION from '../types';
     payload: payload
   });
   
+  // GET TEACHER COURSES
+  export const teacherCourseData = () => ({
+    type: ACTION.GET_TEACHER_COURSE
+  });
+
+  export const getTeacherCoursesSuccess = payload => ({
+    type: ACTION.GET_TEACHER_COURSE_SUCCESS,
+    payload: payload
+  });
+
   // COURSES
   export const getCourseSuccess = payload => ({
     type: ACTION.GET_COURSE_SUCCESS,
@@ -74,13 +79,72 @@ import ACTION from '../types';
     type: ACTION.GET_COURSE,
   });
 
+  //COURSES DETAIL
+  export const getDataCourse = payload => ({
+    type: ACTION.GET_COURSE_DETAIL,
+    payload: payload
+  })
+
+  export const getCourseDetail = payload => ({
+    type: ACTION.GET_COURSE_DETAIL_SUCCESS,
+    payload: payload
+  })
+
+  // COURSES LESSONS
+  export const getCoursesLessons = payload => ({
+    type: ACTION.GET_LESSONS,
+    payload: payload
+  })
+  export const getLessonsDetail = payload => ({
+    type: ACTION.GET_LESSONS_SUCCESS,
+    payload: payload
+  })
+  
   // COURSES CATEGORY
   export const getCourseCategorySuccess = payload => ({
     type: ACTION.GET_COURSE_CATEGORY_SUCCESS,
     payload: payload
   });
+
+  //ENROLL COURSE
+  export const getEnrollStatus = payload => ({
+    type: ACTION.ENROLL_COURSE,
+    payload: payload
+  });
+
+  //CHECK ENROLLMENT STATUS
+  export const checkEnrollStatus = () => ({
+    type: ACTION.ENROLL_CHECK
+  });
+
+  export const checkEnrollmentSuccess = payload => ({
+    type: ACTION.ENROLL_CHECKED,
+    payload: payload
+  });
+
+  // ENROLL COURSE
+  export const getEnrollCourseFailed = payload => ({
+    type: ACTION.ENROLLMENT_FAILED,
+    payload: payload
+  });
   
-  export const dataCourseCategory = (payload) => ({
+  export const getEnrollCourseSuccess = payload => ({
+    type: ACTION.ENROLLMENT_SUCCESS,
+    payload: payload
+  });
+
+  // ENROLLED COURSE BY STUDENT
+  export const enrolledCourse = () => ({
+    type: ACTION.GET_ENROLLED_COURSE
+  })
+
+  export const getEnrolledCourseResult = payload => ({
+    type: ACTION.GET_ENROLLED_COURSE_SUCCESS,
+    payload: payload
+  });
+
+  //COURSE CATEGORY
+  export const dataCourseCategory = payload => ({
     type: ACTION.GET_COURSE_CATEGORY,
     payload: payload
   });
@@ -100,14 +164,17 @@ import ACTION from '../types';
     errors
   });
 
-  export const getDataCourse = payload => ({
-    type: ACTION.GET_COURSE_DETAIL,
+  // TITLE BY SEARCH
+  export const getTitleBySearchSuccess = payload => ({
+    type: ACTION.GET_TITLE_BY_SEARCH_SUCCESS,
     payload: payload
-  })
+  });
 
-  export const getCourseDetail = payload => ({
-    type: ACTION.GET_COURSE_DETAIL_SUCCESS,
+  export const getTitleBySearch = payload => ({
+    type: ACTION.GET_TITLE_BY_SEARCH,
     payload: payload
-  })
+  });
+
+  
 
   

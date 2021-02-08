@@ -3,13 +3,19 @@ import {
     createUserFailure,  
     userLoggedIn, 
     userLoggedInSuccess, 
-    userLoggedOut,
     getCourseSuccess, 
     addCourseSuccess,
+    getTeacherCoursesSuccess,
+    getLessonsDetail,
     addLessonSuccess,
     getStudentSuccess,
     getCourseDetail,
-    getCourseCategorySuccess
+    getEnrollCourseSuccess,
+    getEnrollCourseFailed,
+    checkEnrollmentSuccess,
+    getEnrolledCourseResult,
+    getCourseCategorySuccess,
+    getTitleBySearchSuccess
  } from '../actions/users';
 import api from '../api';
 // import history from '../history';
@@ -19,7 +25,6 @@ export function* createUserSignUp({payload}) {
         if (user === 'Signup success!'){
             yield put(userLoggedIn(user));
         } else {
-            console.log(user.response.data.errors.email.msg)
             yield put(createUserFailure(user.response.data.errors.email.msg));
         }
 }
@@ -52,6 +57,7 @@ export function* createUserLogIn({payload}) {
 export function* getUserSaga () {
     try {
         const user = yield call(api.user.getData);
+        localStorage.setItem('role' ,user.role)
         yield put(userLoggedInSuccess(user));
     } catch (err) {
         yield put(createUserFailure(err.message));
@@ -65,18 +71,57 @@ export function* getDataCourse() {
 }
 
 export function* getCourseData({payload}) {
-    console.log(payload, 'ini dari dispatch')
     const user = yield call(api.user.getCourseDataDetail, payload);
-    console.log(user, 'ini apa gitu')
-    yield put(getCourseDetail(user))
+    yield put(getCourseDetail(user));
+}
+
+// GET TEACHER COURSES
+export function* getTeacherCourse(){
+    const user = yield call(api.user.getTeacherCourses);
+    yield put(getTeacherCoursesSuccess(user));
+}
+
+// COURSES LESSONS
+export function* getLessons({payload}) {
+    const user = yield call(api.user.getLesson, payload);
+    yield put(getLessonsDetail(user));
 }
 
 // COURSES CATEGORY
 export function* getDataCourseCategory({payload}) {
     const user = yield call(api.user.getCourseCategory, payload);
-    console.log(user, 'ini category')
     yield put(getCourseCategorySuccess(user));
 }
+
+// TITLE BY SEARCH
+export function* getDataTitleBySearch({payload}) {
+    const user = yield call(api.user.getTitleBySearch, payload);
+    yield put(getTitleBySearchSuccess(user));
+}
+
+// ENROLL COURSE
+export function* getEnrollCourse({payload}) {
+    const user = yield call(api.user.enrollCourses, payload);
+    if (user === 'Success enroll to course!') {
+        yield put(getEnrollCourseSuccess(user));
+    } else {
+        yield put (getEnrollCourseFailed(user.errors.course_id.msg))
+    }
+}
+
+// CHECK ENROLL
+export function* checkEnrollCourse() {
+    const user = yield call(api.user.checkingEnrollment);
+    console.log(user, 'udah disini')
+    yield put(checkEnrollmentSuccess(user))
+}
+
+// GET ENROLLED COURSE
+export function* getEnrolledCourse() {
+    const user = yield call(api.user.getEnrolledCourses);
+    yield put (getEnrolledCourseResult(user));
+}
+
 
 // ADD DATA
 export function* addDataCourse({payload}) {

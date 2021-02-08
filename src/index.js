@@ -6,11 +6,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {applyMiddleware, createStore, compose} from 'redux'
-import createSagaMiddleware from 'redux-saga';
-
-const sagaMiddleware = createSagaMiddleware();
-// const store = createStore(() => [], {}, applyMiddleware(sagaMiddleware));
 
 ReactDOM.render(
   <React.StrictMode>
