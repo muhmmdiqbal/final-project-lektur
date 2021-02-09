@@ -26,3 +26,19 @@ production:
         - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
     only:
         - master
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  environment:
+    name: production
+    url: https://lektur.netlify.app
+  only:
+    - master
+  script:
+    - npm i
+    # your build command
+    - npm run build
+    - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod

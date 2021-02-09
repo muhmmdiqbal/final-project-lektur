@@ -16,6 +16,7 @@ import {
     checkEnrollCourse,
     getEnrolledCourse,
     getDataCourseCategory,
+    getLessonByEnrolled,
     getDataTitleBySearch
 } from "./sagas/usersSagas";
 
@@ -28,7 +29,7 @@ export default function* rootSaga() {
     yield takeLatest(ACTION.USER_LOG_IN, createUserLogIn);
     yield takeLatest(ACTION.GET_USER, getUserSaga);
     // GET TEACHER COURSE
-    yield takeLatest(ACTION.GET_TEACHER_COURSE, getTeacherCourse)
+    yield takeLatest(ACTION.GET_TEACHER_COURSE, getTeacherCourse);
     // COURSES
     yield takeLatest(ACTION.GET_COURSE, getDataCourse);
     // COURSES CATEGORY
@@ -43,6 +44,8 @@ export default function* rootSaga() {
     yield takeLatest(ACTION.GET_ENROLLED_COURSE, getEnrolledCourse);
     // ENROLL CHECK
     yield takeLatest(ACTION.ENROLL_CHECK, checkEnrollCourse);
+    // GET LESSON BY ENROLLED COURSE
+    yield takeLatest(ACTION.GET_LESSON_BY_ENROLLED_COURSE, getLessonByEnrolled);
     // ADD DATA
     yield takeLatest(ACTION.ADD_COURSE, addDataCourse);
     yield takeLatest(ACTION.GET_STUDENT, getDataStudent);

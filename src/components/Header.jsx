@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  { dataUserLoggedIn } from '../store/actions/users';
 import logo from './assets/logo.png';
+import userLogo from './assets/user.png'
 import { dataCourse } from '../store/actions/users'
 import '../App.css';
 
@@ -33,7 +34,7 @@ const Header = () => {
     window.location.href='/'
   };
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(dataUserLoggedIn());
   }, []);
@@ -57,8 +58,11 @@ const Header = () => {
       };
     });
   };
+  if (userData.image === 'https://lektur.kuyrek.com/imageUser/null'){
+    userData.image = userLogo
+  }
   console.log(title, 'change search')
-
+  console.log(userData.image, 'ini user')
     return (
       <div className="borderNav">
         <Navbar sticky='top' expand='lg' >
@@ -83,9 +87,8 @@ const Header = () => {
                   <div>
                     <Row>
                       <div className="garis"></div>
-                      <NavDropdown className='headerProfileDropDown' title={ <><img src={userData.image} className='headerImageProfileOutside'/> {userData.name}</>} 
-                        id="collasible-nav-dropdown" alignRight
-                        >
+                      <NavDropdown className='headerProfileDropDown' title={<><img src={userLogo, userData.image} className='headerImageProfileOutside'/>{userData.name}</>} 
+                        id="collasible-nav-dropdown" alignRight>
                         <NavDropdown.Item as={Link} to='/TeacherDashboard'>Dashboard</NavDropdown.Item>
                         <NavDropdown.Item as={Link} >Edit Profile</NavDropdown.Item>
                         <NavDropdown.Item onClick={handleSubmit}>Logout</NavDropdown.Item>
@@ -95,7 +98,7 @@ const Header = () => {
                   <div>
                     <Row >
                         <div className="garis"></div>
-                        <NavDropdown className='headerProfileDropDown' title={ <><img src={userData.image} className='headerImageProfileOutside'/> {userData.name}</>} 
+                        <NavDropdown className='headerProfileDropDown' title={ <><img src={userLogo, userData.image} className='headerImageProfileOutside'/> {userData.name}</>} 
                         id="collasible-nav-dropdown" alignRight
                         >
                           <NavDropdown.Item as={Link} >See your profile </NavDropdown.Item>

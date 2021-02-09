@@ -82,6 +82,13 @@ export default {
             { 'headers': 
                 { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             }).then(res => res.data.data).catch(error => error.message),
+        
+        // GET COURSE BY ENROLLMENT
+        getEnrollmentCourse: enrollmentId =>
+            axios.get(`https://lektur.kuyrek.com/studentLessons/get/byEnrollment/${enrollmentId}`,
+            { 'headers': 
+                { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            }).then(res => res.data.data).catch(error => error.message),
 
     }
         // getCourseDataDetail: getCoursesDetail =>

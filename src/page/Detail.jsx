@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Player } from 'video-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataCourse, getCoursesLessons, getEnrollStatus, checkEnrollStatus } from '../store/actions/users';
-import { Jumbotron, Card, Button, Container, Row, Col } from 'react-bootstrap'
+import { Jumbotron, Card, Button, Container, Row, Col, Modal } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import '../App.css'
 import CardPage from '../components/Card'
 
@@ -13,13 +14,30 @@ function Detail( props ) {
     const detailLessons = useSelector (state => state.lessonscourse)
     const enrolledFailed = useSelector (state => state.enrollError)
     const enrollChecked = useSelector (state => state.enrollStatus)
+    const enrolled = enrollChecked.enroll.find(course => course.course.id === props.match.params.id)
     const courses = useSelector (state => state.course);
     const dispatch = useDispatch();
+
+    const [ show, setShow ] = useState(false);
+    const handleClose = () => setShow(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();  
         dispatch(getEnrollStatus( props.match.params.id ));
+        setShow(true);
     };
-    
+
+    const handleOk = async (e) => {
+        e.preventDefault()
+        window.location.href =`/Detail/${props.match.params.id}`
+    }
+
+    const handleCourse = (_id, status, title) => (e) => {
+        e.preventDefault()
+        if (status === 'completed') {
+            window.location.href =`/CourseContent/${title}/${_id}`
+        }
+    }
     console.log(enrollChecked, 'ini cek aja')
     console.log(detailCourse, 'detailcourse')
     console.log(courses, 'ini list course')
@@ -36,10 +54,6 @@ function Detail( props ) {
         checkDataCourse()
         forStudent()
     }, []);
-    const enrolled = enrollChecked.enroll.find(course => {
-        if(course.course.id === props.match.params.id)
-            return true
-    })
     console.log(enrolled, 'ini cuma mau nyoba doang')
     if (detailCourse.loaded === false || detailLessons.loaded === false) {
         return (null)
@@ -47,6 +61,24 @@ function Detail( props ) {
     return(
         <div>
             <div className="detailBody">
+            <Modal className='enrollModal' show={show} onHide={handleClose}>
+                    <Modal.Body>
+                        <div className='closeTextModal'>
+                            <button onClick={handleClose, handleOk}>close</button>
+                        </div>
+                        <Row>
+                            <Col className='ml-auto mr-5'>
+                                <img className='modalImg' src={detailCourse.image} />
+                            </Col>
+                            <Col>
+                                <h5 className='text-success'>Successfully enrolled!</h5>
+                                <p className='detailModalTiltle'>{detailCourse.title}</p>
+                                <p className='detailModalAuthors text-secondary'>{detailCourse.user.name}</p>
+                            </Col>
+                        </Row>
+                        <div className='footerModal'>Please wait coresponding teacher approve you!</div>
+                    </Modal.Body>
+                </Modal>
                 <Jumbotron fluid className="jumbotronDetail" style={{ backgroundImage: `url(${detailCourse.image})`, backgroundSize: 'cover', backgroundWidth: '1265', backgroundHeight: '100%' }}>
                 <Container className='containerJumbotron'>
                     <p className="text-white">{detailCourse.category}</p>
@@ -54,8 +86,8 @@ function Detail( props ) {
                     <h4 className="text-white">Create by: {detailCourse.user.name}</h4>
                     <br/><br/>
                     {enrolled ? enrolled.status === 'pending' ?
-                    <Button className="text-white enrollSend"> ENROLL REQUES SEND </Button>:
-                    <Button variant="warning" className="text-white" onClick={handleSubmit}> ENROLL NOW </Button>:
+                    <Button className="text-white enrollSend" > ENROLL REQUES SEND </Button> :
+                    <Link variant="warning" className="text-white" type='submit' onClick={handleCourse (enrolled.course._id, enrolled.status, enrolled.course.title)}> GO TO COURSE </Link>:
                     <Button variant="warning" className="text-white" onClick={handleSubmit}> ENROLL NOW </Button>
                     }
                 </Container>
@@ -88,8 +120,8 @@ function Detail( props ) {
                                 <div className="containerContent" >
                                     <button className="containerContentButton" >{lessonscourse.title}</button>
                                 </div>
-                            </Row>
-                            ))}
+                        </Row>
+                        ))}
                         </div>
                         </Row>
                     </Card.Body>
