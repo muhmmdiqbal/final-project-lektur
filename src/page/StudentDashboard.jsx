@@ -3,6 +3,7 @@ import {Row, Col, Image, Button, Tab, Tabs, Modal } from 'react-bootstrap'
 import '../App.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { enrolledCourse } from '../store/actions/users'
+import userLogo from '../components/assets/user.png'
 import { 
     Link
   } from 'react-router-dom';
@@ -18,12 +19,13 @@ const StudentDashboard = (props) => {
       }, []);
       console.log(userData, 'data siswa')
       console.log(enrolledmentResult, 'status enroll')
-    const handleSubmit = (_id, status) => e => {
+    const handleSubmit = (_id, status, title) => e => {
         e.preventDefault();
         if (status === 'pending'){
             setShow(true)
+        } else if (status === 'completed') {
+            window.location.href =`/CourseContent/${title}/${_id}`
         }
-        // window.location.href =`/CourseContent/${_id}`
         }
     return (
         <div> 
@@ -31,7 +33,7 @@ const StudentDashboard = (props) => {
                 <Row className='dashboardTeacherRow'>
                     <Col className='profileCardTeacherCol'>
                         <div className='profileCardTeacher'>
-                                <Image className="imageProfile" src={userData.image} roundedCircle/>
+                                <Image className="imageProfile" src={userLogo, userData.image} roundedCircle/>
                             <br/>
                             <br/>
                             <div className='aboutDashboard'>
@@ -51,16 +53,14 @@ const StudentDashboard = (props) => {
                         >
                             <Tab eventKey="course" title="Course">
                                 <div className='coursesInside'>
-                                <Modal show={show} onHide={handleClose}>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Modal heading</Modal.Title>
-                                    </Modal.Header>
-                                        <Modal.Body>Please wait coresponding teacher approve you!</Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onSubmit={handleClose}>
-                                            Close
-                                        </Button>
-                                    </Modal.Footer>
+                                <Modal show={show} onHide={handleClose} closeButton>    
+                                <Modal.Body>
+                                    <div className='closeTextModal'>
+                                        <button onClick={handleClose}>close</button>
+                                    </div>
+                                    <h5>Can't join class</h5>
+                                    <div>Please wait coresponding teacher approve you!</div>
+                                </Modal.Body>
                                 </Modal>
                                 {enrolledmentResult.map((enrolledResult, idx) => (
                                         <Col className='coursesBoxCol mt-5' key={idx}>
@@ -75,7 +75,7 @@ const StudentDashboard = (props) => {
                                                         <h5>{enrolledResult.course.title}</h5>
                                                         <p className='keterangan text-muted'>By {enrolledResult.teacher.name}</p>
                                                         <br/>
-                                                        <Link onClick={handleSubmit (enrolledResult.course._id, enrolledResult.status)}>See course material</Link>
+                                                        <Link onClick={handleSubmit (enrolledResult.course._id, enrolledResult.status, enrolledResult.course.title)}>See course material</Link>
                                                     </div>
                                                 </Col>
                                                 <Col className='mt-3'>

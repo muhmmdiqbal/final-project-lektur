@@ -700,3 +700,44 @@ ul.header li a {
   border-radius: 5px;
   padding-left: 15px;
 }
+
+/* ------------------------------------------------------------- */
+/* Course Content */
+.courseContentCard{
+  width: 500px !important;
+  height: 400px;
+  margin-left: auto;
+  margin-right: 100px;
+  padding-top: 30px;
+}
+
+.courseListContent{
+  overflow-y: scroll;
+  height: 250px;
+}
+
+.contentCoursePlayer{
+  margin-right: auto;
+  margin-left: 100px;
+}
+
+.topCourse{
+  margin-right: auto;
+  margin-left: 115px;
+}
+
+.topCourseNavigation{
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.courseTitle{
+  margin-bottom: 20px;
+}
+
+.courseContentDescription{
+  background-color: #E5E5E5;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  margin-top: 50px;
+}

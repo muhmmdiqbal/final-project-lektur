@@ -15,6 +15,7 @@ import {
     checkEnrollmentSuccess,
     getEnrolledCourseResult,
     getCourseCategorySuccess,
+    getLessonByEnrolledSuccess,
     getTitleBySearchSuccess
  } from '../actions/users';
 import api from '../api';
@@ -122,6 +123,11 @@ export function* getEnrolledCourse() {
     yield put (getEnrolledCourseResult(user));
 }
 
+//GET LESSON BY ENROLLED
+export function* getLessonByEnrolled({payload}) {
+    const user = yield call(api.user.getEnrollmentCourse, payload);
+    yield put(getLessonByEnrolledSuccess(user));
+}
 
 // ADD DATA
 export function* addDataCourse({payload}) {

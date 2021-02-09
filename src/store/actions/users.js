@@ -175,6 +175,17 @@ import ACTION from '../types';
     payload: payload
   });
 
+  // LESSON BY ENRROLLED COURSE
+  export const getCourseLessons = payload => ({
+    type: ACTION.GET_LESSON_BY_ENROLLED_COURSE,
+    payload: payload
+  })
+
+  export const getLessonByEnrolledSuccess = payload => ({
+    type: ACTION.GET_LESSON_BY_ENROLLED_COURSE_SUCCESS,
+    payload: payload
+  })
+
   
 
   

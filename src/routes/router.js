@@ -42,7 +42,7 @@ const routes = () => {
         <Route exact path='/StudentAssesment' component={StudentAssesment} />
         <Route exact path='/SearchResult/:title' component={SearchResult} />
         <Route exact path='/Category/:category' component={Category} />
-        <Route exac path='/CourseContent/:id' component={CourseContent} />
+        <Route exac path='/CourseContent/:title/:_id' component={CourseContent} />
         <Route render={function() {
           return (
             <div>

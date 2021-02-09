@@ -31,6 +31,13 @@ function Detail( props ) {
         e.preventDefault()
         window.location.href =`/Detail/${props.match.params.id}`
     }
+
+    const handleCourse = (_id, status, title) => (e) => {
+        e.preventDefault()
+        if (status === 'completed') {
+            window.location.href =`/CourseContent/${title}/${_id}`
+        }
+    }
     console.log(enrollChecked, 'ini cek aja')
     console.log(detailCourse, 'detailcourse')
     console.log(courses, 'ini list course')
@@ -80,7 +87,7 @@ function Detail( props ) {
                     <br/><br/>
                     {enrolled ? enrolled.status === 'pending' ?
                     <Button className="text-white enrollSend" > ENROLL REQUES SEND </Button> :
-                    <Button variant="warning" className="text-white" onClick={handleSubmit}> ENROLL NOW </Button>:
+                    <Link variant="warning" className="text-white" type='submit' onClick={handleCourse (enrolled.course._id, enrolled.status, enrolled.course.title)}> GO TO COURSE </Link>:
                     <Button variant="warning" className="text-white" onClick={handleSubmit}> ENROLL NOW </Button>
                     }
                 </Container>
@@ -113,8 +120,8 @@ function Detail( props ) {
                                 <div className="containerContent" >
                                     <button className="containerContentButton" >{lessonscourse.title}</button>
                                 </div>
-                            </Row>
-                            ))}
+                        </Row>
+                        ))}
                         </div>
                         </Row>
                     </Card.Body>
