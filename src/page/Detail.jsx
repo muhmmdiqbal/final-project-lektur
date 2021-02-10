@@ -14,18 +14,34 @@ function Detail( props ) {
     const detailLessons = useSelector (state => state.lessonscourse)
     const enrolledFailed = useSelector (state => state.enrollError)
     const enrollChecked = useSelector (state => state.enrollStatus)
+    const userData = useSelector (state => state.user)
+    // let enrolled = {} 
     const enrolled = enrollChecked.enroll.find(course => course.course.id === props.match.params.id)
     const courses = useSelector (state => state.course);
     const dispatch = useDispatch();
 
     const [ show, setShow ] = useState(false);
     const handleClose = () => setShow(false);
+    const [ show1, setShow1] = useState(false);
+    const handleClose1 = () => setShow1(false);
+    const [ show2, setShow2] = useState(false);
+    const handleClose2 = () => setShow2(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();  
         dispatch(getEnrollStatus( props.match.params.id ));
         setShow(true);
     };
+
+    const handleGuest = async (e) => {
+        e.preventDefault();  
+        if (userData.role === 'teacher'){
+            setShow2(true);
+        } else if (typeof userData.role === 'undefined'){
+            setShow1(true);
+        }
+    };
+
 
     const handleOk = async (e) => {
         e.preventDefault()
@@ -38,7 +54,7 @@ function Detail( props ) {
             window.location.href =`/CourseContent/${title}/${_id}`
         }
     }
-    console.log(enrollChecked, 'ini cek aja')
+    console.log(userData.role, 'ini cek aja')
     console.log(detailCourse, 'detailcourse')
     console.log(courses, 'ini list course')
     useEffect(() => {
@@ -54,6 +70,9 @@ function Detail( props ) {
         checkDataCourse()
         forStudent()
     }, []);
+    // if (enrollChecked.enroll.length != 0) {
+    //     enrolled = enrollChecked.enroll.find(course => course.course.id === props.match.params.id)
+    // }
     console.log(enrolled, 'ini cuma mau nyoba doang')
     if (detailCourse.loaded === false || detailLessons.loaded === false) {
         return (null)
@@ -79,16 +98,56 @@ function Detail( props ) {
                         <div className='footerModal'>Please wait coresponding teacher approve you!</div>
                     </Modal.Body>
                 </Modal>
+                <Modal className='enrollModal' show={show1} onHide={handleClose1}>
+                    <Modal.Body>
+                        <div className='closeTextModal'>
+                            <button onClick={handleClose1}>close</button>
+                        </div>
+                        <Row>
+                            <Col className='ml-auto mr-5'>
+                                <img className='modalImg' src={detailCourse.image} />
+                            </Col>
+                            <Col>
+                                <h5 className='text-danger'>Must login first!</h5>
+                                <p className='detailModalTiltle'>{detailCourse.title}</p>
+                                <p className='detailModalAuthors text-secondary'>{detailCourse.user.name}</p>
+                            </Col>
+                        </Row>
+                        <div className='footerModal'>You have to login to enroll the course!</div>
+                    </Modal.Body>
+                </Modal>
+                <Modal className='enrollModal' show={show2} onHide={handleClose2}>
+                    <Modal.Body>
+                        <div className='closeTextModal'>
+                            <button onClick={handleClose2}>close</button>
+                        </div>
+                        <Row>
+                            <Col className='ml-auto mr-5'>
+                                <img className='modalImg' src={detailCourse.image} />
+                            </Col>
+                            <Col>
+                                <h5 className='text-danger'>Teacher cannot enroll!</h5>
+                                <p className='detailModalTiltle'>{detailCourse.title}</p>
+                                <p className='detailModalAuthors text-secondary'>{detailCourse.user.name}</p>
+                            </Col>
+                        </Row>
+                        <div className='footerModal'>Only student's can enroll the course!</div>
+                    </Modal.Body>
+                </Modal>
                 <Jumbotron fluid className="jumbotronDetail" style={{ backgroundImage: `url(${detailCourse.image})`, backgroundSize: 'cover', backgroundWidth: '1265', backgroundHeight: '100%' }}>
                 <Container className='containerJumbotron'>
                     <p className="text-white">{detailCourse.category}</p>
                     <h1 className="text-white">{detailCourse.title}</h1>
                     <h4 className="text-white">Create by: {detailCourse.user.name}</h4>
                     <br/><br/>
-                    {enrolled ? enrolled.status === 'pending' ?
-                    <Button className="text-white enrollSend" > ENROLL REQUES SEND </Button> :
-                    <Link variant="warning" className="text-white" type='submit' onClick={handleCourse (enrolled.course._id, enrolled.status, enrolled.course.title)}> GO TO COURSE </Link>:
-                    <Button variant="warning" className="text-white" onClick={handleSubmit}> ENROLL NOW </Button>
+                    {enrolled && (enrolled.status === 'pending') &&
+                    <Button className="text-white enrollSend" > ENROLL REQUES SEND </Button> 
+                    }
+                    {enrolled && (enrolled.status === 'active') &&
+                    <Link variant="warning" className="text-white" type='submit' onClick={handleCourse (enrolled.course._id, enrolled.status, enrolled.course.title)}> GO TO COURSE </Link>
+                    }
+                    {!enrolled && (userData.role != 'student') &&
+                    <Button variant="warning" className="text-white" onClick={handleGuest}> ENROLL NOW </Button>
                     }
                 </Container>
                 </Jumbotron>

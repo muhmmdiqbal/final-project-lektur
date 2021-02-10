@@ -15,7 +15,7 @@ import enrollStatus from './reducers/enrollStatus';
 import enrollError from "./reducers/enrollError";
 import searchtitle from "./reducers/searchtitle";
 import getLessonByEnrolledSuccess from "./reducers/getLessonByEnrolledSuccess";
-
+import getSaveCoursesSuccess from './reducers/getSaveCoursesSuccess'
 export default combineReducers({
     user,
     formErrors,
@@ -32,7 +32,8 @@ export default combineReducers({
     student,
     category,
     searchtitle,
-    getLessonByEnrolledSuccess
+    getLessonByEnrolledSuccess,
+    getSaveCoursesSuccess
 });
 
 

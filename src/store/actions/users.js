@@ -186,6 +186,15 @@ import ACTION from '../types';
     payload: payload
   })
 
+  // SAVED COURSE
+  export const getSavedCourse = () => ({
+    type: ACTION.GET_SAVED_COURSE
+  })
+  
+  export const getSaveCoursesSuccess = payload => ({
+    type: ACTION.GET_SAVED_COURSE_SUCCESS,
+    payload: payload
+  })
   
 
   

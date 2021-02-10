@@ -16,24 +16,39 @@ const CourseContent = (props) => {
     const detailCourse = useSelector (state => state.detailcourse)
     const detailLessons = useSelector (state => state.lessonscourse)
     const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(getCourseLessons(props.match.params._id));
+    //     dispatch(getDataCourse(props.match.params._id));
+    //     dispatch(getCoursesLessons(props.match.params._id));  
+    //     // console.log(lessons[Object.keys(lessons)[0]].lesson.video, 'ini coba')
+    // }, [active]);
     useEffect(() => {
-        dispatch(getCourseLessons(props.match.params._id));
-        dispatch(getDataCourse(props.match.params._id));
-        dispatch(getCoursesLessons(props.match.params._id));  
-        // console.log(lessons[Object.keys(lessons)[0]].lesson.video, 'ini coba')
-    }, [active]);
+        async function getLessons(){
+            await dispatch(getCourseLessons(props.match.params._id));
+            await dispatch(getDataCourse(props.match.params._id));
+            await dispatch(getCoursesLessons(props.match.params._id));
+            }
+        getLessons()
+    }, []);
+    useEffect(() => {
+        if (lessons.length != 0){
+            isActive(Object.keys(lessons)[0])
+        }
+    },[lessons])
     console.log(props.match.params._id, 'ini id dari page sebelumnya')
     console.log(props.match.params.title, 'mencari status')
-    console.log(detailLessons.lesson[0], 'dapat')
+    console.log(Object.keys(lessons)[0], 'dapat')
+    console.log(lessons, 'ini lessons')
     if(lessons.loaded === false || detailLessons.lesson === false){
         return (null)
     }
     // + `${lessons[Object.keys(lessons)[0]].lesson.video}`
+    console.log(lessons, 'ini isi lesson')
     return (
         <div className='courseContentBody'> 
             <div className='topCourse'>
-                <p className='topCourseNavigation'>{props.match.params.title}/</p>
-                <h2 className='courseTitle'>JUDUL</h2>
+                <p className='topCourseNavigation'>{props.match.params.title}/ {active.length > 0 ? lessons[active].lesson.title : '' }</p>
+                <h2 className='courseTitle'>{active.length > 0 ? lessons[active].lesson.title : props.match.params.title }</h2>
             </div>
             <div className='contentContainer'>
                 <Row>
@@ -64,19 +79,27 @@ const CourseContent = (props) => {
                 <div className='courseContentDescription'>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className='descCard'>
                                 <Card.Body>
-                                    <div>    
-                                        {active.length > 0 ? lessons[active].lesson.description : detailCourse.title }
+                                    <div> 
+                                        <h5>Description</h5>
+                                        {active.length > 0 ? lessons[active].lesson.description : detailCourse.title }  
                                     </div>
                                 </Card.Body>
                             </Card>
                         </Col>
                         <Col>
-                            <Card>
+                            <Card className='nextCard'>
                                 <Card.Body>
                                     <div>
-                                        Next
+                                        <h5>What's Next?</h5> 
+                                        {active.length > 0 && (lessons[active].lesson.material).map((material, idx) =>{
+                                            return (
+                                            <p key={idx}>Read course material: <a href={`https://lektur.kuyrek.com/lessonAssets/${material}`}>{material}</a></p>
+                                        )})}
+                                    </div>
+                                    <div>
+                                        <Button>Next</Button>
                                     </div>
                                 </Card.Body>
                             </Card>
@@ -89,7 +112,9 @@ const CourseContent = (props) => {
                 </Container>
                 <CardPage />
                 <br/>
-            </div>
+                </div>
+                <div className='bottomBorderCourse'>
+                </div>
             </div>
         </div>
     )
