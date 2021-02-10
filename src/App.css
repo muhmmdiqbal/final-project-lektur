@@ -740,4 +740,51 @@ ul.header li a {
   padding-top: 40px;
   padding-bottom: 80px;
   margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+/* ------------------------------------------------------------- */
+/* Course Content */
+.loadMoreClass button{
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.loadMoreButton{
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-weight: 500;
+}
+
+.descCard{
+  margin-left: 100px;
+  margin-right: auto;
+  width: 730px;
+  height: 250px;
+}
+
+.nextCard{
+  margin-right: 100px;
+  margin-left: auto;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomBorderCourse{
+  width: 100%;
+  height: 10px;
+  background-color: #E5E5E5;
+}
+
+/* ------------------------------------------------------------- */
+/* Course Content */
+.addNewLesson{
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: blue;
+}
+
+.addNewLesson:hover{
+  text-decoration: underline;
 }

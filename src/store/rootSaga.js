@@ -17,7 +17,8 @@ import {
     getEnrolledCourse,
     getDataCourseCategory,
     getLessonByEnrolled,
-    getDataTitleBySearch
+    getDataTitleBySearch,
+    getSaveCourses
 } from "./sagas/usersSagas";
 
 export default function* rootSaga() {
@@ -52,5 +53,7 @@ export default function* rootSaga() {
     yield takeLatest(ACTION.ADD_LESSON, addDataLesson);
     // GET TITLE BY SEARCH
     yield takeLatest(ACTION.GET_TITLE_BY_SEARCH, getDataTitleBySearch);
+    // GET SAVED COURSE
+    yield takeLatest(ACTION.GET_SAVED_COURSE, getSaveCourses);
 
 }

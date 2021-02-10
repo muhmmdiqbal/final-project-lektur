@@ -38,8 +38,10 @@ const LearnCard = () => {
                             )}
                         })}
                     <br />
-                    </CardDeck><br/> 
-                    <button onClick={e => setLoadData(loadData + 4)} className={`${courses.length >= loadData ? `d-block`:`d-none`}`} >LOAD MORE</button>
+                    </CardDeck><br/>
+                    <div className='loadMoreClass'> 
+                        <button onClick={e => setLoadData(loadData + 4)} className={`${courses.length >= loadData ? `d-block`:`d-none`} loadMoreButton text-secondary`} >LOAD MORE</button>
+                    </div>
                 </Container> 
             </div>
         )

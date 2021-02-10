@@ -33,7 +33,7 @@ const routes = () => {
         <Route exact path='/Detail/:id' component={Detail} />
         <Route exact path='/TeacherDashboard' component={TeacherDashboard} />
         <Route exact path='/NavCourse' component={NavCourse} />
-        <Route exact path='/Course/' component={Course} />
+        <Route exact path='/Course' component={Course} />
         <Route exact path='/Assesment' component={Assesment} />
         <Route exact path='/Students' component={Students} />
         <Route exact path='/NewLesson' component={NewLesson} />

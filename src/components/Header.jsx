@@ -31,6 +31,7 @@ const Header = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     window.location.href='/'
   };
   const dispatch = useDispatch();

@@ -16,7 +16,8 @@ import {
     getEnrolledCourseResult,
     getCourseCategorySuccess,
     getLessonByEnrolledSuccess,
-    getTitleBySearchSuccess
+    getTitleBySearchSuccess,
+    getSaveCoursesSuccess
  } from '../actions/users';
 import api from '../api';
 // import history from '../history';
@@ -139,4 +140,10 @@ export function* addDataLesson({payload}) {
         const user = yield call(api.user.addLesson, payload);
         yield put(addLessonSuccess(user));
     
+}
+
+// GET SAVE COURSE
+export function* getSaveCourses() {
+    const user = yield call(api.user.getSavedCourse);
+    yield put(getSaveCoursesSuccess(user));
 }

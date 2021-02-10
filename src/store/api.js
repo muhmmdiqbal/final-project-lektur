@@ -90,6 +90,13 @@ export default {
                 { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             }).then(res => res.data.data).catch(error => error.message),
 
+        // GET SAVE COURSE
+        getSavedCourse: () =>
+            axios.get(`https://lektur.kuyrek.com/courses/unpublished/course`,
+            { 'headers': 
+                { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            }).then(res => res.data.data).catch(error => error.message),
+
     }
         // getCourseDataDetail: getCoursesDetail =>
         //     axios.get(`https://lektur.kuyrek.com/courses/${getCoursesDetail}` ).then(res => res.data.data).then((course)=> 
